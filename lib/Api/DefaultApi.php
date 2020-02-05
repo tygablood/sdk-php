@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatesApi
+ * DefaultApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * TemplatesApi Class Doc Comment
+ * DefaultApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TemplatesApi
+class DefaultApi
 {
     /**
      * @var ClientInterface
@@ -88,37 +88,30 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesGet
+     * Operation docsGet
      *
-     * Get available templates
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Templates
+     * @return void
      */
-    public function templatesGet($accept_language = null)
+    public function docsGet()
     {
-        list($response) = $this->templatesGetWithHttpInfo($accept_language);
-        return $response;
+        $this->docsGetWithHttpInfo();
     }
 
     /**
-     * Operation templatesGetWithHttpInfo
+     * Operation docsGetWithHttpInfo
      *
-     * Get available templates
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Templates, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function templatesGetWithHttpInfo($accept_language = null)
+    public function docsGetWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\Model\Templates';
-        $request = $this->templatesGetRequest($accept_language);
+        $returnType = '';
+        $request = $this->docsGetRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -148,50 +141,27 @@ class TemplatesApi
                 );
             }
 
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\Templates',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation templatesGetAsync
+     * Operation docsGetAsync
      *
-     * Get available templates
+     * 
      *
-     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function templatesGetAsync($accept_language = null)
+    public function docsGetAsync()
     {
-        return $this->templatesGetAsyncWithHttpInfo($accept_language)
+        return $this->docsGetAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -200,39 +170,24 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesGetAsyncWithHttpInfo
+     * Operation docsGetAsyncWithHttpInfo
      *
-     * Get available templates
+     * 
      *
-     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function templatesGetAsyncWithHttpInfo($accept_language = null)
+    public function docsGetAsyncWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\Model\Templates';
-        $request = $this->templatesGetRequest($accept_language);
+        $returnType = '';
+        $request = $this->docsGetRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -252,27 +207,22 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'templatesGet'
+     * Create request for operation 'docsGet'
      *
-     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function templatesGetRequest($accept_language = null)
+    protected function docsGetRequest()
     {
 
-        $resourcePath = '/templates';
+        $resourcePath = '/docs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
 
 
         // body params
@@ -280,11 +230,11 @@ class TemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['text/html']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['text/html'],
                 []
             );
         }
