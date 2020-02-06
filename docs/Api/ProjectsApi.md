@@ -4,7 +4,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsCanceledPost**](ProjectsApi.md#projectsCanceledPost) | **POST** /projects/canceled | Cancelled projects
+[**projectsCanceledPost**](ProjectsApi.md#projectsCanceledPost) | **POST** /projects/canceled | Canceled projects
 [**projectsCompletedPost**](ProjectsApi.md#projectsCompletedPost) | **POST** /projects/completed | Completed projects
 [**projectsOpenPost**](ProjectsApi.md#projectsOpenPost) | **POST** /projects/open | Open projects
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 # **projectsCanceledPost**
 > projectsCanceledPost($body)
 
-Cancelled projects
+Canceled projects
 
-Move a project to the cancelled projects collection
+Move a project to the canceled projects collection
 
 ### Example
 ```php

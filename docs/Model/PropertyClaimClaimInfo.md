@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **loss_information** | **string** | A description of the loss | [optional] 
+**additional_information** | **string** | Any additional claim information | [optional] 
 **loss_date** | [**\DateTime**](\DateTime.md) | The date when the loss occured | [optional] 
 **first_notice_of_loss** | [**\DateTime**](\DateTime.md) | The date when the carrier was informed of the loss | [optional] 
 **peril_id** | **string** | The type of loss | [optional] 
