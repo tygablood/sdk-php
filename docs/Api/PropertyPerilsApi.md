@@ -20,7 +20,11 @@ Gets a collection of available perils
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: API Key
+// Configure API key authorization: api-authorizer
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -54,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../../README.md#API Key)
+[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
@@ -75,7 +79,11 @@ Gets a collection of causes of loss for a peril
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: API Key
+// Configure API key authorization: api-authorizer
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
@@ -109,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../../README.md#API Key)
+[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
