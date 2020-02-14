@@ -82,9 +82,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**rootGet**](docs/Api/DefaultApi.md#rootget) | **GET** / | 
 *ProjectManagersApi* | [**projectsOpenProjectIdProjectManagersProjectManagerEmailDelete**](docs/Api/ProjectManagersApi.md#projectsopenprojectidprojectmanagersprojectmanageremaildelete) | **DELETE** /projects/open/{project-id}/project-managers/{project-manager-email} | Remove a project manager
 *ProjectManagersApi* | [**projectsOpenProjectIdProjectManagersProjectManagerEmailPut**](docs/Api/ProjectManagersApi.md#projectsopenprojectidprojectmanagersprojectmanageremailput) | **PUT** /projects/open/{project-id}/project-managers/{project-manager-email} | Assign a project manager
+*ProjectRolesApi* | [**projectRolesGET**](docs/Api/ProjectRolesApi.md#projectrolesget) | **GET** /projects/roles | Project roles
 *ProjectRolesApi* | [**projectsOpenProjectIdRolesRoleIdRoleUserEmailDelete**](docs/Api/ProjectRolesApi.md#projectsopenprojectidrolesroleidroleuseremaildelete) | **DELETE** /projects/open/{project-id}/roles/{role-id}/{role-user-email} | Remove a project role
 *ProjectRolesApi* | [**projectsOpenProjectIdRolesRoleIdRoleUserEmailPut**](docs/Api/ProjectRolesApi.md#projectsopenprojectidrolesroleidroleuseremailput) | **PUT** /projects/open/{project-id}/roles/{role-id}/{role-user-email} | Assign a project role
-*ProjectRolesApi* | [**projectsRolesGet**](docs/Api/ProjectRolesApi.md#projectsrolesget) | **GET** /projects/roles | Project roles
 *ProjectsApi* | [**projectsCanceledPost**](docs/Api/ProjectsApi.md#projectscanceledpost) | **POST** /projects/canceled | Canceled projects
 *ProjectsApi* | [**projectsCompletedPost**](docs/Api/ProjectsApi.md#projectscompletedpost) | **POST** /projects/completed | Completed projects
 *ProjectsApi* | [**projectsOpenPost**](docs/Api/ProjectsApi.md#projectsopenpost) | **POST** /projects/open | Open projects
@@ -94,8 +94,8 @@ Class | Method | HTTP request | Description
 *PropertyCoveragesApi* | [**propertyPoliciesCoveragesCoverageIdSublimitsGet**](docs/Api/PropertyCoveragesApi.md#propertypoliciescoveragescoverageidsublimitsget) | **GET** /property/policies/coverages/{coverage-id}/sublimits | Property policy sublimits
 *PropertyCoveragesApi* | [**propertyPoliciesCoveragesGet**](docs/Api/PropertyCoveragesApi.md#propertypoliciescoveragesget) | **GET** /property/policies/coverages | Property policy coverages
 *PropertyEstimatesApi* | [**propertyEstimatesPost**](docs/Api/PropertyEstimatesApi.md#propertyestimatespost) | **POST** /property/estimates | Create a new property estimate
+*PropertyPerilsApi* | [**propertyPerilsCausesOfLossGET**](docs/Api/PropertyPerilsApi.md#propertyperilscausesoflossget) | **GET** /property/policies/perils/{peril-id}/causes-of-loss | Cause of loss
 *PropertyPerilsApi* | [**propertyPoliciesPerilsGet**](docs/Api/PropertyPerilsApi.md#propertypoliciesperilsget) | **GET** /property/policies/perils | Types of loss
-*PropertyPerilsApi* | [**propertyPoliciesPerilsPerilIdCausesOfLossGet**](docs/Api/PropertyPerilsApi.md#propertypoliciesperilsperilidcausesoflossget) | **GET** /property/policies/perils/{peril-id}/causes-of-loss | Cause of loss
 *TemplatesApi* | [**templatesGet**](docs/Api/TemplatesApi.md#templatesget) | **GET** /templates | Get available templates
 
 
