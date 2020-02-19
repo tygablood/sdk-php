@@ -90,9 +90,9 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**projectsOpenPost**](docs/Api/ProjectsApi.md#projectsopenpost) | **POST** /projects/open | Open projects
 *PropertyClaimsApi* | [**propertyClaimsClaimIdPut**](docs/Api/PropertyClaimsApi.md#propertyclaimsclaimidput) | **PUT** /property/claims/{claim-id} | Update a property claim
 *PropertyClaimsApi* | [**propertyClaimsPost**](docs/Api/PropertyClaimsApi.md#propertyclaimspost) | **POST** /property/claims | Create a new property claim
+*PropertyCoveragesApi* | [**projectsPoliciesCoveragesGET**](docs/Api/PropertyCoveragesApi.md#projectspoliciescoveragesget) | **GET** /property/policies/coverages | Property policy coverages
+*PropertyCoveragesApi* | [**projectsPoliciesCoveragesSublimitsGET**](docs/Api/PropertyCoveragesApi.md#projectspoliciescoveragessublimitsget) | **GET** /property/policies/coverages/{coverage-id}/sublimits | Property policy sublimits
 *PropertyCoveragesApi* | [**propertyPoliciesCoveragesCoverageIdAdditionalCoveragesGet**](docs/Api/PropertyCoveragesApi.md#propertypoliciescoveragescoverageidadditionalcoveragesget) | **GET** /property/policies/coverages/{coverage-id}/additional-coverages | Property policy additional coverages
-*PropertyCoveragesApi* | [**propertyPoliciesCoveragesCoverageIdSublimitsGet**](docs/Api/PropertyCoveragesApi.md#propertypoliciescoveragescoverageidsublimitsget) | **GET** /property/policies/coverages/{coverage-id}/sublimits | Property policy sublimits
-*PropertyCoveragesApi* | [**propertyPoliciesCoveragesGet**](docs/Api/PropertyCoveragesApi.md#propertypoliciescoveragesget) | **GET** /property/policies/coverages | Property policy coverages
 *PropertyEstimatesApi* | [**propertyEstimatesPost**](docs/Api/PropertyEstimatesApi.md#propertyestimatespost) | **POST** /property/estimates | Create a new property estimate
 *PropertyPerilsApi* | [**propertyPerilsCausesOfLossGET**](docs/Api/PropertyPerilsApi.md#propertyperilscausesoflossget) | **GET** /property/policies/perils/{peril-id}/causes-of-loss | Cause of loss
 *PropertyPerilsApi* | [**propertyPoliciesPerilsGet**](docs/Api/PropertyPerilsApi.md#propertypoliciesperilsget) | **GET** /property/policies/perils | Types of loss
