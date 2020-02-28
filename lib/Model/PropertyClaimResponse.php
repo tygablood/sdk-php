@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateMetadata
+ * PropertyClaimResponse
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * TemplateMetadata Class Doc Comment
+ * PropertyClaimResponse Class Doc Comment
  *
  * @category Class
- * @description Describes a project template
+ * @description Confirms a property claim was created
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TemplateMetadata implements ModelInterface, ArrayAccess
+class PropertyClaimResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TemplateMetadata';
+    protected static $swaggerModelName = 'PropertyClaimResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'name' => 'string',
-        'type' => 'string',
         '_links' => '\Swagger\Client\Model\Links'
     ];
 
@@ -72,7 +71,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'name' => null,
-        'type' => null,
         '_links' => null
     ];
 
@@ -105,7 +103,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'type' => 'type',
         '_links' => '_links'
     ];
 
@@ -117,7 +114,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
-        'type' => 'setType',
         '_links' => 'setLinks'
     ];
 
@@ -129,7 +125,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
-        'type' => 'getType',
         '_links' => 'getLinks'
     ];
 
@@ -174,23 +169,8 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_PROPERTY_CLAIM = 'PropertyClaim';
-    const TYPE_PROPERTY_ESTIMATE = 'PropertyEstimate';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_PROPERTY_CLAIM,
-            self::TYPE_PROPERTY_ESTIMATE,
-        ];
-    }
     
 
     /**
@@ -210,7 +190,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
     }
 
@@ -222,14 +201,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -259,7 +230,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id The id of the template
+     * @param string $id The id of the property claim
      *
      * @return $this
      */
@@ -283,46 +254,13 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The template name
+     * @param string $name The name of the property claim
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type The project type of the template
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }

@@ -34,7 +34,7 @@ $apiInstance = new Swagger\Client\Api\PropertyEstimatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\CreatePropertyEstimateRequest(); // \Swagger\Client\Model\CreatePropertyEstimateRequest | 
+$body = new \Swagger\Client\Model\PropertyEstimateRequestCreate(); // \Swagger\Client\Model\PropertyEstimateRequestCreate | 
 
 try {
     $result = $apiInstance->propertyEstimatesPost($body);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\CreatePropertyEstimateRequest**](../Model/CreatePropertyEstimateRequest.md)|  |
+ **body** | [**\Swagger\Client\Model\PropertyEstimateRequestCreate**](../Model/PropertyEstimateRequestCreate.md)|  |
 
 ### Return type
 

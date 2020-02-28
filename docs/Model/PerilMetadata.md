@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The peril Id | [optional] 
+**id** | **string** | The id of the peril | [optional] 
 **name** | **string** | The peril name | [optional] 
 **_links** | [**\Swagger\Client\Model\Links**](Links.md) |  | [optional] 
 

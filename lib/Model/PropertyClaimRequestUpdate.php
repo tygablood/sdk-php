@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateMetadata
+ * PropertyClaimRequestUpdate
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * TemplateMetadata Class Doc Comment
+ * PropertyClaimRequestUpdate Class Doc Comment
  *
  * @category Class
- * @description Describes a project template
+ * @description Updates a property claim
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TemplateMetadata implements ModelInterface, ArrayAccess
+class PropertyClaimRequestUpdate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TemplateMetadata';
+    protected static $swaggerModelName = 'PropertyClaimRequestUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
         'name' => 'string',
-        'type' => 'string',
-        '_links' => '\Swagger\Client\Model\Links'
+        'personnel' => '\Swagger\Client\Model\PropertyClaimPersonnel[]',
+        'policy_info' => '\Swagger\Client\Model\PropertyClaimPolicyInfo',
+        'claim_info' => '\Swagger\Client\Model\PropertyClaimClaimInfo'
     ];
 
     /**
@@ -70,10 +70,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
         'name' => null,
-        'type' => null,
-        '_links' => null
+        'personnel' => null,
+        'policy_info' => null,
+        'claim_info' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'type' => 'type',
-        '_links' => '_links'
+        'personnel' => 'personnel',
+        'policy_info' => 'policyInfo',
+        'claim_info' => 'claimInfo'
     ];
 
     /**
@@ -115,10 +115,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'type' => 'setType',
-        '_links' => 'setLinks'
+        'personnel' => 'setPersonnel',
+        'policy_info' => 'setPolicyInfo',
+        'claim_info' => 'setClaimInfo'
     ];
 
     /**
@@ -127,10 +127,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'type' => 'getType',
-        '_links' => 'getLinks'
+        'personnel' => 'getPersonnel',
+        'policy_info' => 'getPolicyInfo',
+        'claim_info' => 'getClaimInfo'
     ];
 
     /**
@@ -174,23 +174,8 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_PROPERTY_CLAIM = 'PropertyClaim';
-    const TYPE_PROPERTY_ESTIMATE = 'PropertyEstimate';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_PROPERTY_CLAIM,
-            self::TYPE_PROPERTY_ESTIMATE,
-        ];
-    }
     
 
     /**
@@ -208,10 +193,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
+        $this->container['personnel'] = isset($data['personnel']) ? $data['personnel'] : null;
+        $this->container['policy_info'] = isset($data['policy_info']) ? $data['policy_info'] : null;
+        $this->container['claim_info'] = isset($data['claim_info']) ? $data['claim_info'] : null;
     }
 
     /**
@@ -222,14 +207,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -247,30 +224,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id The id of the template
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -283,7 +236,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The template name
+     * @param string $name The name for the property claim
      *
      * @return $this
      */
@@ -295,58 +248,73 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets type
+     * Gets personnel
      *
-     * @return string
+     * @return \Swagger\Client\Model\PropertyClaimPersonnel[]
      */
-    public function getType()
+    public function getPersonnel()
     {
-        return $this->container['type'];
+        return $this->container['personnel'];
     }
 
     /**
-     * Sets type
+     * Sets personnel
      *
-     * @param string $type The project type of the template
+     * @param \Swagger\Client\Model\PropertyClaimPersonnel[] $personnel Contacts for the claim
      *
      * @return $this
      */
-    public function setType($type)
+    public function setPersonnel($personnel)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['personnel'] = $personnel;
 
         return $this;
     }
 
     /**
-     * Gets _links
+     * Gets policy_info
      *
-     * @return \Swagger\Client\Model\Links
+     * @return \Swagger\Client\Model\PropertyClaimPolicyInfo
      */
-    public function getLinks()
+    public function getPolicyInfo()
     {
-        return $this->container['_links'];
+        return $this->container['policy_info'];
     }
 
     /**
-     * Sets _links
+     * Sets policy_info
      *
-     * @param \Swagger\Client\Model\Links $_links _links
+     * @param \Swagger\Client\Model\PropertyClaimPolicyInfo $policy_info policy_info
      *
      * @return $this
      */
-    public function setLinks($_links)
+    public function setPolicyInfo($policy_info)
     {
-        $this->container['_links'] = $_links;
+        $this->container['policy_info'] = $policy_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets claim_info
+     *
+     * @return \Swagger\Client\Model\PropertyClaimClaimInfo
+     */
+    public function getClaimInfo()
+    {
+        return $this->container['claim_info'];
+    }
+
+    /**
+     * Sets claim_info
+     *
+     * @param \Swagger\Client\Model\PropertyClaimClaimInfo $claim_info claim_info
+     *
+     * @return $this
+     */
+    public function setClaimInfo($claim_info)
+    {
+        $this->container['claim_info'] = $claim_info;
 
         return $this;
     }

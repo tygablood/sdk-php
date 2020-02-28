@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The sublimit id | [optional] 
+**id** | **string** | The id of the coverage sublimit | [optional] 
 **name** | **string** | The sublimit name | [optional] 
 **_links** | [**\Swagger\Client\Model\Links**](Links.md) |  | [optional] 
 

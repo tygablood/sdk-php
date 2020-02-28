@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**linked_coverage_id** | **string** |  | [optional] 
+**linked_coverage_ref** | **string** |  | [optional] 
 **name** | **string** | The name of the coverage | [optional] 
 **type** | **string** | The type of coverage provided | [optional] 
 **policy_limit** | **float** | The maximum value provided under this coverage | [optional] 

@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateMetadata
+ * PropertyEstimateRequestCreate
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * TemplateMetadata Class Doc Comment
+ * PropertyEstimateRequestCreate Class Doc Comment
  *
  * @category Class
- * @description Describes a project template
+ * @description Creates an estimate
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TemplateMetadata implements ModelInterface, ArrayAccess
+class PropertyEstimateRequestCreate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TemplateMetadata';
+    protected static $swaggerModelName = 'PropertyEstimateRequestCreate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'type' => 'string',
-        '_links' => '\Swagger\Client\Model\Links'
+        'template_ref' => 'string',
+        'creator' => 'string',
+        'parent_ref' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'name' => null,
-        'type' => null,
-        '_links' => null
+        'template_ref' => 'uri',
+        'creator' => 'email',
+        'parent_ref' => 'uri',
+        'name' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'type' => 'type',
-        '_links' => '_links'
+        'template_ref' => 'templateRef',
+        'creator' => 'creator',
+        'parent_ref' => 'parentRef',
+        'name' => 'name'
     ];
 
     /**
@@ -115,10 +115,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'type' => 'setType',
-        '_links' => 'setLinks'
+        'template_ref' => 'setTemplateRef',
+        'creator' => 'setCreator',
+        'parent_ref' => 'setParentRef',
+        'name' => 'setName'
     ];
 
     /**
@@ -127,10 +127,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'type' => 'getType',
-        '_links' => 'getLinks'
+        'template_ref' => 'getTemplateRef',
+        'creator' => 'getCreator',
+        'parent_ref' => 'getParentRef',
+        'name' => 'getName'
     ];
 
     /**
@@ -174,23 +174,8 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_PROPERTY_CLAIM = 'PropertyClaim';
-    const TYPE_PROPERTY_ESTIMATE = 'PropertyEstimate';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_PROPERTY_CLAIM,
-            self::TYPE_PROPERTY_ESTIMATE,
-        ];
-    }
     
 
     /**
@@ -208,10 +193,10 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['template_ref'] = isset($data['template_ref']) ? $data['template_ref'] : null;
+        $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
+        $this->container['parent_ref'] = isset($data['parent_ref']) ? $data['parent_ref'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
     }
 
     /**
@@ -222,14 +207,6 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -247,25 +224,73 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets template_ref
      *
      * @return string
      */
-    public function getId()
+    public function getTemplateRef()
     {
-        return $this->container['id'];
+        return $this->container['template_ref'];
     }
 
     /**
-     * Sets id
+     * Sets template_ref
      *
-     * @param string $id The id of the template
+     * @param string $template_ref The estimate template uri to create the estimate from
      *
      * @return $this
      */
-    public function setId($id)
+    public function setTemplateRef($template_ref)
     {
-        $this->container['id'] = $id;
+        $this->container['template_ref'] = $template_ref;
+
+        return $this;
+    }
+
+    /**
+     * Gets creator
+     *
+     * @return string
+     */
+    public function getCreator()
+    {
+        return $this->container['creator'];
+    }
+
+    /**
+     * Sets creator
+     *
+     * @param string $creator The email address of the user creating the estimate
+     *
+     * @return $this
+     */
+    public function setCreator($creator)
+    {
+        $this->container['creator'] = $creator;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_ref
+     *
+     * @return string
+     */
+    public function getParentRef()
+    {
+        return $this->container['parent_ref'];
+    }
+
+    /**
+     * Sets parent_ref
+     *
+     * @param string $parent_ref The uri of the project this estimate applies to
+     *
+     * @return $this
+     */
+    public function setParentRef($parent_ref)
+    {
+        $this->container['parent_ref'] = $parent_ref;
 
         return $this;
     }
@@ -283,70 +308,13 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The template name
+     * @param string $name The name for the created estimate
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type The project type of the template
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets _links
-     *
-     * @return \Swagger\Client\Model\Links
-     */
-    public function getLinks()
-    {
-        return $this->container['_links'];
-    }
-
-    /**
-     * Sets _links
-     *
-     * @param \Swagger\Client\Model\Links $_links _links
-     *
-     * @return $this
-     */
-    public function setLinks($_links)
-    {
-        $this->container['_links'] = $_links;
 
         return $this;
     }

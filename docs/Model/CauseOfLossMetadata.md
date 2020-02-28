@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The cause of loss id | [optional] 
+**id** | **string** | The id of the cause of loss | [optional] 
 **name** | **string** | The cause of loss name | [optional] 
 **_links** | [**\Swagger\Client\Model\Links**](Links.md) |  | [optional] 
 

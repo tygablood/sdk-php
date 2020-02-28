@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The template Id | [optional] 
+**id** | **string** | The id of the template | [optional] 
 **name** | **string** | The template name | [optional] 
 **type** | **string** | The project type of the template | [optional] 
 **_links** | [**\Swagger\Client\Model\Links**](Links.md) |  | [optional] 

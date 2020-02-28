@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The role Id | [optional] 
+**id** | **string** | The id of the role | [optional] 
 **project_type** | **string** | The type of projects this role applies to | [optional] 
 **name** | **string** | The role name | [optional] 
 **_links** | [**\Swagger\Client\Model\Links**](Links.md) |  | [optional] 

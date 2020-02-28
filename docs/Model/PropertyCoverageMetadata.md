@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The coverage Id | [optional] 
+**id** | **string** | The id of the coverage | [optional] 
 **name** | **string** | The coverage name | [optional] 
 **_links** | [**\Swagger\Client\Model\Links**](Links.md) |  | [optional] 
 
