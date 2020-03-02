@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**projectsCanceledPost**](ProjectsApi.md#projectsCanceledPost) | **POST** /projects/canceled | Canceled projects
 [**projectsCompletedPost**](ProjectsApi.md#projectsCompletedPost) | **POST** /projects/completed | Completed projects
-[**projectsOpenPost**](ProjectsApi.md#projectsOpenPost) | **POST** /projects/open | Open projects
+[**projectsOpenPOST**](ProjectsApi.md#projectsOpenPOST) | **POST** /projects/open | Open projects
 
 
 # **projectsCanceledPost**
@@ -125,8 +125,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **projectsOpenPost**
-> projectsOpenPost($body)
+# **projectsOpenPOST**
+> projectsOpenPOST($body)
 
 Open projects
 
@@ -155,9 +155,9 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
 $body = new \Swagger\Client\Model\ProjectReference(); // \Swagger\Client\Model\ProjectReference | A reference to the project to be opened
 
 try {
-    $apiInstance->projectsOpenPost($body);
+    $apiInstance->projectsOpenPOST($body);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->projectsOpenPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->projectsOpenPOST: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
