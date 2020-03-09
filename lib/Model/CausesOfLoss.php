@@ -58,8 +58,8 @@ class CausesOfLoss implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'items' => '\Swagger\Client\Model\CauseOfLossMetadata[]',
-        '_links' => '\Swagger\Client\Model\Links'
+        'items' => '\Swagger\Client\Model\CauseOfLoss[]',
+        '_links' => '\Swagger\Client\Model\InlineResponse302[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class CausesOfLoss implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \Swagger\Client\Model\CauseOfLossMetadata[]
+     * @return \Swagger\Client\Model\CauseOfLoss[]
      */
     public function getItems()
     {
@@ -224,7 +224,7 @@ class CausesOfLoss implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \Swagger\Client\Model\CauseOfLossMetadata[] $items items
+     * @param \Swagger\Client\Model\CauseOfLoss[] $items items
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class CausesOfLoss implements ModelInterface, ArrayAccess
     /**
      * Gets _links
      *
-     * @return \Swagger\Client\Model\Links
+     * @return \Swagger\Client\Model\InlineResponse302[]
      */
     public function getLinks()
     {
@@ -248,7 +248,7 @@ class CausesOfLoss implements ModelInterface, ArrayAccess
     /**
      * Sets _links
      *
-     * @param \Swagger\Client\Model\Links $_links _links
+     * @param \Swagger\Client\Model\InlineResponse302[] $_links _links
      *
      * @return $this
      */

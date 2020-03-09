@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **projectsPoliciesCoveragesAdditionalCoveragesGET**
-> \Swagger\Client\Model\PropertyCoverageAdditionalCoverages projectsPoliciesCoveragesAdditionalCoveragesGET($coverage_id, $accept_language)
+> \Swagger\Client\Model\AdditionalCoverages projectsPoliciesCoveragesAdditionalCoveragesGET($coverage_id, $accept_language)
 
 Property policy additional coverages
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyCoverageAdditionalCoverages**](../Model/PropertyCoverageAdditionalCoverages.md)
+[**\Swagger\Client\Model\AdditionalCoverages**](../Model/AdditionalCoverages.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsPoliciesCoveragesGET**
-> \Swagger\Client\Model\PropertyCoverages projectsPoliciesCoveragesGET($accept_language)
+> \Swagger\Client\Model\Coverages projectsPoliciesCoveragesGET($accept_language)
 
 Property policy coverages
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyCoverages**](../Model/PropertyCoverages.md)
+[**\Swagger\Client\Model\Coverages**](../Model/Coverages.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsPoliciesCoveragesSublimitsGET**
-> \Swagger\Client\Model\PropertyCoverageSublimits projectsPoliciesCoveragesSublimitsGET($coverage_id, $accept_language)
+> \Swagger\Client\Model\Sublimits projectsPoliciesCoveragesSublimitsGET($coverage_id, $accept_language)
 
 Property policy sublimits
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyCoverageSublimits**](../Model/PropertyCoverageSublimits.md)
+[**\Swagger\Client\Model\Sublimits**](../Model/Sublimits.md)
 
 ### Authorization
 

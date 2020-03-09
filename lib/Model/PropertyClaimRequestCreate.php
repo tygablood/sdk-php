@@ -61,9 +61,9 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
         'template_ref' => 'string',
         'name' => 'string',
         'creator' => 'string',
-        'personnel' => '\Swagger\Client\Model\PropertyClaimPersonnel[]',
-        'policy_info' => '\Swagger\Client\Model\PropertyClaimPolicyInfo',
-        'claim_info' => '\Swagger\Client\Model\PropertyClaimClaimInfo'
+        'personnel' => '\Swagger\Client\Model\PropertyclaimsPersonnel[]',
+        'policy_info' => '\Swagger\Client\Model\PropertyclaimsPolicyInfo',
+        'claim_info' => '\Swagger\Client\Model\PropertyclaimsClaimInfo'
     ];
 
     /**
@@ -310,7 +310,7 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
     /**
      * Gets personnel
      *
-     * @return \Swagger\Client\Model\PropertyClaimPersonnel[]
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnel[]
      */
     public function getPersonnel()
     {
@@ -320,7 +320,7 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
     /**
      * Sets personnel
      *
-     * @param \Swagger\Client\Model\PropertyClaimPersonnel[] $personnel Contacts for the claim
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnel[] $personnel Contacts for the claim
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
     /**
      * Gets policy_info
      *
-     * @return \Swagger\Client\Model\PropertyClaimPolicyInfo
+     * @return \Swagger\Client\Model\PropertyclaimsPolicyInfo
      */
     public function getPolicyInfo()
     {
@@ -344,7 +344,7 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
     /**
      * Sets policy_info
      *
-     * @param \Swagger\Client\Model\PropertyClaimPolicyInfo $policy_info policy_info
+     * @param \Swagger\Client\Model\PropertyclaimsPolicyInfo $policy_info policy_info
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
     /**
      * Gets claim_info
      *
-     * @return \Swagger\Client\Model\PropertyClaimClaimInfo
+     * @return \Swagger\Client\Model\PropertyclaimsClaimInfo
      */
     public function getClaimInfo()
     {
@@ -368,7 +368,7 @@ class PropertyClaimRequestCreate implements ModelInterface, ArrayAccess
     /**
      * Sets claim_info
      *
-     * @param \Swagger\Client\Model\PropertyClaimClaimInfo $claim_info claim_info
+     * @param \Swagger\Client\Model\PropertyclaimsClaimInfo $claim_info claim_info
      *
      * @return $this
      */

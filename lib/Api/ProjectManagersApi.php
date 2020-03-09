@@ -349,7 +349,7 @@ class ProjectManagersApi
     }
 
     /**
-     * Operation projectsOpenProjectIdProjectManagersProjectManagerEmailPut
+     * Operation projectsOpenProjectManagerPUT
      *
      * Assign a project manager
      *
@@ -360,13 +360,13 @@ class ProjectManagersApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsOpenProjectIdProjectManagersProjectManagerEmailPut($claim_id, $project_manager_email)
+    public function projectsOpenProjectManagerPUT($claim_id, $project_manager_email)
     {
-        $this->projectsOpenProjectIdProjectManagersProjectManagerEmailPutWithHttpInfo($claim_id, $project_manager_email);
+        $this->projectsOpenProjectManagerPUTWithHttpInfo($claim_id, $project_manager_email);
     }
 
     /**
-     * Operation projectsOpenProjectIdProjectManagersProjectManagerEmailPutWithHttpInfo
+     * Operation projectsOpenProjectManagerPUTWithHttpInfo
      *
      * Assign a project manager
      *
@@ -377,10 +377,10 @@ class ProjectManagersApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsOpenProjectIdProjectManagersProjectManagerEmailPutWithHttpInfo($claim_id, $project_manager_email)
+    public function projectsOpenProjectManagerPUTWithHttpInfo($claim_id, $project_manager_email)
     {
         $returnType = '';
-        $request = $this->projectsOpenProjectIdProjectManagersProjectManagerEmailPutRequest($claim_id, $project_manager_email);
+        $request = $this->projectsOpenProjectManagerPUTRequest($claim_id, $project_manager_email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -420,7 +420,7 @@ class ProjectManagersApi
     }
 
     /**
-     * Operation projectsOpenProjectIdProjectManagersProjectManagerEmailPutAsync
+     * Operation projectsOpenProjectManagerPUTAsync
      *
      * Assign a project manager
      *
@@ -430,9 +430,9 @@ class ProjectManagersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenProjectIdProjectManagersProjectManagerEmailPutAsync($claim_id, $project_manager_email)
+    public function projectsOpenProjectManagerPUTAsync($claim_id, $project_manager_email)
     {
-        return $this->projectsOpenProjectIdProjectManagersProjectManagerEmailPutAsyncWithHttpInfo($claim_id, $project_manager_email)
+        return $this->projectsOpenProjectManagerPUTAsyncWithHttpInfo($claim_id, $project_manager_email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -441,7 +441,7 @@ class ProjectManagersApi
     }
 
     /**
-     * Operation projectsOpenProjectIdProjectManagersProjectManagerEmailPutAsyncWithHttpInfo
+     * Operation projectsOpenProjectManagerPUTAsyncWithHttpInfo
      *
      * Assign a project manager
      *
@@ -451,10 +451,10 @@ class ProjectManagersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenProjectIdProjectManagersProjectManagerEmailPutAsyncWithHttpInfo($claim_id, $project_manager_email)
+    public function projectsOpenProjectManagerPUTAsyncWithHttpInfo($claim_id, $project_manager_email)
     {
         $returnType = '';
-        $request = $this->projectsOpenProjectIdProjectManagersProjectManagerEmailPutRequest($claim_id, $project_manager_email);
+        $request = $this->projectsOpenProjectManagerPUTRequest($claim_id, $project_manager_email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -480,7 +480,7 @@ class ProjectManagersApi
     }
 
     /**
-     * Create request for operation 'projectsOpenProjectIdProjectManagersProjectManagerEmailPut'
+     * Create request for operation 'projectsOpenProjectManagerPUT'
      *
      * @param  string $claim_id The id of the project (required)
      * @param  string $project_manager_email The email of the project manager user to add to the project (required)
@@ -488,18 +488,18 @@ class ProjectManagersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsOpenProjectIdProjectManagersProjectManagerEmailPutRequest($claim_id, $project_manager_email)
+    protected function projectsOpenProjectManagerPUTRequest($claim_id, $project_manager_email)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling projectsOpenProjectIdProjectManagersProjectManagerEmailPut'
+                'Missing the required parameter $claim_id when calling projectsOpenProjectManagerPUT'
             );
         }
         // verify the required parameter 'project_manager_email' is set
         if ($project_manager_email === null || (is_array($project_manager_email) && count($project_manager_email) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_manager_email when calling projectsOpenProjectIdProjectManagersProjectManagerEmailPut'
+                'Missing the required parameter $project_manager_email when calling projectsOpenProjectManagerPUT'
             );
         }
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **templatesGet**
-> \Swagger\Client\Model\Templates templatesGet($accept_language)
+> \Swagger\Client\Model\Templates1 templatesGet($accept_language)
 
 Get available templates
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Templates**](../Model/Templates.md)
+[**\Swagger\Client\Model\Templates1**](../Model/Templates1.md)
 
 ### Authorization
 

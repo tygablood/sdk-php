@@ -61,7 +61,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'type' => 'string',
-        '_links' => '\Swagger\Client\Model\Links'
+        '_links' => '\Swagger\Client\Model\InlineResponse302[]'
     ];
 
     /**
@@ -330,7 +330,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     /**
      * Gets _links
      *
-     * @return \Swagger\Client\Model\Links
+     * @return \Swagger\Client\Model\InlineResponse302[]
      */
     public function getLinks()
     {
@@ -340,7 +340,7 @@ class TemplateMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets _links
      *
-     * @param \Swagger\Client\Model\Links $_links _links
+     * @param \Swagger\Client\Model\InlineResponse302[] $_links _links
      *
      * @return $this
      */

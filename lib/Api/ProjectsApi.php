@@ -88,36 +88,36 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCanceledPost
+     * Operation projectsCanceledPOST
      *
      * Canceled projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  \Swagger\Client\Model\Body $body A reference to the project to be canceled (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsCanceledPost($body)
+    public function projectsCanceledPOST($body)
     {
-        $this->projectsCanceledPostWithHttpInfo($body);
+        $this->projectsCanceledPOSTWithHttpInfo($body);
     }
 
     /**
-     * Operation projectsCanceledPostWithHttpInfo
+     * Operation projectsCanceledPOSTWithHttpInfo
      *
      * Canceled projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  \Swagger\Client\Model\Body $body A reference to the project to be canceled (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsCanceledPostWithHttpInfo($body)
+    public function projectsCanceledPOSTWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCanceledPostRequest($body);
+        $request = $this->projectsCanceledPOSTRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -157,18 +157,18 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCanceledPostAsync
+     * Operation projectsCanceledPOSTAsync
      *
      * Canceled projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  \Swagger\Client\Model\Body $body A reference to the project to be canceled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCanceledPostAsync($body)
+    public function projectsCanceledPOSTAsync($body)
     {
-        return $this->projectsCanceledPostAsyncWithHttpInfo($body)
+        return $this->projectsCanceledPOSTAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -177,19 +177,19 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCanceledPostAsyncWithHttpInfo
+     * Operation projectsCanceledPOSTAsyncWithHttpInfo
      *
      * Canceled projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  \Swagger\Client\Model\Body $body A reference to the project to be canceled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCanceledPostAsyncWithHttpInfo($body)
+    public function projectsCanceledPOSTAsyncWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCanceledPostRequest($body);
+        $request = $this->projectsCanceledPOSTRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -215,19 +215,19 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'projectsCanceledPost'
+     * Create request for operation 'projectsCanceledPOST'
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  \Swagger\Client\Model\Body $body A reference to the project to be canceled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsCanceledPostRequest($body)
+    protected function projectsCanceledPOSTRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling projectsCanceledPost'
+                'Missing the required parameter $body when calling projectsCanceledPOST'
             );
         }
 
@@ -325,36 +325,36 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCompletedPost
+     * Operation projectsCompletedPOST
      *
      * Completed projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  \Swagger\Client\Model\Body1 $body A reference to the project to be completed (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsCompletedPost($body)
+    public function projectsCompletedPOST($body)
     {
-        $this->projectsCompletedPostWithHttpInfo($body);
+        $this->projectsCompletedPOSTWithHttpInfo($body);
     }
 
     /**
-     * Operation projectsCompletedPostWithHttpInfo
+     * Operation projectsCompletedPOSTWithHttpInfo
      *
      * Completed projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  \Swagger\Client\Model\Body1 $body A reference to the project to be completed (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsCompletedPostWithHttpInfo($body)
+    public function projectsCompletedPOSTWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCompletedPostRequest($body);
+        $request = $this->projectsCompletedPOSTRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -394,18 +394,18 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCompletedPostAsync
+     * Operation projectsCompletedPOSTAsync
      *
      * Completed projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  \Swagger\Client\Model\Body1 $body A reference to the project to be completed (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCompletedPostAsync($body)
+    public function projectsCompletedPOSTAsync($body)
     {
-        return $this->projectsCompletedPostAsyncWithHttpInfo($body)
+        return $this->projectsCompletedPOSTAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -414,19 +414,19 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCompletedPostAsyncWithHttpInfo
+     * Operation projectsCompletedPOSTAsyncWithHttpInfo
      *
      * Completed projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  \Swagger\Client\Model\Body1 $body A reference to the project to be completed (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCompletedPostAsyncWithHttpInfo($body)
+    public function projectsCompletedPOSTAsyncWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCompletedPostRequest($body);
+        $request = $this->projectsCompletedPOSTRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -452,19 +452,19 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'projectsCompletedPost'
+     * Create request for operation 'projectsCompletedPOST'
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  \Swagger\Client\Model\Body1 $body A reference to the project to be completed (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsCompletedPostRequest($body)
+    protected function projectsCompletedPOSTRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling projectsCompletedPost'
+                'Missing the required parameter $body when calling projectsCompletedPOST'
             );
         }
 
@@ -566,7 +566,7 @@ class ProjectsApi
      *
      * Open projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
+     * @param  \Swagger\Client\Model\Body2 $body A reference to the project to be opened (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -582,7 +582,7 @@ class ProjectsApi
      *
      * Open projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
+     * @param  \Swagger\Client\Model\Body2 $body A reference to the project to be opened (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -635,7 +635,7 @@ class ProjectsApi
      *
      * Open projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
+     * @param  \Swagger\Client\Model\Body2 $body A reference to the project to be opened (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -655,7 +655,7 @@ class ProjectsApi
      *
      * Open projects
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
+     * @param  \Swagger\Client\Model\Body2 $body A reference to the project to be opened (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -691,7 +691,7 @@ class ProjectsApi
     /**
      * Create request for operation 'projectsOpenPOST'
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
+     * @param  \Swagger\Client\Model\Body2 $body A reference to the project to be opened (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

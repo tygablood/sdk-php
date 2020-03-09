@@ -58,8 +58,8 @@ class PropertyCoverageAdditionalCoverages implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'items' => '\Swagger\Client\Model\PropertyCoverageAdditionalCoverageMetadata[]',
-        '_links' => '\Swagger\Client\Model\Links'
+        'items' => '\Swagger\Client\Model\AdditionalCoverage[]',
+        '_links' => '\Swagger\Client\Model\InlineResponse302[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class PropertyCoverageAdditionalCoverages implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \Swagger\Client\Model\PropertyCoverageAdditionalCoverageMetadata[]
+     * @return \Swagger\Client\Model\AdditionalCoverage[]
      */
     public function getItems()
     {
@@ -224,7 +224,7 @@ class PropertyCoverageAdditionalCoverages implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \Swagger\Client\Model\PropertyCoverageAdditionalCoverageMetadata[] $items items
+     * @param \Swagger\Client\Model\AdditionalCoverage[] $items items
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class PropertyCoverageAdditionalCoverages implements ModelInterface, ArrayAccess
     /**
      * Gets _links
      *
-     * @return \Swagger\Client\Model\Links
+     * @return \Swagger\Client\Model\InlineResponse302[]
      */
     public function getLinks()
     {
@@ -248,7 +248,7 @@ class PropertyCoverageAdditionalCoverages implements ModelInterface, ArrayAccess
     /**
      * Sets _links
      *
-     * @param \Swagger\Client\Model\Links $_links _links
+     * @param \Swagger\Client\Model\InlineResponse302[] $_links _links
      *
      * @return $this
      */

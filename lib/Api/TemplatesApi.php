@@ -96,7 +96,7 @@ class TemplatesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Templates
+     * @return \Swagger\Client\Model\Templates1
      */
     public function templatesGet($accept_language = null)
     {
@@ -113,11 +113,11 @@ class TemplatesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Templates, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Templates1, HTTP status code, HTTP response headers (array of strings)
      */
     public function templatesGetWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Templates';
+        $returnType = '\Swagger\Client\Model\Templates1';
         $request = $this->templatesGetRequest($accept_language);
 
         try {
@@ -169,7 +169,7 @@ class TemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Templates',
+                        '\Swagger\Client\Model\Templates1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -211,7 +211,7 @@ class TemplatesApi
      */
     public function templatesGetAsyncWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Templates';
+        $returnType = '\Swagger\Client\Model\Templates1';
         $request = $this->templatesGetRequest($accept_language);
 
         return $this->client

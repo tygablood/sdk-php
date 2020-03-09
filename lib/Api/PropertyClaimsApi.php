@@ -93,11 +93,11 @@ class PropertyClaimsApi
      * Update a property claim
      *
      * @param  string $claim_id The id of the property claim to be updated (required)
-     * @param  \Swagger\Client\Model\PropertyClaimRequestUpdate $body body (optional)
+     * @param  \Swagger\Client\Model\UpdateClaimRequest $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PropertyClaimResponse
+     * @return \Swagger\Client\Model\Claim
      */
     public function propertyClaimsClaimIdPut($claim_id, $body = null)
     {
@@ -111,15 +111,15 @@ class PropertyClaimsApi
      * Update a property claim
      *
      * @param  string $claim_id The id of the property claim to be updated (required)
-     * @param  \Swagger\Client\Model\PropertyClaimRequestUpdate $body (optional)
+     * @param  \Swagger\Client\Model\UpdateClaimRequest $body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PropertyClaimResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Claim, HTTP status code, HTTP response headers (array of strings)
      */
     public function propertyClaimsClaimIdPutWithHttpInfo($claim_id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyClaimResponse';
+        $returnType = '\Swagger\Client\Model\Claim';
         $request = $this->propertyClaimsClaimIdPutRequest($claim_id, $body);
 
         try {
@@ -171,7 +171,7 @@ class PropertyClaimsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PropertyClaimResponse',
+                        '\Swagger\Client\Model\Claim',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -179,7 +179,7 @@ class PropertyClaimsApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Error',
+                        '\Swagger\Client\Model\InlineResponse409[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -195,7 +195,7 @@ class PropertyClaimsApi
      * Update a property claim
      *
      * @param  string $claim_id The id of the property claim to be updated (required)
-     * @param  \Swagger\Client\Model\PropertyClaimRequestUpdate $body (optional)
+     * @param  \Swagger\Client\Model\UpdateClaimRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,14 +216,14 @@ class PropertyClaimsApi
      * Update a property claim
      *
      * @param  string $claim_id The id of the property claim to be updated (required)
-     * @param  \Swagger\Client\Model\PropertyClaimRequestUpdate $body (optional)
+     * @param  \Swagger\Client\Model\UpdateClaimRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function propertyClaimsClaimIdPutAsyncWithHttpInfo($claim_id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyClaimResponse';
+        $returnType = '\Swagger\Client\Model\Claim';
         $request = $this->propertyClaimsClaimIdPutRequest($claim_id, $body);
 
         return $this->client
@@ -267,7 +267,7 @@ class PropertyClaimsApi
      * Create request for operation 'propertyClaimsClaimIdPut'
      *
      * @param  string $claim_id The id of the property claim to be updated (required)
-     * @param  \Swagger\Client\Model\PropertyClaimRequestUpdate $body (optional)
+     * @param  \Swagger\Client\Model\UpdateClaimRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -387,11 +387,11 @@ class PropertyClaimsApi
      *
      * Create a new property claim
      *
-     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate $body body (required)
+     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate1 $body body (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PropertyClaimResponse
+     * @return \Swagger\Client\Model\Claim
      */
     public function propertyClaimsPost($body)
     {
@@ -404,15 +404,15 @@ class PropertyClaimsApi
      *
      * Create a new property claim
      *
-     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate1 $body (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PropertyClaimResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Claim, HTTP status code, HTTP response headers (array of strings)
      */
     public function propertyClaimsPostWithHttpInfo($body)
     {
-        $returnType = '\Swagger\Client\Model\PropertyClaimResponse';
+        $returnType = '\Swagger\Client\Model\Claim';
         $request = $this->propertyClaimsPostRequest($body);
 
         try {
@@ -464,7 +464,7 @@ class PropertyClaimsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PropertyClaimResponse',
+                        '\Swagger\Client\Model\Claim',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -479,7 +479,7 @@ class PropertyClaimsApi
      *
      * Create a new property claim
      *
-     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -499,14 +499,14 @@ class PropertyClaimsApi
      *
      * Create a new property claim
      *
-     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function propertyClaimsPostAsyncWithHttpInfo($body)
     {
-        $returnType = '\Swagger\Client\Model\PropertyClaimResponse';
+        $returnType = '\Swagger\Client\Model\Claim';
         $request = $this->propertyClaimsPostRequest($body);
 
         return $this->client
@@ -549,7 +549,7 @@ class PropertyClaimsApi
     /**
      * Create request for operation 'propertyClaimsPost'
      *
-     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyClaimRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

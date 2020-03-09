@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **propertyEstimatesPost**
-> \Swagger\Client\Model\PropertyEstimateResponse propertyEstimatesPost($body)
+> \Swagger\Client\Model\PropertyEstimateResponse1 propertyEstimatesPost($body)
 
 Create a new property estimate
 
@@ -34,7 +34,7 @@ $apiInstance = new Swagger\Client\Api\PropertyEstimatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\PropertyEstimateRequestCreate(); // \Swagger\Client\Model\PropertyEstimateRequestCreate | 
+$body = new \Swagger\Client\Model\PropertyEstimateRequestCreate1(); // \Swagger\Client\Model\PropertyEstimateRequestCreate1 | 
 
 try {
     $result = $apiInstance->propertyEstimatesPost($body);
@@ -49,11 +49,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\PropertyEstimateRequestCreate**](../Model/PropertyEstimateRequestCreate.md)|  |
+ **body** | [**\Swagger\Client\Model\PropertyEstimateRequestCreate1**](../Model/PropertyEstimateRequestCreate1.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyEstimateResponse**](../Model/PropertyEstimateResponse.md)
+[**\Swagger\Client\Model\PropertyEstimateResponse1**](../Model/PropertyEstimateResponse1.md)
 
 ### Authorization
 

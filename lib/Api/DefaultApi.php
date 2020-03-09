@@ -357,7 +357,7 @@ class DefaultApi
                 case 302:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Links',
+                        '\Swagger\Client\Model\InlineResponse302[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

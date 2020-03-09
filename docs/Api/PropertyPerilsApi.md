@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **propertyPerilsCausesOfLossGET**
-> \Swagger\Client\Model\CausesOfLoss propertyPerilsCausesOfLossGET($peril_id)
+> \Swagger\Client\Model\CausesOfLoss1 propertyPerilsCausesOfLossGET($peril_id)
 
 Cause of loss
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\CausesOfLoss**](../Model/CausesOfLoss.md)
+[**\Swagger\Client\Model\CausesOfLoss1**](../Model/CausesOfLoss1.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **propertyPoliciesPerilsGet**
-> \Swagger\Client\Model\Perils propertyPoliciesPerilsGet($accept_language)
+> \Swagger\Client\Model\Perils1 propertyPoliciesPerilsGet($accept_language)
 
 Types of loss
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Perils**](../Model/Perils.md)
+[**\Swagger\Client\Model\Perils1**](../Model/Perils1.md)
 
 ### Authorization
 

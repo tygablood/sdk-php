@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **propertyClaimsClaimIdPut**
-> \Swagger\Client\Model\PropertyClaimResponse propertyClaimsClaimIdPut($claim_id, $body)
+> \Swagger\Client\Model\Claim propertyClaimsClaimIdPut($claim_id, $body)
 
 Update a property claim
 
@@ -36,7 +36,7 @@ $apiInstance = new Swagger\Client\Api\PropertyClaimsApi(
     $config
 );
 $claim_id = "claim_id_example"; // string | The id of the property claim to be updated
-$body = new \Swagger\Client\Model\PropertyClaimRequestUpdate(); // \Swagger\Client\Model\PropertyClaimRequestUpdate | 
+$body = new \Swagger\Client\Model\UpdateClaimRequest(); // \Swagger\Client\Model\UpdateClaimRequest | 
 
 try {
     $result = $apiInstance->propertyClaimsClaimIdPut($claim_id, $body);
@@ -52,11 +52,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **claim_id** | **string**| The id of the property claim to be updated |
- **body** | [**\Swagger\Client\Model\PropertyClaimRequestUpdate**](../Model/PropertyClaimRequestUpdate.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\UpdateClaimRequest**](../Model/UpdateClaimRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyClaimResponse**](../Model/PropertyClaimResponse.md)
+[**\Swagger\Client\Model\Claim**](../Model/Claim.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **propertyClaimsPost**
-> \Swagger\Client\Model\PropertyClaimResponse propertyClaimsPost($body)
+> \Swagger\Client\Model\Claim propertyClaimsPost($body)
 
 Create a new property claim
 
@@ -96,7 +96,7 @@ $apiInstance = new Swagger\Client\Api\PropertyClaimsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\PropertyClaimRequestCreate(); // \Swagger\Client\Model\PropertyClaimRequestCreate | 
+$body = new \Swagger\Client\Model\PropertyClaimRequestCreate1(); // \Swagger\Client\Model\PropertyClaimRequestCreate1 | 
 
 try {
     $result = $apiInstance->propertyClaimsPost($body);
@@ -111,11 +111,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\PropertyClaimRequestCreate**](../Model/PropertyClaimRequestCreate.md)|  |
+ **body** | [**\Swagger\Client\Model\PropertyClaimRequestCreate1**](../Model/PropertyClaimRequestCreate1.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyClaimResponse**](../Model/PropertyClaimResponse.md)
+[**\Swagger\Client\Model\Claim**](../Model/Claim.md)
 
 ### Authorization
 

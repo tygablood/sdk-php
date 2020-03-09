@@ -97,7 +97,7 @@ class PropertyCoveragesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PropertyCoverageAdditionalCoverages
+     * @return \Swagger\Client\Model\AdditionalCoverages
      */
     public function projectsPoliciesCoveragesAdditionalCoveragesGET($coverage_id, $accept_language = null)
     {
@@ -115,11 +115,11 @@ class PropertyCoveragesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PropertyCoverageAdditionalCoverages, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\AdditionalCoverages, HTTP status code, HTTP response headers (array of strings)
      */
     public function projectsPoliciesCoveragesAdditionalCoveragesGETWithHttpInfo($coverage_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyCoverageAdditionalCoverages';
+        $returnType = '\Swagger\Client\Model\AdditionalCoverages';
         $request = $this->projectsPoliciesCoveragesAdditionalCoveragesGETRequest($coverage_id, $accept_language);
 
         try {
@@ -171,7 +171,7 @@ class PropertyCoveragesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PropertyCoverageAdditionalCoverages',
+                        '\Swagger\Client\Model\AdditionalCoverages',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -215,7 +215,7 @@ class PropertyCoveragesApi
      */
     public function projectsPoliciesCoveragesAdditionalCoveragesGETAsyncWithHttpInfo($coverage_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyCoverageAdditionalCoverages';
+        $returnType = '\Swagger\Client\Model\AdditionalCoverages';
         $request = $this->projectsPoliciesCoveragesAdditionalCoveragesGETRequest($coverage_id, $accept_language);
 
         return $this->client
@@ -384,7 +384,7 @@ class PropertyCoveragesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PropertyCoverages
+     * @return \Swagger\Client\Model\Coverages
      */
     public function projectsPoliciesCoveragesGET($accept_language = null)
     {
@@ -401,11 +401,11 @@ class PropertyCoveragesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PropertyCoverages, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Coverages, HTTP status code, HTTP response headers (array of strings)
      */
     public function projectsPoliciesCoveragesGETWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyCoverages';
+        $returnType = '\Swagger\Client\Model\Coverages';
         $request = $this->projectsPoliciesCoveragesGETRequest($accept_language);
 
         try {
@@ -457,7 +457,7 @@ class PropertyCoveragesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PropertyCoverages',
+                        '\Swagger\Client\Model\Coverages',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class PropertyCoveragesApi
      */
     public function projectsPoliciesCoveragesGETAsyncWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyCoverages';
+        $returnType = '\Swagger\Client\Model\Coverages';
         $request = $this->projectsPoliciesCoveragesGETRequest($accept_language);
 
         return $this->client
@@ -654,7 +654,7 @@ class PropertyCoveragesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PropertyCoverageSublimits
+     * @return \Swagger\Client\Model\Sublimits
      */
     public function projectsPoliciesCoveragesSublimitsGET($coverage_id, $accept_language = null)
     {
@@ -672,11 +672,11 @@ class PropertyCoveragesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PropertyCoverageSublimits, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Sublimits, HTTP status code, HTTP response headers (array of strings)
      */
     public function projectsPoliciesCoveragesSublimitsGETWithHttpInfo($coverage_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyCoverageSublimits';
+        $returnType = '\Swagger\Client\Model\Sublimits';
         $request = $this->projectsPoliciesCoveragesSublimitsGETRequest($coverage_id, $accept_language);
 
         try {
@@ -728,7 +728,7 @@ class PropertyCoveragesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PropertyCoverageSublimits',
+                        '\Swagger\Client\Model\Sublimits',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -772,7 +772,7 @@ class PropertyCoveragesApi
      */
     public function projectsPoliciesCoveragesSublimitsGETAsyncWithHttpInfo($coverage_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\PropertyCoverageSublimits';
+        $returnType = '\Swagger\Client\Model\Sublimits';
         $request = $this->projectsPoliciesCoveragesSublimitsGETRequest($coverage_id, $accept_language);
 
         return $this->client

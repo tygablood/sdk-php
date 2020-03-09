@@ -58,7 +58,7 @@ class PropertyClaimPolicyInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'policy_holder' => '\Swagger\Client\Model\PropertyClaimPolicyInfoPolicyHolder',
+        'policy_holder' => '\Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolder',
         'policy_type' => 'string',
         'policy_number' => 'string',
         'inception_date' => '\DateTime',
@@ -69,7 +69,7 @@ class PropertyClaimPolicyInfo implements ModelInterface, ArrayAccess
         'apply_deductible_to' => 'string',
         'apply_limits' => 'bool',
         'deductible' => 'float',
-        'coverages' => '\Swagger\Client\Model\PropertyClaimPolicyInfoCoverages[]'
+        'coverages' => '\Swagger\Client\Model\PropertyclaimsPolicyInfoCoverages[]'
     ];
 
     /**
@@ -316,7 +316,7 @@ class PropertyClaimPolicyInfo implements ModelInterface, ArrayAccess
     /**
      * Gets policy_holder
      *
-     * @return \Swagger\Client\Model\PropertyClaimPolicyInfoPolicyHolder
+     * @return \Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolder
      */
     public function getPolicyHolder()
     {
@@ -326,7 +326,7 @@ class PropertyClaimPolicyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets policy_holder
      *
-     * @param \Swagger\Client\Model\PropertyClaimPolicyInfoPolicyHolder $policy_holder policy_holder
+     * @param \Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolder $policy_holder policy_holder
      *
      * @return $this
      */
@@ -598,7 +598,7 @@ class PropertyClaimPolicyInfo implements ModelInterface, ArrayAccess
     /**
      * Gets coverages
      *
-     * @return \Swagger\Client\Model\PropertyClaimPolicyInfoCoverages[]
+     * @return \Swagger\Client\Model\PropertyclaimsPolicyInfoCoverages[]
      */
     public function getCoverages()
     {
@@ -608,7 +608,7 @@ class PropertyClaimPolicyInfo implements ModelInterface, ArrayAccess
     /**
      * Sets coverages
      *
-     * @param \Swagger\Client\Model\PropertyClaimPolicyInfoCoverages[] $coverages The coverages provided in the policy
+     * @param \Swagger\Client\Model\PropertyclaimsPolicyInfoCoverages[] $coverages The coverages provided in the policy
      *
      * @return $this
      */

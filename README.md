@@ -81,12 +81,12 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**docsGet**](docs/Api/DefaultApi.md#docsget) | **GET** /docs | 
 *DefaultApi* | [**rootGet**](docs/Api/DefaultApi.md#rootget) | **GET** / | 
 *ProjectManagersApi* | [**projectsOpenProjectIdProjectManagersProjectManagerEmailDelete**](docs/Api/ProjectManagersApi.md#projectsopenprojectidprojectmanagersprojectmanageremaildelete) | **DELETE** /projects/open/{project-id}/project-managers/{project-manager-email} | Remove a project manager
-*ProjectManagersApi* | [**projectsOpenProjectIdProjectManagersProjectManagerEmailPut**](docs/Api/ProjectManagersApi.md#projectsopenprojectidprojectmanagersprojectmanageremailput) | **PUT** /projects/open/{project-id}/project-managers/{project-manager-email} | Assign a project manager
+*ProjectManagersApi* | [**projectsOpenProjectManagerPUT**](docs/Api/ProjectManagersApi.md#projectsopenprojectmanagerput) | **PUT** /projects/open/{project-id}/project-managers/{project-manager-email} | Assign a project manager
 *ProjectRolesApi* | [**projectRolesGET**](docs/Api/ProjectRolesApi.md#projectrolesget) | **GET** /projects/roles | Project roles
-*ProjectRolesApi* | [**projectsOpenProjectIdRolesRoleIdRoleUserEmailDelete**](docs/Api/ProjectRolesApi.md#projectsopenprojectidrolesroleidroleuseremaildelete) | **DELETE** /projects/open/{project-id}/roles/{role-id}/{role-user-email} | Remove a project role
-*ProjectRolesApi* | [**projectsOpenProjectIdRolesRoleIdRoleUserEmailPut**](docs/Api/ProjectRolesApi.md#projectsopenprojectidrolesroleidroleuseremailput) | **PUT** /projects/open/{project-id}/roles/{role-id}/{role-user-email} | Assign a project role
-*ProjectsApi* | [**projectsCanceledPost**](docs/Api/ProjectsApi.md#projectscanceledpost) | **POST** /projects/canceled | Canceled projects
-*ProjectsApi* | [**projectsCompletedPost**](docs/Api/ProjectsApi.md#projectscompletedpost) | **POST** /projects/completed | Completed projects
+*ProjectRolesApi* | [**projectsOpenRolesAssignPUT**](docs/Api/ProjectRolesApi.md#projectsopenrolesassignput) | **PUT** /projects/open/{project-id}/roles/{role-id}/{role-user-email} | Assign a project role
+*ProjectRolesApi* | [**projectsOpenRolesDELETE**](docs/Api/ProjectRolesApi.md#projectsopenrolesdelete) | **DELETE** /projects/open/{project-id}/roles/{role-id}/{role-user-email} | Remove a project role
+*ProjectsApi* | [**projectsCanceledPOST**](docs/Api/ProjectsApi.md#projectscanceledpost) | **POST** /projects/canceled | Canceled projects
+*ProjectsApi* | [**projectsCompletedPOST**](docs/Api/ProjectsApi.md#projectscompletedpost) | **POST** /projects/completed | Completed projects
 *ProjectsApi* | [**projectsOpenPOST**](docs/Api/ProjectsApi.md#projectsopenpost) | **POST** /projects/open | Open projects
 *PropertyClaimsApi* | [**propertyClaimsClaimIdPut**](docs/Api/PropertyClaimsApi.md#propertyclaimsclaimidput) | **PUT** /property/claims/{claim-id} | Update a property claim
 *PropertyClaimsApi* | [**propertyClaimsPost**](docs/Api/PropertyClaimsApi.md#propertyclaimspost) | **POST** /property/claims | Create a new property claim
@@ -101,27 +101,32 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AdditionalCoverage](docs/Model/AdditionalCoverage.md)
+ - [AdditionalCoverages](docs/Model/AdditionalCoverages.md)
+ - [Body](docs/Model/Body.md)
+ - [Body1](docs/Model/Body1.md)
+ - [Body2](docs/Model/Body2.md)
+ - [CauseOfLoss](docs/Model/CauseOfLoss.md)
  - [CauseOfLossMetadata](docs/Model/CauseOfLossMetadata.md)
  - [CausesOfLoss](docs/Model/CausesOfLoss.md)
+ - [CausesOfLoss1](docs/Model/CausesOfLoss1.md)
+ - [Claim](docs/Model/Claim.md)
+ - [Coverage](docs/Model/Coverage.md)
+ - [Coverages](docs/Model/Coverages.md)
  - [Error](docs/Model/Error.md)
- - [ErrorInner](docs/Model/ErrorInner.md)
+ - [InlineResponse302](docs/Model/InlineResponse302.md)
+ - [InlineResponse409](docs/Model/InlineResponse409.md)
  - [Links](docs/Model/Links.md)
- - [LinksInner](docs/Model/LinksInner.md)
  - [PerilMetadata](docs/Model/PerilMetadata.md)
+ - [PerilMetadata1](docs/Model/PerilMetadata1.md)
  - [Perils](docs/Model/Perils.md)
+ - [Perils1](docs/Model/Perils1.md)
  - [ProjectReference](docs/Model/ProjectReference.md)
  - [PropertyClaimClaimInfo](docs/Model/PropertyClaimClaimInfo.md)
  - [PropertyClaimPersonnel](docs/Model/PropertyClaimPersonnel.md)
- - [PropertyClaimPersonnelAddress](docs/Model/PropertyClaimPersonnelAddress.md)
- - [PropertyClaimPersonnelPhoneNumbers](docs/Model/PropertyClaimPersonnelPhoneNumbers.md)
  - [PropertyClaimPolicyInfo](docs/Model/PropertyClaimPolicyInfo.md)
- - [PropertyClaimPolicyInfoAdditionalCoverages](docs/Model/PropertyClaimPolicyInfoAdditionalCoverages.md)
- - [PropertyClaimPolicyInfoCoverages](docs/Model/PropertyClaimPolicyInfoCoverages.md)
- - [PropertyClaimPolicyInfoPolicyHolder](docs/Model/PropertyClaimPolicyInfoPolicyHolder.md)
- - [PropertyClaimPolicyInfoPolicyHolderMailingAddress](docs/Model/PropertyClaimPolicyInfoPolicyHolderMailingAddress.md)
- - [PropertyClaimPolicyInfoPolicyHolderRiskAddress](docs/Model/PropertyClaimPolicyInfoPolicyHolderRiskAddress.md)
- - [PropertyClaimPolicyInfoSublimits](docs/Model/PropertyClaimPolicyInfoSublimits.md)
  - [PropertyClaimRequestCreate](docs/Model/PropertyClaimRequestCreate.md)
+ - [PropertyClaimRequestCreate1](docs/Model/PropertyClaimRequestCreate1.md)
  - [PropertyClaimRequestUpdate](docs/Model/PropertyClaimRequestUpdate.md)
  - [PropertyClaimResponse](docs/Model/PropertyClaimResponse.md)
  - [PropertyCoverageAdditionalCoverageMetadata](docs/Model/PropertyCoverageAdditionalCoverageMetadata.md)
@@ -131,11 +136,31 @@ Class | Method | HTTP request | Description
  - [PropertyCoverageSublimits](docs/Model/PropertyCoverageSublimits.md)
  - [PropertyCoverages](docs/Model/PropertyCoverages.md)
  - [PropertyEstimateRequestCreate](docs/Model/PropertyEstimateRequestCreate.md)
+ - [PropertyEstimateRequestCreate1](docs/Model/PropertyEstimateRequestCreate1.md)
  - [PropertyEstimateResponse](docs/Model/PropertyEstimateResponse.md)
+ - [PropertyEstimateResponse1](docs/Model/PropertyEstimateResponse1.md)
+ - [PropertyclaimsAddress](docs/Model/PropertyclaimsAddress.md)
+ - [PropertyclaimsClaimInfo](docs/Model/PropertyclaimsClaimInfo.md)
+ - [PropertyclaimsPersonnel](docs/Model/PropertyclaimsPersonnel.md)
+ - [PropertyclaimsPhoneNumbers](docs/Model/PropertyclaimsPhoneNumbers.md)
+ - [PropertyclaimsPolicyInfo](docs/Model/PropertyclaimsPolicyInfo.md)
+ - [PropertyclaimsPolicyInfoAdditionalCoverages](docs/Model/PropertyclaimsPolicyInfoAdditionalCoverages.md)
+ - [PropertyclaimsPolicyInfoCoverages](docs/Model/PropertyclaimsPolicyInfoCoverages.md)
+ - [PropertyclaimsPolicyInfoPolicyHolder](docs/Model/PropertyclaimsPolicyInfoPolicyHolder.md)
+ - [PropertyclaimsPolicyInfoPolicyHolderMailingAddress](docs/Model/PropertyclaimsPolicyInfoPolicyHolderMailingAddress.md)
+ - [PropertyclaimsPolicyInfoPolicyHolderRiskAddress](docs/Model/PropertyclaimsPolicyInfoPolicyHolderRiskAddress.md)
+ - [PropertyclaimsPolicyInfoSublimits](docs/Model/PropertyclaimsPolicyInfoSublimits.md)
+ - [Role](docs/Model/Role.md)
  - [RoleMetadata](docs/Model/RoleMetadata.md)
  - [Roles](docs/Model/Roles.md)
+ - [Roles1](docs/Model/Roles1.md)
+ - [Sublimit](docs/Model/Sublimit.md)
+ - [Sublimits](docs/Model/Sublimits.md)
  - [TemplateMetadata](docs/Model/TemplateMetadata.md)
+ - [TemplateMetadata1](docs/Model/TemplateMetadata1.md)
  - [Templates](docs/Model/Templates.md)
+ - [Templates1](docs/Model/Templates1.md)
+ - [UpdateClaimRequest](docs/Model/UpdateClaimRequest.md)
 
 
 ## Documentation For Authorization

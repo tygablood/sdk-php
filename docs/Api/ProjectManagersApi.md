@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**projectsOpenProjectIdProjectManagersProjectManagerEmailDelete**](ProjectManagersApi.md#projectsOpenProjectIdProjectManagersProjectManagerEmailDelete) | **DELETE** /projects/open/{project-id}/project-managers/{project-manager-email} | Remove a project manager
-[**projectsOpenProjectIdProjectManagersProjectManagerEmailPut**](ProjectManagersApi.md#projectsOpenProjectIdProjectManagersProjectManagerEmailPut) | **PUT** /projects/open/{project-id}/project-managers/{project-manager-email} | Assign a project manager
+[**projectsOpenProjectManagerPUT**](ProjectManagersApi.md#projectsOpenProjectManagerPUT) | **PUT** /projects/open/{project-id}/project-managers/{project-manager-email} | Assign a project manager
 
 
 # **projectsOpenProjectIdProjectManagersProjectManagerEmailDelete**
@@ -68,8 +68,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **projectsOpenProjectIdProjectManagersProjectManagerEmailPut**
-> projectsOpenProjectIdProjectManagersProjectManagerEmailPut($claim_id, $project_manager_email)
+# **projectsOpenProjectManagerPUT**
+> projectsOpenProjectManagerPUT($claim_id, $project_manager_email)
 
 Assign a project manager
 
@@ -99,9 +99,9 @@ $claim_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project
 $project_manager_email = "john.somebody@example.net"; // string | The email of the project manager user to add to the project
 
 try {
-    $apiInstance->projectsOpenProjectIdProjectManagersProjectManagerEmailPut($claim_id, $project_manager_email);
+    $apiInstance->projectsOpenProjectManagerPUT($claim_id, $project_manager_email);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectManagersApi->projectsOpenProjectIdProjectManagersProjectManagerEmailPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectManagersApi->projectsOpenProjectManagerPUT: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

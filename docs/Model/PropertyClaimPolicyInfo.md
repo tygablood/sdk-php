@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy_holder** | [**\Swagger\Client\Model\PropertyClaimPolicyInfoPolicyHolder**](PropertyClaimPolicyInfoPolicyHolder.md) |  | [optional] 
+**policy_holder** | [**\Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolder**](PropertyclaimsPolicyInfoPolicyHolder.md) |  | [optional] 
 **policy_type** | **string** | The type of the insurance policy | [optional] 
 **policy_number** | **string** | The insurance policy number | [optional] 
 **inception_date** | [**\DateTime**](\DateTime.md) | The origination date of the insurance policy | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **apply_deductible_to** | **string** | Determines how the deductible values are handled | [optional] 
 **apply_limits** | **bool** | Determines if policy limits should be applied | [optional] 
 **deductible** | **float** | The policy holder&#39;s financial liability under this policy | [optional] 
-**coverages** | [**\Swagger\Client\Model\PropertyClaimPolicyInfoCoverages[]**](PropertyClaimPolicyInfoCoverages.md) | The coverages provided in the policy | [optional] 
+**coverages** | [**\Swagger\Client\Model\PropertyclaimsPolicyInfoCoverages[]**](PropertyclaimsPolicyInfoCoverages.md) | The coverages provided in the policy | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

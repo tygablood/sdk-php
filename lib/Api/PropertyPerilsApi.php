@@ -96,7 +96,7 @@ class PropertyPerilsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\CausesOfLoss
+     * @return \Swagger\Client\Model\CausesOfLoss1
      */
     public function propertyPerilsCausesOfLossGET($peril_id)
     {
@@ -113,11 +113,11 @@ class PropertyPerilsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\CausesOfLoss, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\CausesOfLoss1, HTTP status code, HTTP response headers (array of strings)
      */
     public function propertyPerilsCausesOfLossGETWithHttpInfo($peril_id)
     {
-        $returnType = '\Swagger\Client\Model\CausesOfLoss';
+        $returnType = '\Swagger\Client\Model\CausesOfLoss1';
         $request = $this->propertyPerilsCausesOfLossGETRequest($peril_id);
 
         try {
@@ -169,7 +169,7 @@ class PropertyPerilsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\CausesOfLoss',
+                        '\Swagger\Client\Model\CausesOfLoss1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -211,7 +211,7 @@ class PropertyPerilsApi
      */
     public function propertyPerilsCausesOfLossGETAsyncWithHttpInfo($peril_id)
     {
-        $returnType = '\Swagger\Client\Model\CausesOfLoss';
+        $returnType = '\Swagger\Client\Model\CausesOfLoss1';
         $request = $this->propertyPerilsCausesOfLossGETRequest($peril_id);
 
         return $this->client
@@ -375,7 +375,7 @@ class PropertyPerilsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Perils
+     * @return \Swagger\Client\Model\Perils1
      */
     public function propertyPoliciesPerilsGet($accept_language = null)
     {
@@ -392,11 +392,11 @@ class PropertyPerilsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Perils, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Perils1, HTTP status code, HTTP response headers (array of strings)
      */
     public function propertyPoliciesPerilsGetWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Perils';
+        $returnType = '\Swagger\Client\Model\Perils1';
         $request = $this->propertyPoliciesPerilsGetRequest($accept_language);
 
         try {
@@ -448,7 +448,7 @@ class PropertyPerilsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Perils',
+                        '\Swagger\Client\Model\Perils1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -490,7 +490,7 @@ class PropertyPerilsApi
      */
     public function propertyPoliciesPerilsGetAsyncWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Perils';
+        $returnType = '\Swagger\Client\Model\Perils1';
         $request = $this->propertyPoliciesPerilsGetRequest($accept_language);
 
         return $this->client

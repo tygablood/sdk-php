@@ -58,8 +58,8 @@ class Roles implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'items' => '\Swagger\Client\Model\RoleMetadata[]',
-        '_links' => '\Swagger\Client\Model\Links'
+        'items' => '\Swagger\Client\Model\Role[]',
+        '_links' => '\Swagger\Client\Model\InlineResponse302[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class Roles implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \Swagger\Client\Model\RoleMetadata[]
+     * @return \Swagger\Client\Model\Role[]
      */
     public function getItems()
     {
@@ -224,7 +224,7 @@ class Roles implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \Swagger\Client\Model\RoleMetadata[] $items items
+     * @param \Swagger\Client\Model\Role[] $items items
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class Roles implements ModelInterface, ArrayAccess
     /**
      * Gets _links
      *
-     * @return \Swagger\Client\Model\Links
+     * @return \Swagger\Client\Model\InlineResponse302[]
      */
     public function getLinks()
     {
@@ -248,7 +248,7 @@ class Roles implements ModelInterface, ArrayAccess
     /**
      * Sets _links
      *
-     * @param \Swagger\Client\Model\Links $_links _links
+     * @param \Swagger\Client\Model\InlineResponse302[] $_links _links
      *
      * @return $this
      */

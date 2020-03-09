@@ -60,8 +60,8 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'personnel_type' => 'string',
         'name' => 'string',
-        'address' => '\Swagger\Client\Model\PropertyClaimPersonnelAddress',
-        'phone_numbers' => '\Swagger\Client\Model\PropertyClaimPersonnelPhoneNumbers[]',
+        'address' => '\Swagger\Client\Model\PropertyclaimsAddress',
+        'phone_numbers' => '\Swagger\Client\Model\PropertyclaimsPhoneNumbers[]',
         'emails' => 'string[]'
     ];
 
@@ -316,7 +316,7 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \Swagger\Client\Model\PropertyClaimPersonnelAddress
+     * @return \Swagger\Client\Model\PropertyclaimsAddress
      */
     public function getAddress()
     {
@@ -326,7 +326,7 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \Swagger\Client\Model\PropertyClaimPersonnelAddress $address address
+     * @param \Swagger\Client\Model\PropertyclaimsAddress $address address
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
     /**
      * Gets phone_numbers
      *
-     * @return \Swagger\Client\Model\PropertyClaimPersonnelPhoneNumbers[]
+     * @return \Swagger\Client\Model\PropertyclaimsPhoneNumbers[]
      */
     public function getPhoneNumbers()
     {
@@ -350,7 +350,7 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
     /**
      * Sets phone_numbers
      *
-     * @param \Swagger\Client\Model\PropertyClaimPersonnelPhoneNumbers[] $phone_numbers Phone numbers for the contact. The preferred phone number is the first in the list.
+     * @param \Swagger\Client\Model\PropertyclaimsPhoneNumbers[] $phone_numbers Phone numbers for the contact. The preferred phone number is the first in the list.
      *
      * @return $this
      */

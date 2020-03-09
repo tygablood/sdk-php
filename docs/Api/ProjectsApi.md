@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsCanceledPost**](ProjectsApi.md#projectsCanceledPost) | **POST** /projects/canceled | Canceled projects
-[**projectsCompletedPost**](ProjectsApi.md#projectsCompletedPost) | **POST** /projects/completed | Completed projects
+[**projectsCanceledPOST**](ProjectsApi.md#projectsCanceledPOST) | **POST** /projects/canceled | Canceled projects
+[**projectsCompletedPOST**](ProjectsApi.md#projectsCompletedPOST) | **POST** /projects/completed | Completed projects
 [**projectsOpenPOST**](ProjectsApi.md#projectsOpenPOST) | **POST** /projects/open | Open projects
 
 
-# **projectsCanceledPost**
-> projectsCanceledPost($body)
+# **projectsCanceledPOST**
+> projectsCanceledPOST($body)
 
 Canceled projects
 
@@ -36,12 +36,12 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ProjectReference(); // \Swagger\Client\Model\ProjectReference | A reference to the project to be canceled
+$body = new \Swagger\Client\Model\Body(); // \Swagger\Client\Model\Body | A reference to the project to be canceled
 
 try {
-    $apiInstance->projectsCanceledPost($body);
+    $apiInstance->projectsCanceledPOST($body);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->projectsCanceledPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->projectsCanceledPOST: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ProjectReference**](../Model/ProjectReference.md)| A reference to the project to be canceled |
+ **body** | [**\Swagger\Client\Model\Body**](../Model/Body.md)| A reference to the project to be canceled |
 
 ### Return type
 
@@ -67,8 +67,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **projectsCompletedPost**
-> projectsCompletedPost($body)
+# **projectsCompletedPOST**
+> projectsCompletedPOST($body)
 
 Completed projects
 
@@ -94,12 +94,12 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ProjectReference(); // \Swagger\Client\Model\ProjectReference | A reference to the project to be completed
+$body = new \Swagger\Client\Model\Body1(); // \Swagger\Client\Model\Body1 | A reference to the project to be completed
 
 try {
-    $apiInstance->projectsCompletedPost($body);
+    $apiInstance->projectsCompletedPOST($body);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->projectsCompletedPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->projectsCompletedPOST: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -108,7 +108,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ProjectReference**](../Model/ProjectReference.md)| A reference to the project to be completed |
+ **body** | [**\Swagger\Client\Model\Body1**](../Model/Body1.md)| A reference to the project to be completed |
 
 ### Return type
 
@@ -152,7 +152,7 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ProjectReference(); // \Swagger\Client\Model\ProjectReference | A reference to the project to be opened
+$body = new \Swagger\Client\Model\Body2(); // \Swagger\Client\Model\Body2 | A reference to the project to be opened
 
 try {
     $apiInstance->projectsOpenPOST($body);
@@ -166,7 +166,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ProjectReference**](../Model/ProjectReference.md)| A reference to the project to be opened |
+ **body** | [**\Swagger\Client\Model\Body2**](../Model/Body2.md)| A reference to the project to be opened |
 
 ### Return type
 

@@ -92,11 +92,11 @@ class PropertyEstimatesApi
      *
      * Create a new property estimate
      *
-     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate $body body (required)
+     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate1 $body body (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PropertyEstimateResponse
+     * @return \Swagger\Client\Model\PropertyEstimateResponse1
      */
     public function propertyEstimatesPost($body)
     {
@@ -109,15 +109,15 @@ class PropertyEstimatesApi
      *
      * Create a new property estimate
      *
-     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate1 $body (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PropertyEstimateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\PropertyEstimateResponse1, HTTP status code, HTTP response headers (array of strings)
      */
     public function propertyEstimatesPostWithHttpInfo($body)
     {
-        $returnType = '\Swagger\Client\Model\PropertyEstimateResponse';
+        $returnType = '\Swagger\Client\Model\PropertyEstimateResponse1';
         $request = $this->propertyEstimatesPostRequest($body);
 
         try {
@@ -169,7 +169,7 @@ class PropertyEstimatesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PropertyEstimateResponse',
+                        '\Swagger\Client\Model\PropertyEstimateResponse1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -184,7 +184,7 @@ class PropertyEstimatesApi
      *
      * Create a new property estimate
      *
-     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -204,14 +204,14 @@ class PropertyEstimatesApi
      *
      * Create a new property estimate
      *
-     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function propertyEstimatesPostAsyncWithHttpInfo($body)
     {
-        $returnType = '\Swagger\Client\Model\PropertyEstimateResponse';
+        $returnType = '\Swagger\Client\Model\PropertyEstimateResponse1';
         $request = $this->propertyEstimatesPostRequest($body);
 
         return $this->client
@@ -254,7 +254,7 @@ class PropertyEstimatesApi
     /**
      * Create request for operation 'propertyEstimatesPost'
      *
-     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate $body (required)
+     * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
