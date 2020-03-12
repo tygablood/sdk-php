@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsCanceledPOST**](ProjectsApi.md#projectsCanceledPOST) | **POST** /projects/canceled | Canceled projects
-[**projectsCompletedPOST**](ProjectsApi.md#projectsCompletedPOST) | **POST** /projects/completed | Completed projects
-[**projectsOpenPOST**](ProjectsApi.md#projectsOpenPOST) | **POST** /projects/open | Open projects
+[**addToCanceledProjects**](ProjectsApi.md#addToCanceledProjects) | **POST** /projects/canceled | Canceled projects
+[**addToCompletedProjects**](ProjectsApi.md#addToCompletedProjects) | **POST** /projects/completed | Completed projects
+[**addToOpenProjects**](ProjectsApi.md#addToOpenProjects) | **POST** /projects/open | Open projects
 
 
-# **projectsCanceledPOST**
-> projectsCanceledPOST($body)
+# **addToCanceledProjects**
+> addToCanceledProjects($body)
 
 Canceled projects
 
@@ -39,9 +39,9 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
 $body = new \Swagger\Client\Model\Body(); // \Swagger\Client\Model\Body | A reference to the project to be canceled
 
 try {
-    $apiInstance->projectsCanceledPOST($body);
+    $apiInstance->addToCanceledProjects($body);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->projectsCanceledPOST: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->addToCanceledProjects: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,8 +67,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **projectsCompletedPOST**
-> projectsCompletedPOST($body)
+# **addToCompletedProjects**
+> addToCompletedProjects($body)
 
 Completed projects
 
@@ -97,9 +97,9 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
 $body = new \Swagger\Client\Model\Body1(); // \Swagger\Client\Model\Body1 | A reference to the project to be completed
 
 try {
-    $apiInstance->projectsCompletedPOST($body);
+    $apiInstance->addToCompletedProjects($body);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->projectsCompletedPOST: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->addToCompletedProjects: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -125,8 +125,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **projectsOpenPOST**
-> projectsOpenPOST($body)
+# **addToOpenProjects**
+> addToOpenProjects($body)
 
 Open projects
 
@@ -155,9 +155,9 @@ $apiInstance = new Swagger\Client\Api\ProjectsApi(
 $body = new \Swagger\Client\Model\Body2(); // \Swagger\Client\Model\Body2 | A reference to the project to be opened
 
 try {
-    $apiInstance->projectsOpenPOST($body);
+    $apiInstance->addToOpenProjects($body);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->projectsOpenPOST: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->addToOpenProjects: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -13,7 +13,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -61,7 +61,7 @@ class PropertyClaimRequestCreate1 implements ModelInterface, ArrayAccess
         'template_ref' => 'string',
         'name' => 'string',
         'creator' => 'string',
-        'personnel' => '\Swagger\Client\Model\PropertyclaimsPersonnel[]',
+        'personnel' => '\Swagger\Client\Model\PropertyclaimsPersonnel',
         'policy_info' => '\Swagger\Client\Model\PropertyclaimsPolicyInfo',
         'claim_info' => '\Swagger\Client\Model\PropertyclaimsClaimInfo'
     ];
@@ -310,7 +310,7 @@ class PropertyClaimRequestCreate1 implements ModelInterface, ArrayAccess
     /**
      * Gets personnel
      *
-     * @return \Swagger\Client\Model\PropertyclaimsPersonnel[]
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnel
      */
     public function getPersonnel()
     {
@@ -320,7 +320,7 @@ class PropertyClaimRequestCreate1 implements ModelInterface, ArrayAccess
     /**
      * Sets personnel
      *
-     * @param \Swagger\Client\Model\PropertyclaimsPersonnel[] $personnel Contacts for the claim
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnel $personnel personnel
      *
      * @return $this
      */

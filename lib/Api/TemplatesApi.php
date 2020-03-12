@@ -12,7 +12,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -88,7 +88,7 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesGet
+     * Operation getTemplates
      *
      * Get available templates
      *
@@ -98,14 +98,14 @@ class TemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Templates1
      */
-    public function templatesGet($accept_language = null)
+    public function getTemplates($accept_language = null)
     {
-        list($response) = $this->templatesGetWithHttpInfo($accept_language);
+        list($response) = $this->getTemplatesWithHttpInfo($accept_language);
         return $response;
     }
 
     /**
-     * Operation templatesGetWithHttpInfo
+     * Operation getTemplatesWithHttpInfo
      *
      * Get available templates
      *
@@ -115,10 +115,10 @@ class TemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Templates1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function templatesGetWithHttpInfo($accept_language = null)
+    public function getTemplatesWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\Templates1';
-        $request = $this->templatesGetRequest($accept_language);
+        $request = $this->getTemplatesRequest($accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,7 +180,7 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesGetAsync
+     * Operation getTemplatesAsync
      *
      * Get available templates
      *
@@ -189,9 +189,9 @@ class TemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function templatesGetAsync($accept_language = null)
+    public function getTemplatesAsync($accept_language = null)
     {
-        return $this->templatesGetAsyncWithHttpInfo($accept_language)
+        return $this->getTemplatesAsyncWithHttpInfo($accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -200,7 +200,7 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesGetAsyncWithHttpInfo
+     * Operation getTemplatesAsyncWithHttpInfo
      *
      * Get available templates
      *
@@ -209,10 +209,10 @@ class TemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function templatesGetAsyncWithHttpInfo($accept_language = null)
+    public function getTemplatesAsyncWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\Templates1';
-        $request = $this->templatesGetRequest($accept_language);
+        $request = $this->getTemplatesRequest($accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -252,14 +252,14 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'templatesGet'
+     * Create request for operation 'getTemplates'
      *
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function templatesGetRequest($accept_language = null)
+    protected function getTemplatesRequest($accept_language = null)
     {
 
         $resourcePath = '/templates';

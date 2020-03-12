@@ -4,12 +4,12 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**propertyPerilsCausesOfLossGET**](PropertyPerilsApi.md#propertyPerilsCausesOfLossGET) | **GET** /property/policies/perils/{peril-id}/causes-of-loss | Cause of loss
-[**propertyPoliciesPerilsGet**](PropertyPerilsApi.md#propertyPoliciesPerilsGet) | **GET** /property/policies/perils | Types of loss
+[**getPropertyPolicyPerilCausesOfLoss**](PropertyPerilsApi.md#getPropertyPolicyPerilCausesOfLoss) | **GET** /property/policies/perils/{peril-id}/causes-of-loss | Cause of loss
+[**getPropertyPolicyPerils**](PropertyPerilsApi.md#getPropertyPolicyPerils) | **GET** /property/policies/perils | Types of loss
 
 
-# **propertyPerilsCausesOfLossGET**
-> \Swagger\Client\Model\CausesOfLoss1 propertyPerilsCausesOfLossGET($peril_id)
+# **getPropertyPolicyPerilCausesOfLoss**
+> \Swagger\Client\Model\CausesOfLoss1 getPropertyPolicyPerilCausesOfLoss($peril_id)
 
 Cause of loss
 
@@ -38,10 +38,10 @@ $apiInstance = new Swagger\Client\Api\PropertyPerilsApi(
 $peril_id = "peril_id_example"; // string | The id of the peril
 
 try {
-    $result = $apiInstance->propertyPerilsCausesOfLossGET($peril_id);
+    $result = $apiInstance->getPropertyPolicyPerilCausesOfLoss($peril_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PropertyPerilsApi->propertyPerilsCausesOfLossGET: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PropertyPerilsApi->getPropertyPolicyPerilCausesOfLoss: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,8 +67,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **propertyPoliciesPerilsGet**
-> \Swagger\Client\Model\Perils1 propertyPoliciesPerilsGet($accept_language)
+# **getPropertyPolicyPerils**
+> \Swagger\Client\Model\Perils1 getPropertyPolicyPerils($accept_language)
 
 Types of loss
 
@@ -97,10 +97,10 @@ $apiInstance = new Swagger\Client\Api\PropertyPerilsApi(
 $accept_language = "en-US"; // string | The culture to request resources for
 
 try {
-    $result = $apiInstance->propertyPoliciesPerilsGet($accept_language);
+    $result = $apiInstance->getPropertyPolicyPerils($accept_language);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PropertyPerilsApi->propertyPoliciesPerilsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PropertyPerilsApi->getPropertyPolicyPerils: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

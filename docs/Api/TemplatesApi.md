@@ -4,11 +4,11 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**templatesGet**](TemplatesApi.md#templatesGet) | **GET** /templates | Get available templates
+[**getTemplates**](TemplatesApi.md#getTemplates) | **GET** /templates | Get available templates
 
 
-# **templatesGet**
-> \Swagger\Client\Model\Templates1 templatesGet($accept_language)
+# **getTemplates**
+> \Swagger\Client\Model\Templates1 getTemplates($accept_language)
 
 Get available templates
 
@@ -37,10 +37,10 @@ $apiInstance = new Swagger\Client\Api\TemplatesApi(
 $accept_language = "en-US"; // string | The culture to request resources for
 
 try {
-    $result = $apiInstance->templatesGet($accept_language);
+    $result = $apiInstance->getTemplates($accept_language);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->templatesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->getTemplates: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

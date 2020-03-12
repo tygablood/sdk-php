@@ -13,7 +13,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com

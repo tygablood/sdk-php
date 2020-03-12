@@ -12,7 +12,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -88,7 +88,7 @@ class PropertyPerilsApi
     }
 
     /**
-     * Operation propertyPerilsCausesOfLossGET
+     * Operation getPropertyPolicyPerilCausesOfLoss
      *
      * Cause of loss
      *
@@ -98,14 +98,14 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\CausesOfLoss1
      */
-    public function propertyPerilsCausesOfLossGET($peril_id)
+    public function getPropertyPolicyPerilCausesOfLoss($peril_id)
     {
-        list($response) = $this->propertyPerilsCausesOfLossGETWithHttpInfo($peril_id);
+        list($response) = $this->getPropertyPolicyPerilCausesOfLossWithHttpInfo($peril_id);
         return $response;
     }
 
     /**
-     * Operation propertyPerilsCausesOfLossGETWithHttpInfo
+     * Operation getPropertyPolicyPerilCausesOfLossWithHttpInfo
      *
      * Cause of loss
      *
@@ -115,10 +115,10 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\CausesOfLoss1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function propertyPerilsCausesOfLossGETWithHttpInfo($peril_id)
+    public function getPropertyPolicyPerilCausesOfLossWithHttpInfo($peril_id)
     {
         $returnType = '\Swagger\Client\Model\CausesOfLoss1';
-        $request = $this->propertyPerilsCausesOfLossGETRequest($peril_id);
+        $request = $this->getPropertyPolicyPerilCausesOfLossRequest($peril_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,7 +180,7 @@ class PropertyPerilsApi
     }
 
     /**
-     * Operation propertyPerilsCausesOfLossGETAsync
+     * Operation getPropertyPolicyPerilCausesOfLossAsync
      *
      * Cause of loss
      *
@@ -189,9 +189,9 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function propertyPerilsCausesOfLossGETAsync($peril_id)
+    public function getPropertyPolicyPerilCausesOfLossAsync($peril_id)
     {
-        return $this->propertyPerilsCausesOfLossGETAsyncWithHttpInfo($peril_id)
+        return $this->getPropertyPolicyPerilCausesOfLossAsyncWithHttpInfo($peril_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -200,7 +200,7 @@ class PropertyPerilsApi
     }
 
     /**
-     * Operation propertyPerilsCausesOfLossGETAsyncWithHttpInfo
+     * Operation getPropertyPolicyPerilCausesOfLossAsyncWithHttpInfo
      *
      * Cause of loss
      *
@@ -209,10 +209,10 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function propertyPerilsCausesOfLossGETAsyncWithHttpInfo($peril_id)
+    public function getPropertyPolicyPerilCausesOfLossAsyncWithHttpInfo($peril_id)
     {
         $returnType = '\Swagger\Client\Model\CausesOfLoss1';
-        $request = $this->propertyPerilsCausesOfLossGETRequest($peril_id);
+        $request = $this->getPropertyPolicyPerilCausesOfLossRequest($peril_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -252,19 +252,19 @@ class PropertyPerilsApi
     }
 
     /**
-     * Create request for operation 'propertyPerilsCausesOfLossGET'
+     * Create request for operation 'getPropertyPolicyPerilCausesOfLoss'
      *
      * @param  string $peril_id The id of the peril (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function propertyPerilsCausesOfLossGETRequest($peril_id)
+    protected function getPropertyPolicyPerilCausesOfLossRequest($peril_id)
     {
         // verify the required parameter 'peril_id' is set
         if ($peril_id === null || (is_array($peril_id) && count($peril_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $peril_id when calling propertyPerilsCausesOfLossGET'
+                'Missing the required parameter $peril_id when calling getPropertyPolicyPerilCausesOfLoss'
             );
         }
 
@@ -367,7 +367,7 @@ class PropertyPerilsApi
     }
 
     /**
-     * Operation propertyPoliciesPerilsGet
+     * Operation getPropertyPolicyPerils
      *
      * Types of loss
      *
@@ -377,14 +377,14 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Perils1
      */
-    public function propertyPoliciesPerilsGet($accept_language = null)
+    public function getPropertyPolicyPerils($accept_language = null)
     {
-        list($response) = $this->propertyPoliciesPerilsGetWithHttpInfo($accept_language);
+        list($response) = $this->getPropertyPolicyPerilsWithHttpInfo($accept_language);
         return $response;
     }
 
     /**
-     * Operation propertyPoliciesPerilsGetWithHttpInfo
+     * Operation getPropertyPolicyPerilsWithHttpInfo
      *
      * Types of loss
      *
@@ -394,10 +394,10 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Perils1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function propertyPoliciesPerilsGetWithHttpInfo($accept_language = null)
+    public function getPropertyPolicyPerilsWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\Perils1';
-        $request = $this->propertyPoliciesPerilsGetRequest($accept_language);
+        $request = $this->getPropertyPolicyPerilsRequest($accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -459,7 +459,7 @@ class PropertyPerilsApi
     }
 
     /**
-     * Operation propertyPoliciesPerilsGetAsync
+     * Operation getPropertyPolicyPerilsAsync
      *
      * Types of loss
      *
@@ -468,9 +468,9 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function propertyPoliciesPerilsGetAsync($accept_language = null)
+    public function getPropertyPolicyPerilsAsync($accept_language = null)
     {
-        return $this->propertyPoliciesPerilsGetAsyncWithHttpInfo($accept_language)
+        return $this->getPropertyPolicyPerilsAsyncWithHttpInfo($accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -479,7 +479,7 @@ class PropertyPerilsApi
     }
 
     /**
-     * Operation propertyPoliciesPerilsGetAsyncWithHttpInfo
+     * Operation getPropertyPolicyPerilsAsyncWithHttpInfo
      *
      * Types of loss
      *
@@ -488,10 +488,10 @@ class PropertyPerilsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function propertyPoliciesPerilsGetAsyncWithHttpInfo($accept_language = null)
+    public function getPropertyPolicyPerilsAsyncWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\Perils1';
-        $request = $this->propertyPoliciesPerilsGetRequest($accept_language);
+        $request = $this->getPropertyPolicyPerilsRequest($accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -531,14 +531,14 @@ class PropertyPerilsApi
     }
 
     /**
-     * Create request for operation 'propertyPoliciesPerilsGet'
+     * Create request for operation 'getPropertyPolicyPerils'
      *
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function propertyPoliciesPerilsGetRequest($accept_language = null)
+    protected function getPropertyPolicyPerilsRequest($accept_language = null)
     {
 
         $resourcePath = '/property/policies/perils';

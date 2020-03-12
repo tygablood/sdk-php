@@ -12,7 +12,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -88,7 +88,7 @@ class PropertyEstimatesApi
     }
 
     /**
-     * Operation propertyEstimatesPost
+     * Operation createPropertyEstimate
      *
      * Create a new property estimate
      *
@@ -98,14 +98,14 @@ class PropertyEstimatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\PropertyEstimateResponse1
      */
-    public function propertyEstimatesPost($body)
+    public function createPropertyEstimate($body)
     {
-        list($response) = $this->propertyEstimatesPostWithHttpInfo($body);
+        list($response) = $this->createPropertyEstimateWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation propertyEstimatesPostWithHttpInfo
+     * Operation createPropertyEstimateWithHttpInfo
      *
      * Create a new property estimate
      *
@@ -115,10 +115,10 @@ class PropertyEstimatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\PropertyEstimateResponse1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function propertyEstimatesPostWithHttpInfo($body)
+    public function createPropertyEstimateWithHttpInfo($body)
     {
         $returnType = '\Swagger\Client\Model\PropertyEstimateResponse1';
-        $request = $this->propertyEstimatesPostRequest($body);
+        $request = $this->createPropertyEstimateRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,7 +180,7 @@ class PropertyEstimatesApi
     }
 
     /**
-     * Operation propertyEstimatesPostAsync
+     * Operation createPropertyEstimateAsync
      *
      * Create a new property estimate
      *
@@ -189,9 +189,9 @@ class PropertyEstimatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function propertyEstimatesPostAsync($body)
+    public function createPropertyEstimateAsync($body)
     {
-        return $this->propertyEstimatesPostAsyncWithHttpInfo($body)
+        return $this->createPropertyEstimateAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -200,7 +200,7 @@ class PropertyEstimatesApi
     }
 
     /**
-     * Operation propertyEstimatesPostAsyncWithHttpInfo
+     * Operation createPropertyEstimateAsyncWithHttpInfo
      *
      * Create a new property estimate
      *
@@ -209,10 +209,10 @@ class PropertyEstimatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function propertyEstimatesPostAsyncWithHttpInfo($body)
+    public function createPropertyEstimateAsyncWithHttpInfo($body)
     {
         $returnType = '\Swagger\Client\Model\PropertyEstimateResponse1';
-        $request = $this->propertyEstimatesPostRequest($body);
+        $request = $this->createPropertyEstimateRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -252,19 +252,19 @@ class PropertyEstimatesApi
     }
 
     /**
-     * Create request for operation 'propertyEstimatesPost'
+     * Create request for operation 'createPropertyEstimate'
      *
      * @param  \Swagger\Client\Model\PropertyEstimateRequestCreate1 $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function propertyEstimatesPostRequest($body)
+    protected function createPropertyEstimateRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling propertyEstimatesPost'
+                'Missing the required parameter $body when calling createPropertyEstimate'
             );
         }
 

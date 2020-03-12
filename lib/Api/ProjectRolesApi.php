@@ -12,7 +12,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -88,285 +88,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Operation projectRolesGET
-     *
-     * Project roles
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
-     * @param  string $project_type Filter roles by project type (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Roles1
-     */
-    public function projectRolesGET($accept_language = null, $project_type = null)
-    {
-        list($response) = $this->projectRolesGETWithHttpInfo($accept_language, $project_type);
-        return $response;
-    }
-
-    /**
-     * Operation projectRolesGETWithHttpInfo
-     *
-     * Project roles
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
-     * @param  string $project_type Filter roles by project type (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Roles1, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function projectRolesGETWithHttpInfo($accept_language = null, $project_type = null)
-    {
-        $returnType = '\Swagger\Client\Model\Roles1';
-        $request = $this->projectRolesGETRequest($accept_language, $project_type);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\Roles1',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation projectRolesGETAsync
-     *
-     * Project roles
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
-     * @param  string $project_type Filter roles by project type (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function projectRolesGETAsync($accept_language = null, $project_type = null)
-    {
-        return $this->projectRolesGETAsyncWithHttpInfo($accept_language, $project_type)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation projectRolesGETAsyncWithHttpInfo
-     *
-     * Project roles
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
-     * @param  string $project_type Filter roles by project type (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function projectRolesGETAsyncWithHttpInfo($accept_language = null, $project_type = null)
-    {
-        $returnType = '\Swagger\Client\Model\Roles1';
-        $request = $this->projectRolesGETRequest($accept_language, $project_type);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'projectRolesGET'
-     *
-     * @param  string $accept_language The culture to request resources for (optional)
-     * @param  string $project_type Filter roles by project type (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function projectRolesGETRequest($accept_language = null, $project_type = null)
-    {
-
-        $resourcePath = '/projects/roles';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($project_type !== null) {
-            $queryParams['projectType'] = ObjectSerializer::toQueryValue($project_type);
-        }
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = \GuzzleHttp\json_encode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation projectsOpenRolesAssignPUT
+     * Operation addUserToOpenProjectRole
      *
      * Assign a project role
      *
@@ -378,13 +100,13 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsOpenRolesAssignPUT($project_id, $role_id, $role_user_email)
+    public function addUserToOpenProjectRole($project_id, $role_id, $role_user_email)
     {
-        $this->projectsOpenRolesAssignPUTWithHttpInfo($project_id, $role_id, $role_user_email);
+        $this->addUserToOpenProjectRoleWithHttpInfo($project_id, $role_id, $role_user_email);
     }
 
     /**
-     * Operation projectsOpenRolesAssignPUTWithHttpInfo
+     * Operation addUserToOpenProjectRoleWithHttpInfo
      *
      * Assign a project role
      *
@@ -396,10 +118,10 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsOpenRolesAssignPUTWithHttpInfo($project_id, $role_id, $role_user_email)
+    public function addUserToOpenProjectRoleWithHttpInfo($project_id, $role_id, $role_user_email)
     {
         $returnType = '';
-        $request = $this->projectsOpenRolesAssignPUTRequest($project_id, $role_id, $role_user_email);
+        $request = $this->addUserToOpenProjectRoleRequest($project_id, $role_id, $role_user_email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -439,7 +161,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Operation projectsOpenRolesAssignPUTAsync
+     * Operation addUserToOpenProjectRoleAsync
      *
      * Assign a project role
      *
@@ -450,9 +172,9 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenRolesAssignPUTAsync($project_id, $role_id, $role_user_email)
+    public function addUserToOpenProjectRoleAsync($project_id, $role_id, $role_user_email)
     {
-        return $this->projectsOpenRolesAssignPUTAsyncWithHttpInfo($project_id, $role_id, $role_user_email)
+        return $this->addUserToOpenProjectRoleAsyncWithHttpInfo($project_id, $role_id, $role_user_email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -461,7 +183,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Operation projectsOpenRolesAssignPUTAsyncWithHttpInfo
+     * Operation addUserToOpenProjectRoleAsyncWithHttpInfo
      *
      * Assign a project role
      *
@@ -472,10 +194,10 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenRolesAssignPUTAsyncWithHttpInfo($project_id, $role_id, $role_user_email)
+    public function addUserToOpenProjectRoleAsyncWithHttpInfo($project_id, $role_id, $role_user_email)
     {
         $returnType = '';
-        $request = $this->projectsOpenRolesAssignPUTRequest($project_id, $role_id, $role_user_email);
+        $request = $this->addUserToOpenProjectRoleRequest($project_id, $role_id, $role_user_email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -501,7 +223,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Create request for operation 'projectsOpenRolesAssignPUT'
+     * Create request for operation 'addUserToOpenProjectRole'
      *
      * @param  string $project_id The id of the project to add the user to (required)
      * @param  string $role_id The id of the role on the project to which the user should be added (required)
@@ -510,24 +232,24 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsOpenRolesAssignPUTRequest($project_id, $role_id, $role_user_email)
+    protected function addUserToOpenProjectRoleRequest($project_id, $role_id, $role_user_email)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling projectsOpenRolesAssignPUT'
+                'Missing the required parameter $project_id when calling addUserToOpenProjectRole'
             );
         }
         // verify the required parameter 'role_id' is set
         if ($role_id === null || (is_array($role_id) && count($role_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_id when calling projectsOpenRolesAssignPUT'
+                'Missing the required parameter $role_id when calling addUserToOpenProjectRole'
             );
         }
         // verify the required parameter 'role_user_email' is set
         if ($role_user_email === null || (is_array($role_user_email) && count($role_user_email) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_user_email when calling projectsOpenRolesAssignPUT'
+                'Missing the required parameter $role_user_email when calling addUserToOpenProjectRole'
             );
         }
 
@@ -646,7 +368,285 @@ class ProjectRolesApi
     }
 
     /**
-     * Operation projectsOpenRolesDELETE
+     * Operation getProjectRoles
+     *
+     * Project roles
+     *
+     * @param  string $accept_language The culture to request resources for (optional)
+     * @param  string $project_type Filter roles by project type (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\Roles1
+     */
+    public function getProjectRoles($accept_language = null, $project_type = null)
+    {
+        list($response) = $this->getProjectRolesWithHttpInfo($accept_language, $project_type);
+        return $response;
+    }
+
+    /**
+     * Operation getProjectRolesWithHttpInfo
+     *
+     * Project roles
+     *
+     * @param  string $accept_language The culture to request resources for (optional)
+     * @param  string $project_type Filter roles by project type (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\Roles1, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProjectRolesWithHttpInfo($accept_language = null, $project_type = null)
+    {
+        $returnType = '\Swagger\Client\Model\Roles1';
+        $request = $this->getProjectRolesRequest($accept_language, $project_type);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\Roles1',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getProjectRolesAsync
+     *
+     * Project roles
+     *
+     * @param  string $accept_language The culture to request resources for (optional)
+     * @param  string $project_type Filter roles by project type (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProjectRolesAsync($accept_language = null, $project_type = null)
+    {
+        return $this->getProjectRolesAsyncWithHttpInfo($accept_language, $project_type)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getProjectRolesAsyncWithHttpInfo
+     *
+     * Project roles
+     *
+     * @param  string $accept_language The culture to request resources for (optional)
+     * @param  string $project_type Filter roles by project type (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProjectRolesAsyncWithHttpInfo($accept_language = null, $project_type = null)
+    {
+        $returnType = '\Swagger\Client\Model\Roles1';
+        $request = $this->getProjectRolesRequest($accept_language, $project_type);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getProjectRoles'
+     *
+     * @param  string $accept_language The culture to request resources for (optional)
+     * @param  string $project_type Filter roles by project type (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getProjectRolesRequest($accept_language = null, $project_type = null)
+    {
+
+        $resourcePath = '/projects/roles';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($project_type !== null) {
+            $queryParams['projectType'] = ObjectSerializer::toQueryValue($project_type);
+        }
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removeUserFromOpenProjectRole
      *
      * Remove a project role
      *
@@ -658,13 +658,13 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsOpenRolesDELETE($claim_id, $role_id, $role_user_email)
+    public function removeUserFromOpenProjectRole($claim_id, $role_id, $role_user_email)
     {
-        $this->projectsOpenRolesDELETEWithHttpInfo($claim_id, $role_id, $role_user_email);
+        $this->removeUserFromOpenProjectRoleWithHttpInfo($claim_id, $role_id, $role_user_email);
     }
 
     /**
-     * Operation projectsOpenRolesDELETEWithHttpInfo
+     * Operation removeUserFromOpenProjectRoleWithHttpInfo
      *
      * Remove a project role
      *
@@ -676,10 +676,10 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsOpenRolesDELETEWithHttpInfo($claim_id, $role_id, $role_user_email)
+    public function removeUserFromOpenProjectRoleWithHttpInfo($claim_id, $role_id, $role_user_email)
     {
         $returnType = '';
-        $request = $this->projectsOpenRolesDELETERequest($claim_id, $role_id, $role_user_email);
+        $request = $this->removeUserFromOpenProjectRoleRequest($claim_id, $role_id, $role_user_email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -719,7 +719,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Operation projectsOpenRolesDELETEAsync
+     * Operation removeUserFromOpenProjectRoleAsync
      *
      * Remove a project role
      *
@@ -730,9 +730,9 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenRolesDELETEAsync($claim_id, $role_id, $role_user_email)
+    public function removeUserFromOpenProjectRoleAsync($claim_id, $role_id, $role_user_email)
     {
-        return $this->projectsOpenRolesDELETEAsyncWithHttpInfo($claim_id, $role_id, $role_user_email)
+        return $this->removeUserFromOpenProjectRoleAsyncWithHttpInfo($claim_id, $role_id, $role_user_email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -741,7 +741,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Operation projectsOpenRolesDELETEAsyncWithHttpInfo
+     * Operation removeUserFromOpenProjectRoleAsyncWithHttpInfo
      *
      * Remove a project role
      *
@@ -752,10 +752,10 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenRolesDELETEAsyncWithHttpInfo($claim_id, $role_id, $role_user_email)
+    public function removeUserFromOpenProjectRoleAsyncWithHttpInfo($claim_id, $role_id, $role_user_email)
     {
         $returnType = '';
-        $request = $this->projectsOpenRolesDELETERequest($claim_id, $role_id, $role_user_email);
+        $request = $this->removeUserFromOpenProjectRoleRequest($claim_id, $role_id, $role_user_email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -781,7 +781,7 @@ class ProjectRolesApi
     }
 
     /**
-     * Create request for operation 'projectsOpenRolesDELETE'
+     * Create request for operation 'removeUserFromOpenProjectRole'
      *
      * @param  string $claim_id The id of the project to remove the user from (required)
      * @param  string $role_id The id of the role on the project from which the user should be removed (required)
@@ -790,24 +790,24 @@ class ProjectRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsOpenRolesDELETERequest($claim_id, $role_id, $role_user_email)
+    protected function removeUserFromOpenProjectRoleRequest($claim_id, $role_id, $role_user_email)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling projectsOpenRolesDELETE'
+                'Missing the required parameter $claim_id when calling removeUserFromOpenProjectRole'
             );
         }
         // verify the required parameter 'role_id' is set
         if ($role_id === null || (is_array($role_id) && count($role_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_id when calling projectsOpenRolesDELETE'
+                'Missing the required parameter $role_id when calling removeUserFromOpenProjectRole'
             );
         }
         // verify the required parameter 'role_user_email' is set
         if ($role_user_email === null || (is_array($role_user_email) && count($role_user_email) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_user_email when calling projectsOpenRolesDELETE'
+                'Missing the required parameter $role_user_email when calling removeUserFromOpenProjectRole'
             );
         }
 

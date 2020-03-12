@@ -12,7 +12,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -88,7 +88,7 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesAdditionalCoveragesGET
+     * Operation getPropertyPolicyCoverageAdditionalCoverages
      *
      * Property policy additional coverages
      *
@@ -99,14 +99,14 @@ class PropertyCoveragesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AdditionalCoverages
      */
-    public function projectsPoliciesCoveragesAdditionalCoveragesGET($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoverageAdditionalCoverages($coverage_id, $accept_language = null)
     {
-        list($response) = $this->projectsPoliciesCoveragesAdditionalCoveragesGETWithHttpInfo($coverage_id, $accept_language);
+        list($response) = $this->getPropertyPolicyCoverageAdditionalCoveragesWithHttpInfo($coverage_id, $accept_language);
         return $response;
     }
 
     /**
-     * Operation projectsPoliciesCoveragesAdditionalCoveragesGETWithHttpInfo
+     * Operation getPropertyPolicyCoverageAdditionalCoveragesWithHttpInfo
      *
      * Property policy additional coverages
      *
@@ -117,10 +117,10 @@ class PropertyCoveragesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AdditionalCoverages, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsPoliciesCoveragesAdditionalCoveragesGETWithHttpInfo($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoverageAdditionalCoveragesWithHttpInfo($coverage_id, $accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\AdditionalCoverages';
-        $request = $this->projectsPoliciesCoveragesAdditionalCoveragesGETRequest($coverage_id, $accept_language);
+        $request = $this->getPropertyPolicyCoverageAdditionalCoveragesRequest($coverage_id, $accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -182,7 +182,7 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesAdditionalCoveragesGETAsync
+     * Operation getPropertyPolicyCoverageAdditionalCoveragesAsync
      *
      * Property policy additional coverages
      *
@@ -192,9 +192,9 @@ class PropertyCoveragesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPoliciesCoveragesAdditionalCoveragesGETAsync($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoverageAdditionalCoveragesAsync($coverage_id, $accept_language = null)
     {
-        return $this->projectsPoliciesCoveragesAdditionalCoveragesGETAsyncWithHttpInfo($coverage_id, $accept_language)
+        return $this->getPropertyPolicyCoverageAdditionalCoveragesAsyncWithHttpInfo($coverage_id, $accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -203,7 +203,7 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesAdditionalCoveragesGETAsyncWithHttpInfo
+     * Operation getPropertyPolicyCoverageAdditionalCoveragesAsyncWithHttpInfo
      *
      * Property policy additional coverages
      *
@@ -213,10 +213,10 @@ class PropertyCoveragesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPoliciesCoveragesAdditionalCoveragesGETAsyncWithHttpInfo($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoverageAdditionalCoveragesAsyncWithHttpInfo($coverage_id, $accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\AdditionalCoverages';
-        $request = $this->projectsPoliciesCoveragesAdditionalCoveragesGETRequest($coverage_id, $accept_language);
+        $request = $this->getPropertyPolicyCoverageAdditionalCoveragesRequest($coverage_id, $accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -256,7 +256,7 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Create request for operation 'projectsPoliciesCoveragesAdditionalCoveragesGET'
+     * Create request for operation 'getPropertyPolicyCoverageAdditionalCoverages'
      *
      * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
@@ -264,12 +264,12 @@ class PropertyCoveragesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsPoliciesCoveragesAdditionalCoveragesGETRequest($coverage_id, $accept_language = null)
+    protected function getPropertyPolicyCoverageAdditionalCoveragesRequest($coverage_id, $accept_language = null)
     {
         // verify the required parameter 'coverage_id' is set
         if ($coverage_id === null || (is_array($coverage_id) && count($coverage_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $coverage_id when calling projectsPoliciesCoveragesAdditionalCoveragesGET'
+                'Missing the required parameter $coverage_id when calling getPropertyPolicyCoverageAdditionalCoverages'
             );
         }
 
@@ -376,37 +376,39 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesGET
+     * Operation getPropertyPolicyCoverageSublimits
      *
-     * Property policy coverages
+     * Property policy sublimits
      *
+     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Coverages
+     * @return \Swagger\Client\Model\Sublimits
      */
-    public function projectsPoliciesCoveragesGET($accept_language = null)
+    public function getPropertyPolicyCoverageSublimits($coverage_id, $accept_language = null)
     {
-        list($response) = $this->projectsPoliciesCoveragesGETWithHttpInfo($accept_language);
+        list($response) = $this->getPropertyPolicyCoverageSublimitsWithHttpInfo($coverage_id, $accept_language);
         return $response;
     }
 
     /**
-     * Operation projectsPoliciesCoveragesGETWithHttpInfo
+     * Operation getPropertyPolicyCoverageSublimitsWithHttpInfo
      *
-     * Property policy coverages
+     * Property policy sublimits
      *
+     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Coverages, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Sublimits, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsPoliciesCoveragesGETWithHttpInfo($accept_language = null)
+    public function getPropertyPolicyCoverageSublimitsWithHttpInfo($coverage_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Coverages';
-        $request = $this->projectsPoliciesCoveragesGETRequest($accept_language);
+        $returnType = '\Swagger\Client\Model\Sublimits';
+        $request = $this->getPropertyPolicyCoverageSublimitsRequest($coverage_id, $accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -457,7 +459,7 @@ class PropertyCoveragesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Coverages',
+                        '\Swagger\Client\Model\Sublimits',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -468,18 +470,19 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesGETAsync
+     * Operation getPropertyPolicyCoverageSublimitsAsync
      *
-     * Property policy coverages
+     * Property policy sublimits
      *
+     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPoliciesCoveragesGETAsync($accept_language = null)
+    public function getPropertyPolicyCoverageSublimitsAsync($coverage_id, $accept_language = null)
     {
-        return $this->projectsPoliciesCoveragesGETAsyncWithHttpInfo($accept_language)
+        return $this->getPropertyPolicyCoverageSublimitsAsyncWithHttpInfo($coverage_id, $accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -488,19 +491,20 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesGETAsyncWithHttpInfo
+     * Operation getPropertyPolicyCoverageSublimitsAsyncWithHttpInfo
      *
-     * Property policy coverages
+     * Property policy sublimits
      *
+     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPoliciesCoveragesGETAsyncWithHttpInfo($accept_language = null)
+    public function getPropertyPolicyCoverageSublimitsAsyncWithHttpInfo($coverage_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Coverages';
-        $request = $this->projectsPoliciesCoveragesGETRequest($accept_language);
+        $returnType = '\Swagger\Client\Model\Sublimits';
+        $request = $this->getPropertyPolicyCoverageSublimitsRequest($coverage_id, $accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -540,17 +544,24 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Create request for operation 'projectsPoliciesCoveragesGET'
+     * Create request for operation 'getPropertyPolicyCoverageSublimits'
      *
+     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsPoliciesCoveragesGETRequest($accept_language = null)
+    protected function getPropertyPolicyCoverageSublimitsRequest($coverage_id, $accept_language = null)
     {
+        // verify the required parameter 'coverage_id' is set
+        if ($coverage_id === null || (is_array($coverage_id) && count($coverage_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $coverage_id when calling getPropertyPolicyCoverageSublimits'
+            );
+        }
 
-        $resourcePath = '/property/policies/coverages';
+        $resourcePath = '/property/policies/coverages/{coverage-id}/sublimits';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -562,6 +573,14 @@ class PropertyCoveragesApi
             $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
         }
 
+        // path params
+        if ($coverage_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'coverage-id' . '}',
+                ObjectSerializer::toPathValue($coverage_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -645,39 +664,37 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesSublimitsGET
+     * Operation getPropertyPolicyCoverages
      *
-     * Property policy sublimits
+     * Property policy coverages
      *
-     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Sublimits
+     * @return \Swagger\Client\Model\Coverages
      */
-    public function projectsPoliciesCoveragesSublimitsGET($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoverages($accept_language = null)
     {
-        list($response) = $this->projectsPoliciesCoveragesSublimitsGETWithHttpInfo($coverage_id, $accept_language);
+        list($response) = $this->getPropertyPolicyCoveragesWithHttpInfo($accept_language);
         return $response;
     }
 
     /**
-     * Operation projectsPoliciesCoveragesSublimitsGETWithHttpInfo
+     * Operation getPropertyPolicyCoveragesWithHttpInfo
      *
-     * Property policy sublimits
+     * Property policy coverages
      *
-     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Sublimits, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Coverages, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsPoliciesCoveragesSublimitsGETWithHttpInfo($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoveragesWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Sublimits';
-        $request = $this->projectsPoliciesCoveragesSublimitsGETRequest($coverage_id, $accept_language);
+        $returnType = '\Swagger\Client\Model\Coverages';
+        $request = $this->getPropertyPolicyCoveragesRequest($accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -728,7 +745,7 @@ class PropertyCoveragesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Sublimits',
+                        '\Swagger\Client\Model\Coverages',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -739,19 +756,18 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesSublimitsGETAsync
+     * Operation getPropertyPolicyCoveragesAsync
      *
-     * Property policy sublimits
+     * Property policy coverages
      *
-     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPoliciesCoveragesSublimitsGETAsync($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoveragesAsync($accept_language = null)
     {
-        return $this->projectsPoliciesCoveragesSublimitsGETAsyncWithHttpInfo($coverage_id, $accept_language)
+        return $this->getPropertyPolicyCoveragesAsyncWithHttpInfo($accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -760,20 +776,19 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Operation projectsPoliciesCoveragesSublimitsGETAsyncWithHttpInfo
+     * Operation getPropertyPolicyCoveragesAsyncWithHttpInfo
      *
-     * Property policy sublimits
+     * Property policy coverages
      *
-     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPoliciesCoveragesSublimitsGETAsyncWithHttpInfo($coverage_id, $accept_language = null)
+    public function getPropertyPolicyCoveragesAsyncWithHttpInfo($accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\Sublimits';
-        $request = $this->projectsPoliciesCoveragesSublimitsGETRequest($coverage_id, $accept_language);
+        $returnType = '\Swagger\Client\Model\Coverages';
+        $request = $this->getPropertyPolicyCoveragesRequest($accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -813,24 +828,17 @@ class PropertyCoveragesApi
     }
 
     /**
-     * Create request for operation 'projectsPoliciesCoveragesSublimitsGET'
+     * Create request for operation 'getPropertyPolicyCoverages'
      *
-     * @param  string $coverage_id The coverage id (required)
      * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsPoliciesCoveragesSublimitsGETRequest($coverage_id, $accept_language = null)
+    protected function getPropertyPolicyCoveragesRequest($accept_language = null)
     {
-        // verify the required parameter 'coverage_id' is set
-        if ($coverage_id === null || (is_array($coverage_id) && count($coverage_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $coverage_id when calling projectsPoliciesCoveragesSublimitsGET'
-            );
-        }
 
-        $resourcePath = '/property/policies/coverages/{coverage-id}/sublimits';
+        $resourcePath = '/property/policies/coverages';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -842,14 +850,6 @@ class PropertyCoveragesApi
             $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
         }
 
-        // path params
-        if ($coverage_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'coverage-id' . '}',
-                ObjectSerializer::toPathValue($coverage_id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;

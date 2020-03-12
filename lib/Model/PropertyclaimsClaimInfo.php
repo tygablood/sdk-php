@@ -13,7 +13,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -64,6 +64,7 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
         'first_notice_of_loss' => '\DateTime',
         'peril_ref' => 'string',
         'cause_of_loss_ref' => 'string',
+        'cause_of_loss_explanation' => 'string',
         'cat_code' => 'string',
         'agent_number' => 'string',
         'reference_number' => 'string',
@@ -83,6 +84,7 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
         'first_notice_of_loss' => 'date-time',
         'peril_ref' => 'uri',
         'cause_of_loss_ref' => 'uri',
+        'cause_of_loss_explanation' => null,
         'cat_code' => null,
         'agent_number' => null,
         'reference_number' => null,
@@ -123,6 +125,7 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
         'first_notice_of_loss' => 'firstNoticeOfLoss',
         'peril_ref' => 'perilRef',
         'cause_of_loss_ref' => 'causeOfLossRef',
+        'cause_of_loss_explanation' => 'causeOfLossExplanation',
         'cat_code' => 'catCode',
         'agent_number' => 'agentNumber',
         'reference_number' => 'referenceNumber',
@@ -142,6 +145,7 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
         'first_notice_of_loss' => 'setFirstNoticeOfLoss',
         'peril_ref' => 'setPerilRef',
         'cause_of_loss_ref' => 'setCauseOfLossRef',
+        'cause_of_loss_explanation' => 'setCauseOfLossExplanation',
         'cat_code' => 'setCatCode',
         'agent_number' => 'setAgentNumber',
         'reference_number' => 'setReferenceNumber',
@@ -161,6 +165,7 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
         'first_notice_of_loss' => 'getFirstNoticeOfLoss',
         'peril_ref' => 'getPerilRef',
         'cause_of_loss_ref' => 'getCauseOfLossRef',
+        'cause_of_loss_explanation' => 'getCauseOfLossExplanation',
         'cat_code' => 'getCatCode',
         'agent_number' => 'getAgentNumber',
         'reference_number' => 'getReferenceNumber',
@@ -234,6 +239,7 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
         $this->container['first_notice_of_loss'] = isset($data['first_notice_of_loss']) ? $data['first_notice_of_loss'] : null;
         $this->container['peril_ref'] = isset($data['peril_ref']) ? $data['peril_ref'] : null;
         $this->container['cause_of_loss_ref'] = isset($data['cause_of_loss_ref']) ? $data['cause_of_loss_ref'] : null;
+        $this->container['cause_of_loss_explanation'] = isset($data['cause_of_loss_explanation']) ? $data['cause_of_loss_explanation'] : null;
         $this->container['cat_code'] = isset($data['cat_code']) ? $data['cat_code'] : null;
         $this->container['agent_number'] = isset($data['agent_number']) ? $data['agent_number'] : null;
         $this->container['reference_number'] = isset($data['reference_number']) ? $data['reference_number'] : null;
@@ -405,6 +411,30 @@ class PropertyclaimsClaimInfo implements ModelInterface, ArrayAccess
     public function setCauseOfLossRef($cause_of_loss_ref)
     {
         $this->container['cause_of_loss_ref'] = $cause_of_loss_ref;
+
+        return $this;
+    }
+
+    /**
+     * Gets cause_of_loss_explanation
+     *
+     * @return string
+     */
+    public function getCauseOfLossExplanation()
+    {
+        return $this->container['cause_of_loss_explanation'];
+    }
+
+    /**
+     * Sets cause_of_loss_explanation
+     *
+     * @param string $cause_of_loss_explanation Notes explaining the cause of loss. Required if causeOfLossRef refers to 'Other'
+     *
+     * @return $this
+     */
+    public function setCauseOfLossExplanation($cause_of_loss_explanation)
+    {
+        $this->container['cause_of_loss_explanation'] = $cause_of_loss_explanation;
 
         return $this;
     }

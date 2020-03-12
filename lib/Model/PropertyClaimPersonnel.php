@@ -13,7 +13,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -58,11 +58,13 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'personnel_type' => 'string',
-        'name' => 'string',
-        'address' => '\Swagger\Client\Model\PropertyclaimsAddress',
-        'phone_numbers' => '\Swagger\Client\Model\PropertyclaimsPhoneNumbers[]',
-        'emails' => 'string[]'
+        'agency' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'broker_agent' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'claim_handler' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'insurer' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'loss_adjuster' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'property_contact' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'reference' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency'
     ];
 
     /**
@@ -71,11 +73,13 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'personnel_type' => null,
-        'name' => null,
-        'address' => null,
-        'phone_numbers' => null,
-        'emails' => 'email'
+        'agency' => null,
+        'broker_agent' => null,
+        'claim_handler' => null,
+        'insurer' => null,
+        'loss_adjuster' => null,
+        'property_contact' => null,
+        'reference' => null
     ];
 
     /**
@@ -105,11 +109,13 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'personnel_type' => 'personnelType',
-        'name' => 'name',
-        'address' => 'address',
-        'phone_numbers' => 'phoneNumbers',
-        'emails' => 'emails'
+        'agency' => 'agency',
+        'broker_agent' => 'brokerAgent',
+        'claim_handler' => 'claimHandler',
+        'insurer' => 'insurer',
+        'loss_adjuster' => 'lossAdjuster',
+        'property_contact' => 'propertyContact',
+        'reference' => 'reference'
     ];
 
     /**
@@ -118,11 +124,13 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'personnel_type' => 'setPersonnelType',
-        'name' => 'setName',
-        'address' => 'setAddress',
-        'phone_numbers' => 'setPhoneNumbers',
-        'emails' => 'setEmails'
+        'agency' => 'setAgency',
+        'broker_agent' => 'setBrokerAgent',
+        'claim_handler' => 'setClaimHandler',
+        'insurer' => 'setInsurer',
+        'loss_adjuster' => 'setLossAdjuster',
+        'property_contact' => 'setPropertyContact',
+        'reference' => 'setReference'
     ];
 
     /**
@@ -131,11 +139,13 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'personnel_type' => 'getPersonnelType',
-        'name' => 'getName',
-        'address' => 'getAddress',
-        'phone_numbers' => 'getPhoneNumbers',
-        'emails' => 'getEmails'
+        'agency' => 'getAgency',
+        'broker_agent' => 'getBrokerAgent',
+        'claim_handler' => 'getClaimHandler',
+        'insurer' => 'getInsurer',
+        'loss_adjuster' => 'getLossAdjuster',
+        'property_contact' => 'getPropertyContact',
+        'reference' => 'getReference'
     ];
 
     /**
@@ -179,27 +189,8 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const PERSONNEL_TYPE_CLAIM_REP = 'ClaimRep';
-    const PERSONNEL_TYPE_AGENCY = 'Agency';
-    const PERSONNEL_TYPE_PROPERTY_CONTACT = 'PropertyContact';
-    const PERSONNEL_TYPE_REFERENCE = 'Reference';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPersonnelTypeAllowableValues()
-    {
-        return [
-            self::PERSONNEL_TYPE_CLAIM_REP,
-            self::PERSONNEL_TYPE_AGENCY,
-            self::PERSONNEL_TYPE_PROPERTY_CONTACT,
-            self::PERSONNEL_TYPE_REFERENCE,
-        ];
-    }
     
 
     /**
@@ -217,11 +208,13 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['personnel_type'] = isset($data['personnel_type']) ? $data['personnel_type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['phone_numbers'] = isset($data['phone_numbers']) ? $data['phone_numbers'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
+        $this->container['agency'] = isset($data['agency']) ? $data['agency'] : null;
+        $this->container['broker_agent'] = isset($data['broker_agent']) ? $data['broker_agent'] : null;
+        $this->container['claim_handler'] = isset($data['claim_handler']) ? $data['claim_handler'] : null;
+        $this->container['insurer'] = isset($data['insurer']) ? $data['insurer'] : null;
+        $this->container['loss_adjuster'] = isset($data['loss_adjuster']) ? $data['loss_adjuster'] : null;
+        $this->container['property_contact'] = isset($data['property_contact']) ? $data['property_contact'] : null;
+        $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
     }
 
     /**
@@ -232,14 +225,6 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getPersonnelTypeAllowableValues();
-        if (!is_null($this->container['personnel_type']) && !in_array($this->container['personnel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'personnel_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -257,130 +242,169 @@ class PropertyClaimPersonnel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets personnel_type
+     * Gets agency
      *
-     * @return string
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
      */
-    public function getPersonnelType()
+    public function getAgency()
     {
-        return $this->container['personnel_type'];
+        return $this->container['agency'];
     }
 
     /**
-     * Sets personnel_type
+     * Sets agency
      *
-     * @param string $personnel_type The type of contact
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $agency agency
      *
      * @return $this
      */
-    public function setPersonnelType($personnel_type)
+    public function setAgency($agency)
     {
-        $allowedValues = $this->getPersonnelTypeAllowableValues();
-        if (!is_null($personnel_type) && !in_array($personnel_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'personnel_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['personnel_type'] = $personnel_type;
+        $this->container['agency'] = $agency;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets broker_agent
      *
-     * @return string
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
      */
-    public function getName()
+    public function getBrokerAgent()
     {
-        return $this->container['name'];
+        return $this->container['broker_agent'];
     }
 
     /**
-     * Sets name
+     * Sets broker_agent
      *
-     * @param string $name The personell contact name
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $broker_agent broker_agent
      *
      * @return $this
      */
-    public function setName($name)
+    public function setBrokerAgent($broker_agent)
     {
-        $this->container['name'] = $name;
+        $this->container['broker_agent'] = $broker_agent;
 
         return $this;
     }
 
     /**
-     * Gets address
+     * Gets claim_handler
      *
-     * @return \Swagger\Client\Model\PropertyclaimsAddress
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
      */
-    public function getAddress()
+    public function getClaimHandler()
     {
-        return $this->container['address'];
+        return $this->container['claim_handler'];
     }
 
     /**
-     * Sets address
+     * Sets claim_handler
      *
-     * @param \Swagger\Client\Model\PropertyclaimsAddress $address address
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $claim_handler claim_handler
      *
      * @return $this
      */
-    public function setAddress($address)
+    public function setClaimHandler($claim_handler)
     {
-        $this->container['address'] = $address;
+        $this->container['claim_handler'] = $claim_handler;
 
         return $this;
     }
 
     /**
-     * Gets phone_numbers
+     * Gets insurer
      *
-     * @return \Swagger\Client\Model\PropertyclaimsPhoneNumbers[]
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
      */
-    public function getPhoneNumbers()
+    public function getInsurer()
     {
-        return $this->container['phone_numbers'];
+        return $this->container['insurer'];
     }
 
     /**
-     * Sets phone_numbers
+     * Sets insurer
      *
-     * @param \Swagger\Client\Model\PropertyclaimsPhoneNumbers[] $phone_numbers Phone numbers for the contact. The preferred phone number is the first in the list.
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $insurer insurer
      *
      * @return $this
      */
-    public function setPhoneNumbers($phone_numbers)
+    public function setInsurer($insurer)
     {
-        $this->container['phone_numbers'] = $phone_numbers;
+        $this->container['insurer'] = $insurer;
 
         return $this;
     }
 
     /**
-     * Gets emails
+     * Gets loss_adjuster
      *
-     * @return string[]
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
      */
-    public function getEmails()
+    public function getLossAdjuster()
     {
-        return $this->container['emails'];
+        return $this->container['loss_adjuster'];
     }
 
     /**
-     * Sets emails
+     * Sets loss_adjuster
      *
-     * @param string[] $emails Email addresses for the contact. The preferred address is the first in the list.
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $loss_adjuster loss_adjuster
      *
      * @return $this
      */
-    public function setEmails($emails)
+    public function setLossAdjuster($loss_adjuster)
     {
-        $this->container['emails'] = $emails;
+        $this->container['loss_adjuster'] = $loss_adjuster;
+
+        return $this;
+    }
+
+    /**
+     * Gets property_contact
+     *
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
+     */
+    public function getPropertyContact()
+    {
+        return $this->container['property_contact'];
+    }
+
+    /**
+     * Sets property_contact
+     *
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $property_contact property_contact
+     *
+     * @return $this
+     */
+    public function setPropertyContact($property_contact)
+    {
+        $this->container['property_contact'] = $property_contact;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference
+     *
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $reference reference
+     *
+     * @return $this
+     */
+    public function setReference($reference)
+    {
+        $this->container['reference'] = $reference;
 
         return $this;
     }

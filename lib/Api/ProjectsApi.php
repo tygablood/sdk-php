@@ -12,7 +12,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -88,7 +88,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCanceledPOST
+     * Operation addToCanceledProjects
      *
      * Canceled projects
      *
@@ -98,13 +98,13 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsCanceledPOST($body)
+    public function addToCanceledProjects($body)
     {
-        $this->projectsCanceledPOSTWithHttpInfo($body);
+        $this->addToCanceledProjectsWithHttpInfo($body);
     }
 
     /**
-     * Operation projectsCanceledPOSTWithHttpInfo
+     * Operation addToCanceledProjectsWithHttpInfo
      *
      * Canceled projects
      *
@@ -114,10 +114,10 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsCanceledPOSTWithHttpInfo($body)
+    public function addToCanceledProjectsWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCanceledPOSTRequest($body);
+        $request = $this->addToCanceledProjectsRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -157,7 +157,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCanceledPOSTAsync
+     * Operation addToCanceledProjectsAsync
      *
      * Canceled projects
      *
@@ -166,9 +166,9 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCanceledPOSTAsync($body)
+    public function addToCanceledProjectsAsync($body)
     {
-        return $this->projectsCanceledPOSTAsyncWithHttpInfo($body)
+        return $this->addToCanceledProjectsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -177,7 +177,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCanceledPOSTAsyncWithHttpInfo
+     * Operation addToCanceledProjectsAsyncWithHttpInfo
      *
      * Canceled projects
      *
@@ -186,10 +186,10 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCanceledPOSTAsyncWithHttpInfo($body)
+    public function addToCanceledProjectsAsyncWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCanceledPOSTRequest($body);
+        $request = $this->addToCanceledProjectsRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -215,19 +215,19 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'projectsCanceledPOST'
+     * Create request for operation 'addToCanceledProjects'
      *
      * @param  \Swagger\Client\Model\Body $body A reference to the project to be canceled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsCanceledPOSTRequest($body)
+    protected function addToCanceledProjectsRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling projectsCanceledPOST'
+                'Missing the required parameter $body when calling addToCanceledProjects'
             );
         }
 
@@ -325,7 +325,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCompletedPOST
+     * Operation addToCompletedProjects
      *
      * Completed projects
      *
@@ -335,13 +335,13 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsCompletedPOST($body)
+    public function addToCompletedProjects($body)
     {
-        $this->projectsCompletedPOSTWithHttpInfo($body);
+        $this->addToCompletedProjectsWithHttpInfo($body);
     }
 
     /**
-     * Operation projectsCompletedPOSTWithHttpInfo
+     * Operation addToCompletedProjectsWithHttpInfo
      *
      * Completed projects
      *
@@ -351,10 +351,10 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsCompletedPOSTWithHttpInfo($body)
+    public function addToCompletedProjectsWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCompletedPOSTRequest($body);
+        $request = $this->addToCompletedProjectsRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -394,7 +394,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCompletedPOSTAsync
+     * Operation addToCompletedProjectsAsync
      *
      * Completed projects
      *
@@ -403,9 +403,9 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCompletedPOSTAsync($body)
+    public function addToCompletedProjectsAsync($body)
     {
-        return $this->projectsCompletedPOSTAsyncWithHttpInfo($body)
+        return $this->addToCompletedProjectsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -414,7 +414,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsCompletedPOSTAsyncWithHttpInfo
+     * Operation addToCompletedProjectsAsyncWithHttpInfo
      *
      * Completed projects
      *
@@ -423,10 +423,10 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsCompletedPOSTAsyncWithHttpInfo($body)
+    public function addToCompletedProjectsAsyncWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsCompletedPOSTRequest($body);
+        $request = $this->addToCompletedProjectsRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -452,19 +452,19 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'projectsCompletedPOST'
+     * Create request for operation 'addToCompletedProjects'
      *
      * @param  \Swagger\Client\Model\Body1 $body A reference to the project to be completed (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsCompletedPOSTRequest($body)
+    protected function addToCompletedProjectsRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling projectsCompletedPOST'
+                'Missing the required parameter $body when calling addToCompletedProjects'
             );
         }
 
@@ -562,7 +562,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsOpenPOST
+     * Operation addToOpenProjects
      *
      * Open projects
      *
@@ -572,13 +572,13 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsOpenPOST($body)
+    public function addToOpenProjects($body)
     {
-        $this->projectsOpenPOSTWithHttpInfo($body);
+        $this->addToOpenProjectsWithHttpInfo($body);
     }
 
     /**
-     * Operation projectsOpenPOSTWithHttpInfo
+     * Operation addToOpenProjectsWithHttpInfo
      *
      * Open projects
      *
@@ -588,10 +588,10 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsOpenPOSTWithHttpInfo($body)
+    public function addToOpenProjectsWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsOpenPOSTRequest($body);
+        $request = $this->addToOpenProjectsRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -631,7 +631,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsOpenPOSTAsync
+     * Operation addToOpenProjectsAsync
      *
      * Open projects
      *
@@ -640,9 +640,9 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenPOSTAsync($body)
+    public function addToOpenProjectsAsync($body)
     {
-        return $this->projectsOpenPOSTAsyncWithHttpInfo($body)
+        return $this->addToOpenProjectsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -651,7 +651,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation projectsOpenPOSTAsyncWithHttpInfo
+     * Operation addToOpenProjectsAsyncWithHttpInfo
      *
      * Open projects
      *
@@ -660,10 +660,10 @@ class ProjectsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsOpenPOSTAsyncWithHttpInfo($body)
+    public function addToOpenProjectsAsyncWithHttpInfo($body)
     {
         $returnType = '';
-        $request = $this->projectsOpenPOSTRequest($body);
+        $request = $this->addToOpenProjectsRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -689,19 +689,19 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'projectsOpenPOST'
+     * Create request for operation 'addToOpenProjects'
      *
      * @param  \Swagger\Client\Model\Body2 $body A reference to the project to be opened (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsOpenPOSTRequest($body)
+    protected function addToOpenProjectsRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling projectsOpenPOST'
+                'Missing the required parameter $body when calling addToOpenProjects'
             );
         }
 

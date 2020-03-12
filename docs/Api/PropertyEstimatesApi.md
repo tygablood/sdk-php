@@ -4,11 +4,11 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**propertyEstimatesPost**](PropertyEstimatesApi.md#propertyEstimatesPost) | **POST** /property/estimates | Create a new property estimate
+[**createPropertyEstimate**](PropertyEstimatesApi.md#createPropertyEstimate) | **POST** /property/estimates | Create a new property estimate
 
 
-# **propertyEstimatesPost**
-> \Swagger\Client\Model\PropertyEstimateResponse1 propertyEstimatesPost($body)
+# **createPropertyEstimate**
+> \Swagger\Client\Model\PropertyEstimateResponse1 createPropertyEstimate($body)
 
 Create a new property estimate
 
@@ -37,10 +37,10 @@ $apiInstance = new Swagger\Client\Api\PropertyEstimatesApi(
 $body = new \Swagger\Client\Model\PropertyEstimateRequestCreate1(); // \Swagger\Client\Model\PropertyEstimateRequestCreate1 | 
 
 try {
-    $result = $apiInstance->propertyEstimatesPost($body);
+    $result = $apiInstance->createPropertyEstimate($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PropertyEstimatesApi->propertyEstimatesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PropertyEstimatesApi->createPropertyEstimate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

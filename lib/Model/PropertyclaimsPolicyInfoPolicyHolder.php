@@ -13,7 +13,7 @@
 /**
  * Xactimate One Customer Api
  *
- * The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
+ * # API Intro  Insert the intro documentation here.  The client claims API provides an integration point for Xactimate clients to create and manage insurance claims within the Xactimate One system.
  *
  * OpenAPI spec version: 0.1.7
  * Contact: contact@xactware.com
@@ -59,9 +59,9 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'risk_address' => '\Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolderRiskAddress',
-        'mailing_address' => '\Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolderMailingAddress',
-        'phone_numbers' => '\Swagger\Client\Model\PropertyclaimsPhoneNumbers[]',
+        'risk_address' => 'object',
+        'mailing_address' => 'object',
+        'phone_numbers' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgencyPhoneNumbers[]',
         'emails' => 'string[]'
     ];
 
@@ -256,7 +256,7 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
     /**
      * Gets risk_address
      *
-     * @return \Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolderRiskAddress
+     * @return object
      */
     public function getRiskAddress()
     {
@@ -266,7 +266,7 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
     /**
      * Sets risk_address
      *
-     * @param \Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolderRiskAddress $risk_address risk_address
+     * @param object $risk_address risk_address
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
     /**
      * Gets mailing_address
      *
-     * @return \Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolderMailingAddress
+     * @return object
      */
     public function getMailingAddress()
     {
@@ -290,7 +290,7 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
     /**
      * Sets mailing_address
      *
-     * @param \Swagger\Client\Model\PropertyclaimsPolicyInfoPolicyHolderMailingAddress $mailing_address mailing_address
+     * @param object $mailing_address mailing_address
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
     /**
      * Gets phone_numbers
      *
-     * @return \Swagger\Client\Model\PropertyclaimsPhoneNumbers[]
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgencyPhoneNumbers[]
      */
     public function getPhoneNumbers()
     {
@@ -314,7 +314,7 @@ class PropertyclaimsPolicyInfoPolicyHolder implements ModelInterface, ArrayAcces
     /**
      * Sets phone_numbers
      *
-     * @param \Swagger\Client\Model\PropertyclaimsPhoneNumbers[] $phone_numbers Phone numbers to contact the policy holder. The preferred phone number is the first in the list.
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgencyPhoneNumbers[] $phone_numbers Phone numbers to contact the policy holder. The preferred phone number is the first in the list.
      *
      * @return $this
      */

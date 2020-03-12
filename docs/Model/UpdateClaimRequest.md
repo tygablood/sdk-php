@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The name for the property claim | [optional] 
-**personnel** | [**\Swagger\Client\Model\PropertyclaimsPersonnel[]**](PropertyclaimsPersonnel.md) | Contacts for the claim | [optional] 
+**personnel** | [**\Swagger\Client\Model\PropertyclaimsPersonnel**](PropertyclaimsPersonnel.md) |  | [optional] 
 **policy_info** | [**\Swagger\Client\Model\PropertyclaimsPolicyInfo**](PropertyclaimsPolicyInfo.md) |  | [optional] 
 **claim_info** | [**\Swagger\Client\Model\PropertyclaimsClaimInfo**](PropertyclaimsClaimInfo.md) |  | [optional] 
 
