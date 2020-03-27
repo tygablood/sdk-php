@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **addProjectManagerToProject**
-> addProjectManagerToProject($claim_id, $project_manager_email)
+> addProjectManagerToProject($project_id, $project_manager_email)
 
 Assign a project manager
 
@@ -35,11 +35,11 @@ $apiInstance = new Swagger\Client\Api\ProjectManagersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project
+$project_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project
 $project_manager_email = "john.somebody@example.net"; // string | The email of the project manager user to add to the project
 
 try {
-    $apiInstance->addProjectManagerToProject($claim_id, $project_manager_email);
+    $apiInstance->addProjectManagerToProject($project_id, $project_manager_email);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectManagersApi->addProjectManagerToProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **claim_id** | **string**| The id of the project |
+ **project_id** | **string**| The id of the project |
  **project_manager_email** | **string**| The email of the project manager user to add to the project |
 
 ### Return type
@@ -69,7 +69,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **removeProjectManagerFromProject**
-> removeProjectManagerFromProject($claim_id, $project_manager_email)
+> removeProjectManagerFromProject($project_id, $project_manager_email)
 
 Remove a project manager
 
@@ -95,11 +95,11 @@ $apiInstance = new Swagger\Client\Api\ProjectManagersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project
+$project_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project
 $project_manager_email = "john.somebody@example.net"; // string | The email of the project manager user to remove from the project
 
 try {
-    $apiInstance->removeProjectManagerFromProject($claim_id, $project_manager_email);
+    $apiInstance->removeProjectManagerFromProject($project_id, $project_manager_email);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectManagersApi->removeProjectManagerFromProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -110,7 +110,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **claim_id** | **string**| The id of the project |
+ **project_id** | **string**| The id of the project |
  **project_manager_email** | **string**| The email of the project manager user to remove from the project |
 
 ### Return type

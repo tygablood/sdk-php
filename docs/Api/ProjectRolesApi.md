@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **removeUserFromOpenProjectRole**
-> removeUserFromOpenProjectRole($claim_id, $role_id, $role_user_email)
+> removeUserFromOpenProjectRole($project_id, $role_id, $role_user_email)
 
 Remove a project role
 
@@ -159,12 +159,12 @@ $apiInstance = new Swagger\Client\Api\ProjectRolesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project to remove the user from
+$project_id = "5f6a7b8c9d0e1a2a1b2c3d4e"; // string | The id of the project to remove the user from
 $role_id = "b8c9d0e1a2a1b2c3d4e5f6a7"; // string | The id of the role on the project from which the user should be removed
 $role_user_email = "john.somebody@example.net"; // string | The email of the user to remove from the role
 
 try {
-    $apiInstance->removeUserFromOpenProjectRole($claim_id, $role_id, $role_user_email);
+    $apiInstance->removeUserFromOpenProjectRole($project_id, $role_id, $role_user_email);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectRolesApi->removeUserFromOpenProjectRole: ', $e->getMessage(), PHP_EOL;
 }
@@ -175,7 +175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **claim_id** | **string**| The id of the project to remove the user from |
+ **project_id** | **string**| The id of the project to remove the user from |
  **role_id** | **string**| The id of the role on the project from which the user should be removed |
  **role_user_email** | **string**| The email of the user to remove from the role |
 
