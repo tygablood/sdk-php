@@ -1,6 +1,6 @@
 <?php
 /**
- * Links
+ * PropertyEstimateRequestUpdate1
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Links Class Doc Comment
+ * PropertyEstimateRequestUpdate1 Class Doc Comment
  *
  * @category Class
+ * @description Updates an estimate
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Links implements ModelInterface, ArrayAccess
+class PropertyEstimateRequestUpdate1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class Links implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Links';
+    protected static $swaggerModelName = 'PropertyEstimateRequestUpdate_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class Links implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'name' => 'string',
+        'personnel' => '\Swagger\Client\Model\PropertyEstimatePersonnel1'
     ];
 
     /**
@@ -66,7 +68,8 @@ class Links implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'name' => null,
+        'personnel' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class Links implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'name' => 'name',
+        'personnel' => 'personnel'
     ];
 
     /**
@@ -105,7 +109,8 @@ class Links implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'name' => 'setName',
+        'personnel' => 'setPersonnel'
     ];
 
     /**
@@ -114,7 +119,8 @@ class Links implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'name' => 'getName',
+        'personnel' => 'getPersonnel'
     ];
 
     /**
@@ -177,6 +183,8 @@ class Links implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['personnel'] = isset($data['personnel']) ? $data['personnel'] : null;
     }
 
     /**
@@ -186,7 +194,7 @@ class Links implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -202,6 +210,54 @@ class Links implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The name for the created estimate
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets personnel
+     *
+     * @return \Swagger\Client\Model\PropertyEstimatePersonnel1
+     */
+    public function getPersonnel()
+    {
+        return $this->container['personnel'];
+    }
+
+    /**
+     * Sets personnel
+     *
+     * @param \Swagger\Client\Model\PropertyEstimatePersonnel1 $personnel personnel
+     *
+     * @return $this
+     */
+    public function setPersonnel($personnel)
+    {
+        $this->container['personnel'] = $personnel;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

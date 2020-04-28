@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **creator** | **string** | The email address of the user creating the estimate | [optional] 
 **parent_ref** | **string** | The uri of the project this estimate applies to | [optional] 
 **name** | **string** | The name for the created estimate | [optional] 
+**personnel** | [**\Swagger\Client\Model\PropertyEstimatePersonnel1**](PropertyEstimatePersonnel1.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

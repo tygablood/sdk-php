@@ -1,6 +1,6 @@
 <?php
 /**
- * Links
+ * PropertyEstimatePersonnel
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Links Class Doc Comment
+ * PropertyEstimatePersonnel Class Doc Comment
  *
  * @category Class
+ * @description People and entities related to the estimate
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Links implements ModelInterface, ArrayAccess
+class PropertyEstimatePersonnel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class Links implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Links';
+    protected static $swaggerModelName = 'PropertyEstimatePersonnel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class Links implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'contractor' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency',
+        'estimator' => '\Swagger\Client\Model\PropertyclaimsPersonnelAgency'
     ];
 
     /**
@@ -66,7 +68,8 @@ class Links implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'contractor' => null,
+        'estimator' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class Links implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'contractor' => 'contractor',
+        'estimator' => 'estimator'
     ];
 
     /**
@@ -105,7 +109,8 @@ class Links implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'contractor' => 'setContractor',
+        'estimator' => 'setEstimator'
     ];
 
     /**
@@ -114,7 +119,8 @@ class Links implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'contractor' => 'getContractor',
+        'estimator' => 'getEstimator'
     ];
 
     /**
@@ -177,6 +183,8 @@ class Links implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['contractor'] = isset($data['contractor']) ? $data['contractor'] : null;
+        $this->container['estimator'] = isset($data['estimator']) ? $data['estimator'] : null;
     }
 
     /**
@@ -186,7 +194,7 @@ class Links implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -202,6 +210,54 @@ class Links implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets contractor
+     *
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
+     */
+    public function getContractor()
+    {
+        return $this->container['contractor'];
+    }
+
+    /**
+     * Sets contractor
+     *
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $contractor contractor
+     *
+     * @return $this
+     */
+    public function setContractor($contractor)
+    {
+        $this->container['contractor'] = $contractor;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimator
+     *
+     * @return \Swagger\Client\Model\PropertyclaimsPersonnelAgency
+     */
+    public function getEstimator()
+    {
+        return $this->container['estimator'];
+    }
+
+    /**
+     * Sets estimator
+     *
+     * @param \Swagger\Client\Model\PropertyclaimsPersonnelAgency $estimator estimator
+     *
+     * @return $this
+     */
+    public function setEstimator($estimator)
+    {
+        $this->container['estimator'] = $estimator;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
