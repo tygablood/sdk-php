@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getPropertyPolicyCoverageAdditionalCoverages**
-> \Swagger\Client\Model\AdditionalCoverages getPropertyPolicyCoverageAdditionalCoverages($coverage_id, $accept_language)
+> \Swagger\Client\Model\PropertyCoverageAdditionalCoverages getPropertyPolicyCoverageAdditionalCoverages($coverage_id, $accept_language)
 
 Property policy additional coverages
 
@@ -21,10 +21,6 @@ Gets a collection of additional coverages available for a coverage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -57,11 +53,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\AdditionalCoverages**](../Model/AdditionalCoverages.md)
+[**\Swagger\Client\Model\PropertyCoverageAdditionalCoverages**](../Model/PropertyCoverageAdditionalCoverages.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
@@ -71,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPropertyPolicyCoverageSublimits**
-> \Swagger\Client\Model\Sublimits getPropertyPolicyCoverageSublimits($coverage_id, $accept_language)
+> \Swagger\Client\Model\PropertyCoverageSublimits getPropertyPolicyCoverageSublimits($coverage_id, $accept_language)
 
 Property policy sublimits
 
@@ -82,10 +78,6 @@ Gets a collection of sublimits available for a coverage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -118,11 +110,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Sublimits**](../Model/Sublimits.md)
+[**\Swagger\Client\Model\PropertyCoverageSublimits**](../Model/PropertyCoverageSublimits.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
@@ -132,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPropertyPolicyCoverages**
-> \Swagger\Client\Model\Coverages getPropertyPolicyCoverages($accept_language)
+> \Swagger\Client\Model\PropertyCoverages getPropertyPolicyCoverages($accept_language)
 
 Property policy coverages
 
@@ -143,10 +135,6 @@ Gets a collection of available coverages
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -177,11 +165,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Coverages**](../Model/Coverages.md)
+[**\Swagger\Client\Model\PropertyCoverages**](../Model/PropertyCoverages.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 

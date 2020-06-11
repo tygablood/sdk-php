@@ -102,35 +102,26 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AdditionalCoverage](docs/Model/AdditionalCoverage.md)
- - [AdditionalCoverages](docs/Model/AdditionalCoverages.md)
  - [Address](docs/Model/Address.md)
- - [Body](docs/Model/Body.md)
- - [Body1](docs/Model/Body1.md)
- - [Body2](docs/Model/Body2.md)
- - [CauseOfLoss](docs/Model/CauseOfLoss.md)
  - [CauseOfLossMetadata](docs/Model/CauseOfLossMetadata.md)
  - [CausesOfLoss](docs/Model/CausesOfLoss.md)
- - [CausesOfLoss1](docs/Model/CausesOfLoss1.md)
- - [Claim](docs/Model/Claim.md)
  - [Contact](docs/Model/Contact.md)
- - [Coverage](docs/Model/Coverage.md)
- - [Coverages](docs/Model/Coverages.md)
  - [Error](docs/Model/Error.md)
- - [InlineResponse302](docs/Model/InlineResponse302.md)
- - [InlineResponse409](docs/Model/InlineResponse409.md)
+ - [ErrorInner](docs/Model/ErrorInner.md)
  - [Links](docs/Model/Links.md)
+ - [LinksInner](docs/Model/LinksInner.md)
  - [PerilMetadata](docs/Model/PerilMetadata.md)
- - [PerilMetadata1](docs/Model/PerilMetadata1.md)
  - [Perils](docs/Model/Perils.md)
- - [Perils1](docs/Model/Perils1.md)
  - [PhoneNumber](docs/Model/PhoneNumber.md)
  - [ProjectReference](docs/Model/ProjectReference.md)
  - [PropertyClaimClaimInfo](docs/Model/PropertyClaimClaimInfo.md)
  - [PropertyClaimPersonnel](docs/Model/PropertyClaimPersonnel.md)
  - [PropertyClaimPolicyInfo](docs/Model/PropertyClaimPolicyInfo.md)
+ - [PropertyClaimPolicyInfoAdditionalCoverages](docs/Model/PropertyClaimPolicyInfoAdditionalCoverages.md)
+ - [PropertyClaimPolicyInfoCoverages](docs/Model/PropertyClaimPolicyInfoCoverages.md)
+ - [PropertyClaimPolicyInfoPolicyHolder](docs/Model/PropertyClaimPolicyInfoPolicyHolder.md)
+ - [PropertyClaimPolicyInfoSublimits](docs/Model/PropertyClaimPolicyInfoSublimits.md)
  - [PropertyClaimRequestCreate](docs/Model/PropertyClaimRequestCreate.md)
- - [PropertyClaimRequestCreate1](docs/Model/PropertyClaimRequestCreate1.md)
  - [PropertyClaimRequestUpdate](docs/Model/PropertyClaimRequestUpdate.md)
  - [PropertyClaimResponse](docs/Model/PropertyClaimResponse.md)
  - [PropertyCoverageAdditionalCoverageMetadata](docs/Model/PropertyCoverageAdditionalCoverageMetadata.md)
@@ -140,44 +131,17 @@ Class | Method | HTTP request | Description
  - [PropertyCoverageSublimits](docs/Model/PropertyCoverageSublimits.md)
  - [PropertyCoverages](docs/Model/PropertyCoverages.md)
  - [PropertyEstimatePersonnel](docs/Model/PropertyEstimatePersonnel.md)
- - [PropertyEstimatePersonnel1](docs/Model/PropertyEstimatePersonnel1.md)
  - [PropertyEstimateRequestCreate](docs/Model/PropertyEstimateRequestCreate.md)
- - [PropertyEstimateRequestCreate1](docs/Model/PropertyEstimateRequestCreate1.md)
  - [PropertyEstimateRequestUpdate](docs/Model/PropertyEstimateRequestUpdate.md)
- - [PropertyEstimateRequestUpdate1](docs/Model/PropertyEstimateRequestUpdate1.md)
  - [PropertyEstimateResponse](docs/Model/PropertyEstimateResponse.md)
- - [PropertyEstimateResponse1](docs/Model/PropertyEstimateResponse1.md)
- - [PropertyclaimsClaimInfo](docs/Model/PropertyclaimsClaimInfo.md)
- - [PropertyclaimsPersonnel](docs/Model/PropertyclaimsPersonnel.md)
- - [PropertyclaimsPersonnelAgency](docs/Model/PropertyclaimsPersonnelAgency.md)
- - [PropertyclaimsPersonnelAgencyAddress](docs/Model/PropertyclaimsPersonnelAgencyAddress.md)
- - [PropertyclaimsPersonnelAgencyPhoneNumbers](docs/Model/PropertyclaimsPersonnelAgencyPhoneNumbers.md)
- - [PropertyclaimsPolicyInfo](docs/Model/PropertyclaimsPolicyInfo.md)
- - [PropertyclaimsPolicyInfoAdditionalCoverages](docs/Model/PropertyclaimsPolicyInfoAdditionalCoverages.md)
- - [PropertyclaimsPolicyInfoCoverages](docs/Model/PropertyclaimsPolicyInfoCoverages.md)
- - [PropertyclaimsPolicyInfoPolicyHolder](docs/Model/PropertyclaimsPolicyInfoPolicyHolder.md)
- - [PropertyclaimsPolicyInfoSublimits](docs/Model/PropertyclaimsPolicyInfoSublimits.md)
- - [Role](docs/Model/Role.md)
  - [RoleMetadata](docs/Model/RoleMetadata.md)
  - [Roles](docs/Model/Roles.md)
- - [Roles1](docs/Model/Roles1.md)
- - [Sublimit](docs/Model/Sublimit.md)
- - [Sublimits](docs/Model/Sublimits.md)
  - [TemplateMetadata](docs/Model/TemplateMetadata.md)
- - [TemplateMetadata1](docs/Model/TemplateMetadata1.md)
  - [Templates](docs/Model/Templates.md)
- - [Templates1](docs/Model/Templates1.md)
- - [UpdateClaimRequest](docs/Model/UpdateClaimRequest.md)
 
 
 ## Documentation For Authorization
 
-
-## api-authorizer
-
-- **Type**: API key
-- **API key parameter name**: x-api-key
-- **Location**: HTTP header
 
 ## api-key
 

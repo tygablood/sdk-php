@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getPropertyPolicyPerilCausesOfLoss**
-> \Swagger\Client\Model\CausesOfLoss1 getPropertyPolicyPerilCausesOfLoss($peril_id)
+> \Swagger\Client\Model\CausesOfLoss getPropertyPolicyPerilCausesOfLoss($peril_id)
 
 Cause of loss
 
@@ -20,10 +20,6 @@ Gets a collection of causes of loss for a peril
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -54,11 +50,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\CausesOfLoss1**](../Model/CausesOfLoss1.md)
+[**\Swagger\Client\Model\CausesOfLoss**](../Model/CausesOfLoss.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPropertyPolicyPerils**
-> \Swagger\Client\Model\Perils1 getPropertyPolicyPerils($accept_language)
+> \Swagger\Client\Model\Perils getPropertyPolicyPerils($accept_language)
 
 Types of loss
 
@@ -79,10 +75,6 @@ Gets a collection of available perils
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -113,11 +105,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Perils1**](../Model/Perils1.md)
+[**\Swagger\Client\Model\Perils**](../Model/Perils.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 

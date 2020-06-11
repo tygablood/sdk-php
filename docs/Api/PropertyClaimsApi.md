@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **createPropertyClaim**
-> \Swagger\Client\Model\Claim createPropertyClaim($body)
+> \Swagger\Client\Model\PropertyClaimResponse createPropertyClaim($body)
 
 Create a new property claim
 
@@ -20,10 +20,6 @@ Creates a new property claim
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -35,7 +31,7 @@ $apiInstance = new Swagger\Client\Api\PropertyClaimsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\PropertyClaimRequestCreate1(); // \Swagger\Client\Model\PropertyClaimRequestCreate1 | 
+$body = new \Swagger\Client\Model\PropertyClaimRequestCreate(); // \Swagger\Client\Model\PropertyClaimRequestCreate | 
 
 try {
     $result = $apiInstance->createPropertyClaim($body);
@@ -50,15 +46,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\PropertyClaimRequestCreate1**](../Model/PropertyClaimRequestCreate1.md)|  |
+ **body** | [**\Swagger\Client\Model\PropertyClaimRequestCreate**](../Model/PropertyClaimRequestCreate.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\Claim**](../Model/Claim.md)
+[**\Swagger\Client\Model\PropertyClaimResponse**](../Model/PropertyClaimResponse.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePropertyClaim**
-> \Swagger\Client\Model\Claim updatePropertyClaim($claim_id, $body)
+> \Swagger\Client\Model\PropertyClaimResponse updatePropertyClaim($claim_id, $body)
 
 Update a property claim
 
@@ -79,10 +75,6 @@ Updates an existing property claim.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -95,7 +87,7 @@ $apiInstance = new Swagger\Client\Api\PropertyClaimsApi(
     $config
 );
 $claim_id = "claim_id_example"; // string | The id of the property claim to be updated
-$body = new \Swagger\Client\Model\UpdateClaimRequest(); // \Swagger\Client\Model\UpdateClaimRequest | 
+$body = new \Swagger\Client\Model\PropertyClaimRequestUpdate(); // \Swagger\Client\Model\PropertyClaimRequestUpdate | 
 
 try {
     $result = $apiInstance->updatePropertyClaim($claim_id, $body);
@@ -111,15 +103,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **claim_id** | **string**| The id of the property claim to be updated |
- **body** | [**\Swagger\Client\Model\UpdateClaimRequest**](../Model/UpdateClaimRequest.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\PropertyClaimRequestUpdate**](../Model/PropertyClaimRequestUpdate.md)|  | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\Claim**](../Model/Claim.md)
+[**\Swagger\Client\Model\PropertyClaimResponse**](../Model/PropertyClaimResponse.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 

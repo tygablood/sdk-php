@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **createPropertyEstimate**
-> \Swagger\Client\Model\PropertyEstimateResponse1 createPropertyEstimate($body)
+> \Swagger\Client\Model\PropertyEstimateResponse createPropertyEstimate($body)
 
 Create a new property estimate
 
@@ -20,10 +20,6 @@ Creates a new property estimate
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -35,7 +31,7 @@ $apiInstance = new Swagger\Client\Api\PropertyEstimatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\PropertyEstimateRequestCreate1(); // \Swagger\Client\Model\PropertyEstimateRequestCreate1 | 
+$body = new \Swagger\Client\Model\PropertyEstimateRequestCreate(); // \Swagger\Client\Model\PropertyEstimateRequestCreate | 
 
 try {
     $result = $apiInstance->createPropertyEstimate($body);
@@ -50,15 +46,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\PropertyEstimateRequestCreate1**](../Model/PropertyEstimateRequestCreate1.md)|  |
+ **body** | [**\Swagger\Client\Model\PropertyEstimateRequestCreate**](../Model/PropertyEstimateRequestCreate.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyEstimateResponse1**](../Model/PropertyEstimateResponse1.md)
+[**\Swagger\Client\Model\PropertyEstimateResponse**](../Model/PropertyEstimateResponse.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePropertyEstimate**
-> \Swagger\Client\Model\PropertyEstimateResponse1 updatePropertyEstimate($estimate_id, $body)
+> \Swagger\Client\Model\PropertyEstimateResponse updatePropertyEstimate($estimate_id, $body)
 
 Update a property estimate
 
@@ -79,10 +75,6 @@ Updates a property estimate
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -95,7 +87,7 @@ $apiInstance = new Swagger\Client\Api\PropertyEstimatesApi(
     $config
 );
 $estimate_id = "estimate_id_example"; // string | The id of the property estimate to be updated
-$body = new \Swagger\Client\Model\PropertyEstimateRequestUpdate1(); // \Swagger\Client\Model\PropertyEstimateRequestUpdate1 | 
+$body = new \Swagger\Client\Model\PropertyEstimateRequestUpdate(); // \Swagger\Client\Model\PropertyEstimateRequestUpdate | 
 
 try {
     $result = $apiInstance->updatePropertyEstimate($estimate_id, $body);
@@ -111,15 +103,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **estimate_id** | **string**| The id of the property estimate to be updated |
- **body** | [**\Swagger\Client\Model\PropertyEstimateRequestUpdate1**](../Model/PropertyEstimateRequestUpdate1.md)|  |
+ **body** | [**\Swagger\Client\Model\PropertyEstimateRequestUpdate**](../Model/PropertyEstimateRequestUpdate.md)|  |
 
 ### Return type
 
-[**\Swagger\Client\Model\PropertyEstimateResponse1**](../Model/PropertyEstimateResponse1.md)
+[**\Swagger\Client\Model\PropertyEstimateResponse**](../Model/PropertyEstimateResponse.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 

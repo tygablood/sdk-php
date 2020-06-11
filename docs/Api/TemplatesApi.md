@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getTemplates**
-> \Swagger\Client\Model\Templates1 getTemplates($accept_language)
+> \Swagger\Client\Model\Templates getTemplates($accept_language)
 
 Get available templates
 
@@ -19,10 +19,6 @@ Gets a collection of available templates
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api-authorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 // Configure API key authorization: api-key
 $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -53,11 +49,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Templates1**](../Model/Templates1.md)
+[**\Swagger\Client\Model\Templates**](../Model/Templates.md)
 
 ### Authorization
 
-[api-authorizer](../../README.md#api-authorizer), [api-key](../../README.md#api-key)
+[api-key](../../README.md#api-key)
 
 ### HTTP request headers
 
