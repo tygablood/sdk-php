@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The policy holder name | [optional] 
-**risk_address** | **object** |  | [optional] 
-**mailing_address** | **object** |  | [optional] 
+**risk_address** | [**\Swagger\Client\Model\PropertyClaimPolicyInfoPolicyHolderRiskAddress**](PropertyClaimPolicyInfoPolicyHolderRiskAddress.md) |  | [optional] 
+**mailing_address** | [**\Swagger\Client\Model\PropertyClaimPolicyInfoPolicyHolderRiskAddress**](PropertyClaimPolicyInfoPolicyHolderRiskAddress.md) |  | [optional] 
 **phone_numbers** | [**\Swagger\Client\Model\PhoneNumber[]**](PhoneNumber.md) | Phone numbers to contact the policy holder. The preferred phone number is the first in the list. | [optional] 
 **emails** | **string[]** | Email addresses to contact the policy holder. The preferred address is the first in the list. | [optional] 
 
