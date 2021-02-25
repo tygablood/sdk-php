@@ -1,6 +1,6 @@
 <?php
 /**
- * CauseOfLossMetadata
+ * TemplateMetadataOwner
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CauseOfLossMetadata Class Doc Comment
+ * TemplateMetadataOwner Class Doc Comment
  *
  * @category Class
- * @description Describes a cause of loss
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CauseOfLossMetadata implements ModelInterface, ArrayAccess
+class TemplateMetadataOwner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CauseOfLossMetadata';
+    protected static $swaggerModelName = 'TemplateMetadata_owner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +58,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'name' => 'string',
-        '_links' => '\Swagger\Client\Model\Links'
+        'name' => 'string'
     ];
 
     /**
@@ -70,8 +68,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'name' => null,
-        '_links' => null
+        'name' => null
     ];
 
     /**
@@ -102,8 +99,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        '_links' => '_links'
+        'name' => 'name'
     ];
 
     /**
@@ -113,8 +109,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        '_links' => 'setLinks'
+        'name' => 'setName'
     ];
 
     /**
@@ -124,8 +119,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        '_links' => 'getLinks'
+        'name' => 'getName'
     ];
 
     /**
@@ -190,7 +184,6 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
     }
 
     /**
@@ -230,7 +223,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id The id of the cause of loss
+     * @param string $id The id of the account
      *
      * @return $this
      */
@@ -254,37 +247,13 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The cause of loss name
+     * @param string $name The name of the account
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets _links
-     *
-     * @return \Swagger\Client\Model\Links
-     */
-    public function getLinks()
-    {
-        return $this->container['_links'];
-    }
-
-    /**
-     * Sets _links
-     *
-     * @param \Swagger\Client\Model\Links $_links _links
-     *
-     * @return $this
-     */
-    public function setLinks($_links)
-    {
-        $this->container['_links'] = $_links;
 
         return $this;
     }

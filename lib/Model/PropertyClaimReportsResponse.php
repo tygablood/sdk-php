@@ -1,6 +1,6 @@
 <?php
 /**
- * CauseOfLossMetadata
+ * PropertyClaimReportsResponse
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CauseOfLossMetadata Class Doc Comment
+ * PropertyClaimReportsResponse Class Doc Comment
  *
  * @category Class
- * @description Describes a cause of loss
+ * @description A property claim report
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CauseOfLossMetadata implements ModelInterface, ArrayAccess
+class PropertyClaimReportsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CauseOfLossMetadata';
+    protected static $swaggerModelName = 'PropertyClaimReportsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created_on' => '\DateTime',
+        'download_url' => 'string',
         'id' => 'string',
         'name' => 'string',
-        '_links' => '\Swagger\Client\Model\Links'
+        'template_id' => 'string'
     ];
 
     /**
@@ -69,9 +71,11 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
+        'created_on' => 'date-time',
+        'download_url' => 'uri',
+        'id' => 'uuid',
         'name' => null,
-        '_links' => null
+        'template_id' => 'uuid'
     ];
 
     /**
@@ -101,9 +105,11 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'created_on' => 'createdOn',
+        'download_url' => 'downloadUrl',
         'id' => 'id',
         'name' => 'name',
-        '_links' => '_links'
+        'template_id' => 'templateId'
     ];
 
     /**
@@ -112,9 +118,11 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'created_on' => 'setCreatedOn',
+        'download_url' => 'setDownloadUrl',
         'id' => 'setId',
         'name' => 'setName',
-        '_links' => 'setLinks'
+        'template_id' => 'setTemplateId'
     ];
 
     /**
@@ -123,9 +131,11 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'created_on' => 'getCreatedOn',
+        'download_url' => 'getDownloadUrl',
         'id' => 'getId',
         'name' => 'getName',
-        '_links' => 'getLinks'
+        'template_id' => 'getTemplateId'
     ];
 
     /**
@@ -188,9 +198,11 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['created_on'] = isset($data['created_on']) ? $data['created_on'] : null;
+        $this->container['download_url'] = isset($data['download_url']) ? $data['download_url'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
     }
 
     /**
@@ -218,6 +230,54 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets created_on
+     *
+     * @return \DateTime
+     */
+    public function getCreatedOn()
+    {
+        return $this->container['created_on'];
+    }
+
+    /**
+     * Sets created_on
+     *
+     * @param \DateTime $created_on The date and time the report was created
+     *
+     * @return $this
+     */
+    public function setCreatedOn($created_on)
+    {
+        $this->container['created_on'] = $created_on;
+
+        return $this;
+    }
+
+    /**
+     * Gets download_url
+     *
+     * @return string
+     */
+    public function getDownloadUrl()
+    {
+        return $this->container['download_url'];
+    }
+
+    /**
+     * Sets download_url
+     *
+     * @param string $download_url The location where the rendered report file can be downloaded
+     *
+     * @return $this
+     */
+    public function setDownloadUrl($download_url)
+    {
+        $this->container['download_url'] = $download_url;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -230,7 +290,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id The id of the cause of loss
+     * @param string $id The id of this report
      *
      * @return $this
      */
@@ -254,7 +314,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The cause of loss name
+     * @param string $name The name of the report
      *
      * @return $this
      */
@@ -266,25 +326,25 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets _links
+     * Gets template_id
      *
-     * @return \Swagger\Client\Model\Links
+     * @return string
      */
-    public function getLinks()
+    public function getTemplateId()
     {
-        return $this->container['_links'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets _links
+     * Sets template_id
      *
-     * @param \Swagger\Client\Model\Links $_links _links
+     * @param string $template_id The template id the report was generated from
      *
      * @return $this
      */
-    public function setLinks($_links)
+    public function setTemplateId($template_id)
     {
-        $this->container['_links'] = $_links;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }

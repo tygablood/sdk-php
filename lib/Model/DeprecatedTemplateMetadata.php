@@ -1,6 +1,6 @@
 <?php
 /**
- * CauseOfLossMetadata
+ * DeprecatedTemplateMetadata
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CauseOfLossMetadata Class Doc Comment
+ * DeprecatedTemplateMetadata Class Doc Comment
  *
  * @category Class
- * @description Describes a cause of loss
+ * @description Describes a project template
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CauseOfLossMetadata implements ModelInterface, ArrayAccess
+class DeprecatedTemplateMetadata implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CauseOfLossMetadata';
+    protected static $swaggerModelName = 'DeprecatedTemplateMetadata';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,6 +60,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'name' => 'string',
+        'type' => 'string',
         '_links' => '\Swagger\Client\Model\Links'
     ];
 
@@ -71,6 +72,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'name' => null,
+        'type' => null,
         '_links' => null
     ];
 
@@ -103,6 +105,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'type' => 'type',
         '_links' => '_links'
     ];
 
@@ -114,6 +117,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'type' => 'setType',
         '_links' => 'setLinks'
     ];
 
@@ -125,6 +129,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'type' => 'getType',
         '_links' => 'getLinks'
     ];
 
@@ -169,8 +174,21 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_PROPERTY_CLAIM = 'PropertyClaim';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROPERTY_CLAIM,
+        ];
+    }
     
 
     /**
@@ -190,6 +208,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
     }
 
@@ -201,6 +220,14 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -230,7 +257,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id The id of the cause of loss
+     * @param string $id The id of the template
      *
      * @return $this
      */
@@ -254,13 +281,46 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The cause of loss name
+     * @param string $name The template name
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The project type of the template
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

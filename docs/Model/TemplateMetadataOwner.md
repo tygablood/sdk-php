@@ -1,11 +1,10 @@
-# TemplateMetadata
+# TemplateMetadataOwner
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The id of the template | [optional] 
-**name** | **string** | The name of the template | [optional] 
-**owner** | [**\Swagger\Client\Model\TemplateMetadataOwner**](TemplateMetadataOwner.md) |  | [optional] 
+**id** | **string** | The id of the account | [optional] 
+**name** | **string** | The name of the account | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsApi
+ * PropertyApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * ProjectsApi Class Doc Comment
+ * PropertyApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ProjectsApi
+class PropertyApi
 {
     /**
      * @var ClientInterface
@@ -88,36 +88,37 @@ class ProjectsApi
     }
 
     /**
-     * Operation addToCanceledProjects
+     * Operation getPropertyTemplatesReports
      *
-     * Canceled projects
+     * Get all available report templates
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\TemplateMetadata
      */
-    public function addToCanceledProjects($body)
+    public function getPropertyTemplatesReports($accept_language = null)
     {
-        $this->addToCanceledProjectsWithHttpInfo($body);
+        list($response) = $this->getPropertyTemplatesReportsWithHttpInfo($accept_language);
+        return $response;
     }
 
     /**
-     * Operation addToCanceledProjectsWithHttpInfo
+     * Operation getPropertyTemplatesReportsWithHttpInfo
      *
-     * Canceled projects
+     * Get all available report templates
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\TemplateMetadata, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addToCanceledProjectsWithHttpInfo($body)
+    public function getPropertyTemplatesReportsWithHttpInfo($accept_language = null)
     {
-        $returnType = '';
-        $request = $this->addToCanceledProjectsRequest($body);
+        $returnType = '\Swagger\Client\Model\TemplateMetadata';
+        $request = $this->getPropertyTemplatesReportsRequest($accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -147,28 +148,50 @@ class ProjectsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\TemplateMetadata',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation addToCanceledProjectsAsync
+     * Operation getPropertyTemplatesReportsAsync
      *
-     * Canceled projects
+     * Get all available report templates
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToCanceledProjectsAsync($body)
+    public function getPropertyTemplatesReportsAsync($accept_language = null)
     {
-        return $this->addToCanceledProjectsAsyncWithHttpInfo($body)
+        return $this->getPropertyTemplatesReportsAsyncWithHttpInfo($accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -177,25 +200,39 @@ class ProjectsApi
     }
 
     /**
-     * Operation addToCanceledProjectsAsyncWithHttpInfo
+     * Operation getPropertyTemplatesReportsAsyncWithHttpInfo
      *
-     * Canceled projects
+     * Get all available report templates
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToCanceledProjectsAsyncWithHttpInfo($body)
+    public function getPropertyTemplatesReportsAsyncWithHttpInfo($accept_language = null)
     {
-        $returnType = '';
-        $request = $this->addToCanceledProjectsRequest($body);
+        $returnType = '\Swagger\Client\Model\TemplateMetadata';
+        $request = $this->getPropertyTemplatesReportsRequest($accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -215,45 +252,40 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'addToCanceledProjects'
+     * Create request for operation 'getPropertyTemplatesReports'
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be canceled (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addToCanceledProjectsRequest($body)
+    protected function getPropertyTemplatesReportsRequest($accept_language = null)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling addToCanceledProjects'
-            );
-        }
 
-        $resourcePath = '/projects/canceled';
+        $resourcePath = '/property/templates/reports';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
+                ['application/json'],
+                []
             );
         }
 
@@ -312,7 +344,7 @@ class ProjectsApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -320,36 +352,39 @@ class ProjectsApi
     }
 
     /**
-     * Operation addToCompletedProjects
+     * Operation propertyTemplatesClaimsClaimTemplateIdReportsGet
      *
-     * Completed projects
+     * Get all report templates for the claim template
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  string $claim_template_id The id of the claim template (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\TemplateMetadata
      */
-    public function addToCompletedProjects($body)
+    public function propertyTemplatesClaimsClaimTemplateIdReportsGet($claim_template_id, $accept_language = null)
     {
-        $this->addToCompletedProjectsWithHttpInfo($body);
+        list($response) = $this->propertyTemplatesClaimsClaimTemplateIdReportsGetWithHttpInfo($claim_template_id, $accept_language);
+        return $response;
     }
 
     /**
-     * Operation addToCompletedProjectsWithHttpInfo
+     * Operation propertyTemplatesClaimsClaimTemplateIdReportsGetWithHttpInfo
      *
-     * Completed projects
+     * Get all report templates for the claim template
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  string $claim_template_id The id of the claim template (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\TemplateMetadata, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addToCompletedProjectsWithHttpInfo($body)
+    public function propertyTemplatesClaimsClaimTemplateIdReportsGetWithHttpInfo($claim_template_id, $accept_language = null)
     {
-        $returnType = '';
-        $request = $this->addToCompletedProjectsRequest($body);
+        $returnType = '\Swagger\Client\Model\TemplateMetadata';
+        $request = $this->propertyTemplatesClaimsClaimTemplateIdReportsGetRequest($claim_template_id, $accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -379,28 +414,51 @@ class ProjectsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\TemplateMetadata',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation addToCompletedProjectsAsync
+     * Operation propertyTemplatesClaimsClaimTemplateIdReportsGetAsync
      *
-     * Completed projects
+     * Get all report templates for the claim template
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  string $claim_template_id The id of the claim template (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToCompletedProjectsAsync($body)
+    public function propertyTemplatesClaimsClaimTemplateIdReportsGetAsync($claim_template_id, $accept_language = null)
     {
-        return $this->addToCompletedProjectsAsyncWithHttpInfo($body)
+        return $this->propertyTemplatesClaimsClaimTemplateIdReportsGetAsyncWithHttpInfo($claim_template_id, $accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -409,25 +467,40 @@ class ProjectsApi
     }
 
     /**
-     * Operation addToCompletedProjectsAsyncWithHttpInfo
+     * Operation propertyTemplatesClaimsClaimTemplateIdReportsGetAsyncWithHttpInfo
      *
-     * Completed projects
+     * Get all report templates for the claim template
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  string $claim_template_id The id of the claim template (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToCompletedProjectsAsyncWithHttpInfo($body)
+    public function propertyTemplatesClaimsClaimTemplateIdReportsGetAsyncWithHttpInfo($claim_template_id, $accept_language = null)
     {
-        $returnType = '';
-        $request = $this->addToCompletedProjectsRequest($body);
+        $returnType = '\Swagger\Client\Model\TemplateMetadata';
+        $request = $this->propertyTemplatesClaimsClaimTemplateIdReportsGetRequest($claim_template_id, $accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -447,45 +520,55 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'addToCompletedProjects'
+     * Create request for operation 'propertyTemplatesClaimsClaimTemplateIdReportsGet'
      *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be completed (required)
+     * @param  string $claim_template_id The id of the claim template (required)
+     * @param  string $accept_language The culture to request resources for (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addToCompletedProjectsRequest($body)
+    protected function propertyTemplatesClaimsClaimTemplateIdReportsGetRequest($claim_template_id, $accept_language = null)
     {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'claim_template_id' is set
+        if ($claim_template_id === null || (is_array($claim_template_id) && count($claim_template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling addToCompletedProjects'
+                'Missing the required parameter $claim_template_id when calling propertyTemplatesClaimsClaimTemplateIdReportsGet'
             );
         }
 
-        $resourcePath = '/projects/completed';
+        $resourcePath = '/property/templates/claims/{claim-template-id}/reports';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
+        // path params
+        if ($claim_template_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claim-template-id' . '}',
+                ObjectSerializer::toPathValue($claim_template_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
+                ['application/json'],
+                []
             );
         }
 
@@ -544,239 +627,7 @@ class ProjectsApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation addToOpenProjects
-     *
-     * Open projects
-     *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function addToOpenProjects($body)
-    {
-        $this->addToOpenProjectsWithHttpInfo($body);
-    }
-
-    /**
-     * Operation addToOpenProjectsWithHttpInfo
-     *
-     * Open projects
-     *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function addToOpenProjectsWithHttpInfo($body)
-    {
-        $returnType = '';
-        $request = $this->addToOpenProjectsRequest($body);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation addToOpenProjectsAsync
-     *
-     * Open projects
-     *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function addToOpenProjectsAsync($body)
-    {
-        return $this->addToOpenProjectsAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation addToOpenProjectsAsyncWithHttpInfo
-     *
-     * Open projects
-     *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function addToOpenProjectsAsyncWithHttpInfo($body)
-    {
-        $returnType = '';
-        $request = $this->addToOpenProjectsRequest($body);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'addToOpenProjects'
-     *
-     * @param  \Swagger\Client\Model\ProjectReference $body A reference to the project to be opened (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function addToOpenProjectsRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling addToOpenProjects'
-            );
-        }
-
-        $resourcePath = '/projects/open';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = \GuzzleHttp\json_encode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

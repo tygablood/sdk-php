@@ -1,6 +1,6 @@
 <?php
 /**
- * CauseOfLossMetadata
+ * PropertyClaimReportsRequestCreate
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CauseOfLossMetadata Class Doc Comment
+ * PropertyClaimReportsRequestCreate Class Doc Comment
  *
  * @category Class
- * @description Describes a cause of loss
+ * @description Report creation properties
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CauseOfLossMetadata implements ModelInterface, ArrayAccess
+class PropertyClaimReportsRequestCreate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CauseOfLossMetadata';
+    protected static $swaggerModelName = 'PropertyClaimReportsRequestCreate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-        'name' => 'string',
-        '_links' => '\Swagger\Client\Model\Links'
+        'template_id' => 'string'
     ];
 
     /**
@@ -69,9 +67,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'name' => null,
-        '_links' => null
+        'template_id' => 'uuid'
     ];
 
     /**
@@ -101,9 +97,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        '_links' => '_links'
+        'template_id' => 'templateId'
     ];
 
     /**
@@ -112,9 +106,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        '_links' => 'setLinks'
+        'template_id' => 'setTemplateId'
     ];
 
     /**
@@ -123,9 +115,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        '_links' => 'getLinks'
+        'template_id' => 'getTemplateId'
     ];
 
     /**
@@ -188,9 +178,7 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['_links'] = isset($data['_links']) ? $data['_links'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
     }
 
     /**
@@ -202,6 +190,9 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,73 +209,25 @@ class CauseOfLossMetadata implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets template_id
      *
      * @return string
      */
-    public function getId()
+    public function getTemplateId()
     {
-        return $this->container['id'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets id
+     * Sets template_id
      *
-     * @param string $id The id of the cause of loss
+     * @param string $template_id The report template to create the report from. Allowed report template ids can be found at [/property/templates/claims/{claim-template-id}/reports](#tag/Templates/paths/~1property~1templates~1claims~1{claim-template-id}~1reports/get).
      *
      * @return $this
      */
-    public function setId($id)
+    public function setTemplateId($template_id)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The cause of loss name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets _links
-     *
-     * @return \Swagger\Client\Model\Links
-     */
-    public function getLinks()
-    {
-        return $this->container['_links'];
-    }
-
-    /**
-     * Sets _links
-     *
-     * @param \Swagger\Client\Model\Links $_links _links
-     *
-     * @return $this
-     */
-    public function setLinks($_links)
-    {
-        $this->container['_links'] = $_links;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }
