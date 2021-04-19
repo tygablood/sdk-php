@@ -87,7 +87,7 @@ class PropertyClaimsStatusApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStatusPut
+     * Operation updateClaimStatus
      *
      * Updates status for property claim
      *
@@ -98,13 +98,13 @@ class PropertyClaimsStatusApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function v1PropertyClaimsClaimIdStatusPut($body, $claim_id)
+    public function updateClaimStatus($body, $claim_id)
     {
-        $this->v1PropertyClaimsClaimIdStatusPutWithHttpInfo($body, $claim_id);
+        $this->updateClaimStatusWithHttpInfo($body, $claim_id);
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStatusPutWithHttpInfo
+     * Operation updateClaimStatusWithHttpInfo
      *
      * Updates status for property claim
      *
@@ -115,10 +115,10 @@ class PropertyClaimsStatusApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdStatusPutWithHttpInfo($body, $claim_id)
+    public function updateClaimStatusWithHttpInfo($body, $claim_id)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdStatusPutRequest($body, $claim_id);
+        $request = $this->updateClaimStatusRequest($body, $claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -174,7 +174,7 @@ class PropertyClaimsStatusApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStatusPutAsync
+     * Operation updateClaimStatusAsync
      *
      * Updates status for property claim
      *
@@ -184,9 +184,9 @@ class PropertyClaimsStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStatusPutAsync($body, $claim_id)
+    public function updateClaimStatusAsync($body, $claim_id)
     {
-        return $this->v1PropertyClaimsClaimIdStatusPutAsyncWithHttpInfo($body, $claim_id)
+        return $this->updateClaimStatusAsyncWithHttpInfo($body, $claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -195,7 +195,7 @@ class PropertyClaimsStatusApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStatusPutAsyncWithHttpInfo
+     * Operation updateClaimStatusAsyncWithHttpInfo
      *
      * Updates status for property claim
      *
@@ -205,10 +205,10 @@ class PropertyClaimsStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStatusPutAsyncWithHttpInfo($body, $claim_id)
+    public function updateClaimStatusAsyncWithHttpInfo($body, $claim_id)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdStatusPutRequest($body, $claim_id);
+        $request = $this->updateClaimStatusRequest($body, $claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -234,7 +234,7 @@ class PropertyClaimsStatusApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdStatusPut'
+     * Create request for operation 'updateClaimStatus'
      *
      * @param  \Swagger\Client\Model\ClaimStatusChangeRequest $body The claim status change request (required)
      * @param  string $claim_id The claim id (required)
@@ -242,18 +242,18 @@ class PropertyClaimsStatusApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdStatusPutRequest($body, $claim_id)
+    protected function updateClaimStatusRequest($body, $claim_id)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling v1PropertyClaimsClaimIdStatusPut'
+                'Missing the required parameter $body when calling updateClaimStatus'
             );
         }
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdStatusPut'
+                'Missing the required parameter $claim_id when calling updateClaimStatus'
             );
         }
 
@@ -282,12 +282,12 @@ class PropertyClaimsStatusApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/_*+json', 'application/json', 'text/json']
+                ['application/json', 'application/problem+json'],
+                ['application/json']
             );
         }
 

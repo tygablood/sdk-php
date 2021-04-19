@@ -87,884 +87,7 @@ class PropertyClaimsMediaApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdMediaGet
-     *
-     * Get claim media
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\MediaResponse[]
-     */
-    public function v1PropertyClaimsClaimIdMediaGet($claim_id)
-    {
-        list($response) = $this->v1PropertyClaimsClaimIdMediaGetWithHttpInfo($claim_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaGetWithHttpInfo
-     *
-     * Get claim media
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\MediaResponse[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyClaimsClaimIdMediaGetWithHttpInfo($claim_id)
-    {
-        $returnType = '\Swagger\Client\Model\MediaResponse[]';
-        $request = $this->v1PropertyClaimsClaimIdMediaGetRequest($claim_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\MediaResponse[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaGetAsync
-     *
-     * Get claim media
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdMediaGetAsync($claim_id)
-    {
-        return $this->v1PropertyClaimsClaimIdMediaGetAsyncWithHttpInfo($claim_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaGetAsyncWithHttpInfo
-     *
-     * Get claim media
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdMediaGetAsyncWithHttpInfo($claim_id)
-    {
-        $returnType = '\Swagger\Client\Model\MediaResponse[]';
-        $request = $this->v1PropertyClaimsClaimIdMediaGetRequest($claim_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyClaimsClaimIdMediaGet'
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyClaimsClaimIdMediaGetRequest($claim_id)
-    {
-        // verify the required parameter 'claim_id' is set
-        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdMediaGet'
-            );
-        }
-
-        $resourcePath = '/v1/property/claims/{claimId}/media';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($claim_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'claimId' . '}',
-                ObjectSerializer::toPathValue($claim_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdGet
-     *
-     * Get claim media item
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\MediaResponse
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdGet($claim_id, $media_id)
-    {
-        list($response) = $this->v1PropertyClaimsClaimIdMediaMediaIdGetWithHttpInfo($claim_id, $media_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdGetWithHttpInfo
-     *
-     * Get claim media item
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\MediaResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdGetWithHttpInfo($claim_id, $media_id)
-    {
-        $returnType = '\Swagger\Client\Model\MediaResponse';
-        $request = $this->v1PropertyClaimsClaimIdMediaMediaIdGetRequest($claim_id, $media_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\MediaResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdGetAsync
-     *
-     * Get claim media item
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdGetAsync($claim_id, $media_id)
-    {
-        return $this->v1PropertyClaimsClaimIdMediaMediaIdGetAsyncWithHttpInfo($claim_id, $media_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdGetAsyncWithHttpInfo
-     *
-     * Get claim media item
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdGetAsyncWithHttpInfo($claim_id, $media_id)
-    {
-        $returnType = '\Swagger\Client\Model\MediaResponse';
-        $request = $this->v1PropertyClaimsClaimIdMediaMediaIdGetRequest($claim_id, $media_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyClaimsClaimIdMediaMediaIdGet'
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyClaimsClaimIdMediaMediaIdGetRequest($claim_id, $media_id)
-    {
-        // verify the required parameter 'claim_id' is set
-        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdMediaMediaIdGet'
-            );
-        }
-        // verify the required parameter 'media_id' is set
-        if ($media_id === null || (is_array($media_id) && count($media_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $media_id when calling v1PropertyClaimsClaimIdMediaMediaIdGet'
-            );
-        }
-
-        $resourcePath = '/v1/property/claims/{claimId}/media/{mediaId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($claim_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'claimId' . '}',
-                ObjectSerializer::toPathValue($claim_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($media_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'mediaId' . '}',
-                ObjectSerializer::toPathValue($media_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdPut
-     *
-     * Update claim media
-     *
-     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\MediaUpdatedResponse
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdPut($body, $claim_id, $media_id)
-    {
-        list($response) = $this->v1PropertyClaimsClaimIdMediaMediaIdPutWithHttpInfo($body, $claim_id, $media_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdPutWithHttpInfo
-     *
-     * Update claim media
-     *
-     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\MediaUpdatedResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdPutWithHttpInfo($body, $claim_id, $media_id)
-    {
-        $returnType = '\Swagger\Client\Model\MediaUpdatedResponse';
-        $request = $this->v1PropertyClaimsClaimIdMediaMediaIdPutRequest($body, $claim_id, $media_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\MediaUpdatedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdPutAsync
-     *
-     * Update claim media
-     *
-     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdPutAsync($body, $claim_id, $media_id)
-    {
-        return $this->v1PropertyClaimsClaimIdMediaMediaIdPutAsyncWithHttpInfo($body, $claim_id, $media_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaMediaIdPutAsyncWithHttpInfo
-     *
-     * Update claim media
-     *
-     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdMediaMediaIdPutAsyncWithHttpInfo($body, $claim_id, $media_id)
-    {
-        $returnType = '\Swagger\Client\Model\MediaUpdatedResponse';
-        $request = $this->v1PropertyClaimsClaimIdMediaMediaIdPutRequest($body, $claim_id, $media_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyClaimsClaimIdMediaMediaIdPut'
-     *
-     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
-     * @param  string $claim_id The claim id (required)
-     * @param  string $media_id The media id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyClaimsClaimIdMediaMediaIdPutRequest($body, $claim_id, $media_id)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling v1PropertyClaimsClaimIdMediaMediaIdPut'
-            );
-        }
-        // verify the required parameter 'claim_id' is set
-        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdMediaMediaIdPut'
-            );
-        }
-        // verify the required parameter 'media_id' is set
-        if ($media_id === null || (is_array($media_id) && count($media_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $media_id when calling v1PropertyClaimsClaimIdMediaMediaIdPut'
-            );
-        }
-
-        $resourcePath = '/v1/property/claims/{claimId}/media/{mediaId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($claim_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'claimId' . '}',
-                ObjectSerializer::toPathValue($claim_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($media_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'mediaId' . '}',
-                ObjectSerializer::toPathValue($media_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/_*+json', 'application/json', 'text/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdMediaPost
+     * Operation createMedia
      *
      * Create claim media
      *
@@ -975,14 +98,14 @@ class PropertyClaimsMediaApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\MediaCreatedResponse
      */
-    public function v1PropertyClaimsClaimIdMediaPost($body, $claim_id)
+    public function createMedia($body, $claim_id)
     {
-        list($response) = $this->v1PropertyClaimsClaimIdMediaPostWithHttpInfo($body, $claim_id);
+        list($response) = $this->createMediaWithHttpInfo($body, $claim_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdMediaPostWithHttpInfo
+     * Operation createMediaWithHttpInfo
      *
      * Create claim media
      *
@@ -993,10 +116,10 @@ class PropertyClaimsMediaApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\MediaCreatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdMediaPostWithHttpInfo($body, $claim_id)
+    public function createMediaWithHttpInfo($body, $claim_id)
     {
         $returnType = '\Swagger\Client\Model\MediaCreatedResponse';
-        $request = $this->v1PropertyClaimsClaimIdMediaPostRequest($body, $claim_id);
+        $request = $this->createMediaRequest($body, $claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1066,7 +189,7 @@ class PropertyClaimsMediaApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdMediaPostAsync
+     * Operation createMediaAsync
      *
      * Create claim media
      *
@@ -1076,9 +199,9 @@ class PropertyClaimsMediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdMediaPostAsync($body, $claim_id)
+    public function createMediaAsync($body, $claim_id)
     {
-        return $this->v1PropertyClaimsClaimIdMediaPostAsyncWithHttpInfo($body, $claim_id)
+        return $this->createMediaAsyncWithHttpInfo($body, $claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1087,7 +210,7 @@ class PropertyClaimsMediaApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdMediaPostAsyncWithHttpInfo
+     * Operation createMediaAsyncWithHttpInfo
      *
      * Create claim media
      *
@@ -1097,10 +220,10 @@ class PropertyClaimsMediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdMediaPostAsyncWithHttpInfo($body, $claim_id)
+    public function createMediaAsyncWithHttpInfo($body, $claim_id)
     {
         $returnType = '\Swagger\Client\Model\MediaCreatedResponse';
-        $request = $this->v1PropertyClaimsClaimIdMediaPostRequest($body, $claim_id);
+        $request = $this->createMediaRequest($body, $claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1140,7 +263,7 @@ class PropertyClaimsMediaApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdMediaPost'
+     * Create request for operation 'createMedia'
      *
      * @param  \Swagger\Client\Model\MediaCreateRequest $body The media create request (required)
      * @param  string $claim_id The claim id (required)
@@ -1148,18 +271,18 @@ class PropertyClaimsMediaApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdMediaPostRequest($body, $claim_id)
+    protected function createMediaRequest($body, $claim_id)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling v1PropertyClaimsClaimIdMediaPost'
+                'Missing the required parameter $body when calling createMedia'
             );
         }
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdMediaPost'
+                'Missing the required parameter $claim_id when calling createMedia'
             );
         }
 
@@ -1188,12 +311,12 @@ class PropertyClaimsMediaApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/_*+json', 'application/json', 'text/json']
+                ['application/json', 'application/problem+json'],
+                ['application/json']
             );
         }
 
@@ -1246,6 +369,883 @@ class PropertyClaimsMediaApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMedia
+     *
+     * Get claim media
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\MediaResponse[]
+     */
+    public function getMedia($claim_id)
+    {
+        list($response) = $this->getMediaWithHttpInfo($claim_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMediaWithHttpInfo
+     *
+     * Get claim media
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\MediaResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMediaWithHttpInfo($claim_id)
+    {
+        $returnType = '\Swagger\Client\Model\MediaResponse[]';
+        $request = $this->getMediaRequest($claim_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\MediaResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMediaAsync
+     *
+     * Get claim media
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMediaAsync($claim_id)
+    {
+        return $this->getMediaAsyncWithHttpInfo($claim_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMediaAsyncWithHttpInfo
+     *
+     * Get claim media
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMediaAsyncWithHttpInfo($claim_id)
+    {
+        $returnType = '\Swagger\Client\Model\MediaResponse[]';
+        $request = $this->getMediaRequest($claim_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMedia'
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMediaRequest($claim_id)
+    {
+        // verify the required parameter 'claim_id' is set
+        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $claim_id when calling getMedia'
+            );
+        }
+
+        $resourcePath = '/v1/property/claims/{claimId}/media';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($claim_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claimId' . '}',
+                ObjectSerializer::toPathValue($claim_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getMediaById
+     *
+     * Get claim media item
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\MediaResponse
+     */
+    public function getMediaById($claim_id, $media_id)
+    {
+        list($response) = $this->getMediaByIdWithHttpInfo($claim_id, $media_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMediaByIdWithHttpInfo
+     *
+     * Get claim media item
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\MediaResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMediaByIdWithHttpInfo($claim_id, $media_id)
+    {
+        $returnType = '\Swagger\Client\Model\MediaResponse';
+        $request = $this->getMediaByIdRequest($claim_id, $media_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\MediaResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMediaByIdAsync
+     *
+     * Get claim media item
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMediaByIdAsync($claim_id, $media_id)
+    {
+        return $this->getMediaByIdAsyncWithHttpInfo($claim_id, $media_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMediaByIdAsyncWithHttpInfo
+     *
+     * Get claim media item
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMediaByIdAsyncWithHttpInfo($claim_id, $media_id)
+    {
+        $returnType = '\Swagger\Client\Model\MediaResponse';
+        $request = $this->getMediaByIdRequest($claim_id, $media_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMediaById'
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMediaByIdRequest($claim_id, $media_id)
+    {
+        // verify the required parameter 'claim_id' is set
+        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $claim_id when calling getMediaById'
+            );
+        }
+        // verify the required parameter 'media_id' is set
+        if ($media_id === null || (is_array($media_id) && count($media_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $media_id when calling getMediaById'
+            );
+        }
+
+        $resourcePath = '/v1/property/claims/{claimId}/media/{mediaId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($claim_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claimId' . '}',
+                ObjectSerializer::toPathValue($claim_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($media_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mediaId' . '}',
+                ObjectSerializer::toPathValue($media_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateMedia
+     *
+     * Update claim media
+     *
+     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\MediaUpdatedResponse
+     */
+    public function updateMedia($body, $claim_id, $media_id)
+    {
+        list($response) = $this->updateMediaWithHttpInfo($body, $claim_id, $media_id);
+        return $response;
+    }
+
+    /**
+     * Operation updateMediaWithHttpInfo
+     *
+     * Update claim media
+     *
+     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\MediaUpdatedResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateMediaWithHttpInfo($body, $claim_id, $media_id)
+    {
+        $returnType = '\Swagger\Client\Model\MediaUpdatedResponse';
+        $request = $this->updateMediaRequest($body, $claim_id, $media_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\MediaUpdatedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateMediaAsync
+     *
+     * Update claim media
+     *
+     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateMediaAsync($body, $claim_id, $media_id)
+    {
+        return $this->updateMediaAsyncWithHttpInfo($body, $claim_id, $media_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateMediaAsyncWithHttpInfo
+     *
+     * Update claim media
+     *
+     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateMediaAsyncWithHttpInfo($body, $claim_id, $media_id)
+    {
+        $returnType = '\Swagger\Client\Model\MediaUpdatedResponse';
+        $request = $this->updateMediaRequest($body, $claim_id, $media_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateMedia'
+     *
+     * @param  \Swagger\Client\Model\MediaUpdateRequest $body The media update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $media_id The media id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateMediaRequest($body, $claim_id, $media_id)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling updateMedia'
+            );
+        }
+        // verify the required parameter 'claim_id' is set
+        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $claim_id when calling updateMedia'
+            );
+        }
+        // verify the required parameter 'media_id' is set
+        if ($media_id === null || (is_array($media_id) && count($media_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $media_id when calling updateMedia'
+            );
+        }
+
+        $resourcePath = '/v1/property/claims/{claimId}/media/{mediaId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($claim_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claimId' . '}',
+                ObjectSerializer::toPathValue($claim_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($media_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mediaId' . '}',
+                ObjectSerializer::toPathValue($media_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

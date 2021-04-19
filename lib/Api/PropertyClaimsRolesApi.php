@@ -87,9 +87,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDelete
+     * Operation addClaimManagerByEmail
      *
-     * Remove claim manager
+     * Add claim manager
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $email The account user email (required)
@@ -98,15 +98,15 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDelete($claim_id, $email)
+    public function addClaimManagerByEmail($claim_id, $email)
     {
-        $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteWithHttpInfo($claim_id, $email);
+        $this->addClaimManagerByEmailWithHttpInfo($claim_id, $email);
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteWithHttpInfo
+     * Operation addClaimManagerByEmailWithHttpInfo
      *
-     * Remove claim manager
+     * Add claim manager
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $email The account user email (required)
@@ -115,10 +115,10 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteWithHttpInfo($claim_id, $email)
+    public function addClaimManagerByEmailWithHttpInfo($claim_id, $email)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteRequest($claim_id, $email);
+        $request = $this->addClaimManagerByEmailRequest($claim_id, $email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -166,9 +166,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteAsync
+     * Operation addClaimManagerByEmailAsync
      *
-     * Remove claim manager
+     * Add claim manager
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $email The account user email (required)
@@ -176,9 +176,9 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteAsync($claim_id, $email)
+    public function addClaimManagerByEmailAsync($claim_id, $email)
     {
-        return $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteAsyncWithHttpInfo($claim_id, $email)
+        return $this->addClaimManagerByEmailAsyncWithHttpInfo($claim_id, $email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -187,9 +187,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteAsyncWithHttpInfo
+     * Operation addClaimManagerByEmailAsyncWithHttpInfo
      *
-     * Remove claim manager
+     * Add claim manager
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $email The account user email (required)
@@ -197,10 +197,10 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteAsyncWithHttpInfo($claim_id, $email)
+    public function addClaimManagerByEmailAsyncWithHttpInfo($claim_id, $email)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteRequest($claim_id, $email);
+        $request = $this->addClaimManagerByEmailRequest($claim_id, $email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -226,7 +226,7 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDelete'
+     * Create request for operation 'addClaimManagerByEmail'
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $email The account user email (required)
@@ -234,18 +234,18 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDeleteRequest($claim_id, $email)
+    protected function addClaimManagerByEmailRequest($claim_id, $email)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDelete'
+                'Missing the required parameter $claim_id when calling addClaimManagerByEmail'
             );
         }
         // verify the required parameter 'email' is set
         if ($email === null || (is_array($email) && count($email) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $email when calling v1PropertyClaimsClaimIdClaimManagerAccountUserEmailDelete'
+                'Missing the required parameter $email when calling addClaimManagerByEmail'
             );
         }
 
@@ -279,268 +279,11 @@ class PropertyClaimsRolesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPut
-     *
-     * Add claim manager
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $email The account user email (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPut($claim_id, $email)
-    {
-        $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutWithHttpInfo($claim_id, $email);
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutWithHttpInfo
-     *
-     * Add claim manager
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $email The account user email (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutWithHttpInfo($claim_id, $email)
-    {
-        $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutRequest($claim_id, $email);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutAsync
-     *
-     * Add claim manager
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $email The account user email (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutAsync($claim_id, $email)
-    {
-        return $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutAsyncWithHttpInfo($claim_id, $email)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutAsyncWithHttpInfo
-     *
-     * Add claim manager
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $email The account user email (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutAsyncWithHttpInfo($claim_id, $email)
-    {
-        $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutRequest($claim_id, $email);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPut'
-     *
-     * @param  string $claim_id The claim id (required)
-     * @param  string $email The account user email (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPutRequest($claim_id, $email)
-    {
-        // verify the required parameter 'claim_id' is set
-        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPut'
-            );
-        }
-        // verify the required parameter 'email' is set
-        if ($email === null || (is_array($email) && count($email) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $email when calling v1PropertyClaimsClaimIdClaimManagerAccountUserEmailPut'
-            );
-        }
-
-        $resourcePath = '/v1/property/claims/{claimId}/claim-manager/account-user/{email}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($claim_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'claimId' . '}',
-                ObjectSerializer::toPathValue($claim_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($email !== null) {
-            $resourcePath = str_replace(
-                '{' . 'email' . '}',
-                ObjectSerializer::toPathValue($email),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -601,9 +344,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDelete
+     * Operation addRoleByEmail
      *
-     * Remove user from role
+     * Add user to role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -613,15 +356,15 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDelete($claim_id, $role_id, $email)
+    public function addRoleByEmail($claim_id, $role_id, $email)
     {
-        $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteWithHttpInfo($claim_id, $role_id, $email);
+        $this->addRoleByEmailWithHttpInfo($claim_id, $role_id, $email);
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteWithHttpInfo
+     * Operation addRoleByEmailWithHttpInfo
      *
-     * Remove user from role
+     * Add user to role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -631,10 +374,10 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteWithHttpInfo($claim_id, $role_id, $email)
+    public function addRoleByEmailWithHttpInfo($claim_id, $role_id, $email)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteRequest($claim_id, $role_id, $email);
+        $request = $this->addRoleByEmailRequest($claim_id, $role_id, $email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -682,9 +425,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteAsync
+     * Operation addRoleByEmailAsync
      *
-     * Remove user from role
+     * Add user to role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -693,9 +436,9 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteAsync($claim_id, $role_id, $email)
+    public function addRoleByEmailAsync($claim_id, $role_id, $email)
     {
-        return $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteAsyncWithHttpInfo($claim_id, $role_id, $email)
+        return $this->addRoleByEmailAsyncWithHttpInfo($claim_id, $role_id, $email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -704,9 +447,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteAsyncWithHttpInfo
+     * Operation addRoleByEmailAsyncWithHttpInfo
      *
-     * Remove user from role
+     * Add user to role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -715,10 +458,10 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteAsyncWithHttpInfo($claim_id, $role_id, $email)
+    public function addRoleByEmailAsyncWithHttpInfo($claim_id, $role_id, $email)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteRequest($claim_id, $role_id, $email);
+        $request = $this->addRoleByEmailRequest($claim_id, $role_id, $email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -744,7 +487,7 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDelete'
+     * Create request for operation 'addRoleByEmail'
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -753,24 +496,24 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDeleteRequest($claim_id, $role_id, $email)
+    protected function addRoleByEmailRequest($claim_id, $role_id, $email)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDelete'
+                'Missing the required parameter $claim_id when calling addRoleByEmail'
             );
         }
         // verify the required parameter 'role_id' is set
         if ($role_id === null || (is_array($role_id) && count($role_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_id when calling v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDelete'
+                'Missing the required parameter $role_id when calling addRoleByEmail'
             );
         }
         // verify the required parameter 'email' is set
         if ($email === null || (is_array($email) && count($email) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $email when calling v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailDelete'
+                'Missing the required parameter $email when calling addRoleByEmail'
             );
         }
 
@@ -812,11 +555,268 @@ class PropertyClaimsRolesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removeClaimManagerByEmail
+     *
+     * Remove claim manager
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $email The account user email (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function removeClaimManagerByEmail($claim_id, $email)
+    {
+        $this->removeClaimManagerByEmailWithHttpInfo($claim_id, $email);
+    }
+
+    /**
+     * Operation removeClaimManagerByEmailWithHttpInfo
+     *
+     * Remove claim manager
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $email The account user email (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeClaimManagerByEmailWithHttpInfo($claim_id, $email)
+    {
+        $returnType = '';
+        $request = $this->removeClaimManagerByEmailRequest($claim_id, $email);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeClaimManagerByEmailAsync
+     *
+     * Remove claim manager
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $email The account user email (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeClaimManagerByEmailAsync($claim_id, $email)
+    {
+        return $this->removeClaimManagerByEmailAsyncWithHttpInfo($claim_id, $email)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removeClaimManagerByEmailAsyncWithHttpInfo
+     *
+     * Remove claim manager
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $email The account user email (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeClaimManagerByEmailAsyncWithHttpInfo($claim_id, $email)
+    {
+        $returnType = '';
+        $request = $this->removeClaimManagerByEmailRequest($claim_id, $email);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removeClaimManagerByEmail'
+     *
+     * @param  string $claim_id The claim id (required)
+     * @param  string $email The account user email (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function removeClaimManagerByEmailRequest($claim_id, $email)
+    {
+        // verify the required parameter 'claim_id' is set
+        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $claim_id when calling removeClaimManagerByEmail'
+            );
+        }
+        // verify the required parameter 'email' is set
+        if ($email === null || (is_array($email) && count($email) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email when calling removeClaimManagerByEmail'
+            );
+        }
+
+        $resourcePath = '/v1/property/claims/{claimId}/claim-manager/account-user/{email}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($claim_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claimId' . '}',
+                ObjectSerializer::toPathValue($claim_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email' . '}',
+                ObjectSerializer::toPathValue($email),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -877,9 +877,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPut
+     * Operation removeRoleByEmail
      *
-     * Add user to role
+     * Remove user from role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -889,15 +889,15 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPut($claim_id, $role_id, $email)
+    public function removeRoleByEmail($claim_id, $role_id, $email)
     {
-        $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutWithHttpInfo($claim_id, $role_id, $email);
+        $this->removeRoleByEmailWithHttpInfo($claim_id, $role_id, $email);
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutWithHttpInfo
+     * Operation removeRoleByEmailWithHttpInfo
      *
-     * Add user to role
+     * Remove user from role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -907,10 +907,10 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutWithHttpInfo($claim_id, $role_id, $email)
+    public function removeRoleByEmailWithHttpInfo($claim_id, $role_id, $email)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutRequest($claim_id, $role_id, $email);
+        $request = $this->removeRoleByEmailRequest($claim_id, $role_id, $email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -958,9 +958,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutAsync
+     * Operation removeRoleByEmailAsync
      *
-     * Add user to role
+     * Remove user from role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -969,9 +969,9 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutAsync($claim_id, $role_id, $email)
+    public function removeRoleByEmailAsync($claim_id, $role_id, $email)
     {
-        return $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutAsyncWithHttpInfo($claim_id, $role_id, $email)
+        return $this->removeRoleByEmailAsyncWithHttpInfo($claim_id, $role_id, $email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -980,9 +980,9 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutAsyncWithHttpInfo
+     * Operation removeRoleByEmailAsyncWithHttpInfo
      *
-     * Add user to role
+     * Remove user from role
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -991,10 +991,10 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutAsyncWithHttpInfo($claim_id, $role_id, $email)
+    public function removeRoleByEmailAsyncWithHttpInfo($claim_id, $role_id, $email)
     {
         $returnType = '';
-        $request = $this->v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutRequest($claim_id, $role_id, $email);
+        $request = $this->removeRoleByEmailRequest($claim_id, $role_id, $email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1020,7 +1020,7 @@ class PropertyClaimsRolesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPut'
+     * Create request for operation 'removeRoleByEmail'
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $role_id The role id (required)
@@ -1029,24 +1029,24 @@ class PropertyClaimsRolesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPutRequest($claim_id, $role_id, $email)
+    protected function removeRoleByEmailRequest($claim_id, $role_id, $email)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPut'
+                'Missing the required parameter $claim_id when calling removeRoleByEmail'
             );
         }
         // verify the required parameter 'role_id' is set
         if ($role_id === null || (is_array($role_id) && count($role_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $role_id when calling v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPut'
+                'Missing the required parameter $role_id when calling removeRoleByEmail'
             );
         }
         // verify the required parameter 'email' is set
         if ($email === null || (is_array($email) && count($email) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $email when calling v1PropertyClaimsClaimIdRolesRoleIdAccountUserEmailPut'
+                'Missing the required parameter $email when calling removeRoleByEmail'
             );
         }
 
@@ -1088,11 +1088,11 @@ class PropertyClaimsRolesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -1145,7 +1145,7 @@ class PropertyClaimsRolesApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'PUT',
+            'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

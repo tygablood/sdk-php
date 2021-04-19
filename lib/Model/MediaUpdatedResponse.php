@@ -211,6 +211,21 @@ class MediaUpdatedResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['created_on'] === null) {
+            $invalidProperties[] = "'created_on' can't be null";
+        }
+        if ($this->container['filename'] === null) {
+            $invalidProperties[] = "'filename' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['updated_on'] === null) {
+            $invalidProperties[] = "'updated_on' can't be null";
+        }
         return $invalidProperties;
     }
 

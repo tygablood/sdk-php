@@ -87,7 +87,7 @@ class HealthApi
     }
 
     /**
-     * Operation healthAliveGet
+     * Operation alive
      *
      * Returns \"alive\" if the service is available.
      *
@@ -96,14 +96,14 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function healthAliveGet()
+    public function alive()
     {
-        list($response) = $this->healthAliveGetWithHttpInfo();
+        list($response) = $this->aliveWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation healthAliveGetWithHttpInfo
+     * Operation aliveWithHttpInfo
      *
      * Returns \"alive\" if the service is available.
      *
@@ -112,10 +112,10 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function healthAliveGetWithHttpInfo()
+    public function aliveWithHttpInfo()
     {
         $returnType = 'string';
-        $request = $this->healthAliveGetRequest();
+        $request = $this->aliveRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -177,7 +177,7 @@ class HealthApi
     }
 
     /**
-     * Operation healthAliveGetAsync
+     * Operation aliveAsync
      *
      * Returns \"alive\" if the service is available.
      *
@@ -185,9 +185,9 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthAliveGetAsync()
+    public function aliveAsync()
     {
-        return $this->healthAliveGetAsyncWithHttpInfo()
+        return $this->aliveAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -196,7 +196,7 @@ class HealthApi
     }
 
     /**
-     * Operation healthAliveGetAsyncWithHttpInfo
+     * Operation aliveAsyncWithHttpInfo
      *
      * Returns \"alive\" if the service is available.
      *
@@ -204,10 +204,10 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthAliveGetAsyncWithHttpInfo()
+    public function aliveAsyncWithHttpInfo()
     {
         $returnType = 'string';
-        $request = $this->healthAliveGetRequest();
+        $request = $this->aliveRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -247,13 +247,13 @@ class HealthApi
     }
 
     /**
-     * Create request for operation 'healthAliveGet'
+     * Create request for operation 'alive'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function healthAliveGetRequest()
+    protected function aliveRequest()
     {
 
         $resourcePath = '/health/alive';
@@ -270,11 +270,11 @@ class HealthApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -335,7 +335,7 @@ class HealthApi
     }
 
     /**
-     * Operation healthDetailsGet
+     * Operation details
      *
      * Returns the health details of the service and its dependencies.
      *
@@ -344,14 +344,14 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DependencyHealthDetails[]
      */
-    public function healthDetailsGet()
+    public function details()
     {
-        list($response) = $this->healthDetailsGetWithHttpInfo();
+        list($response) = $this->detailsWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation healthDetailsGetWithHttpInfo
+     * Operation detailsWithHttpInfo
      *
      * Returns the health details of the service and its dependencies.
      *
@@ -360,10 +360,10 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DependencyHealthDetails[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function healthDetailsGetWithHttpInfo()
+    public function detailsWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\DependencyHealthDetails[]';
-        $request = $this->healthDetailsGetRequest();
+        $request = $this->detailsRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -433,7 +433,7 @@ class HealthApi
     }
 
     /**
-     * Operation healthDetailsGetAsync
+     * Operation detailsAsync
      *
      * Returns the health details of the service and its dependencies.
      *
@@ -441,9 +441,9 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthDetailsGetAsync()
+    public function detailsAsync()
     {
-        return $this->healthDetailsGetAsyncWithHttpInfo()
+        return $this->detailsAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -452,7 +452,7 @@ class HealthApi
     }
 
     /**
-     * Operation healthDetailsGetAsyncWithHttpInfo
+     * Operation detailsAsyncWithHttpInfo
      *
      * Returns the health details of the service and its dependencies.
      *
@@ -460,10 +460,10 @@ class HealthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthDetailsGetAsyncWithHttpInfo()
+    public function detailsAsyncWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\DependencyHealthDetails[]';
-        $request = $this->healthDetailsGetRequest();
+        $request = $this->detailsRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -503,13 +503,13 @@ class HealthApi
     }
 
     /**
-     * Create request for operation 'healthDetailsGet'
+     * Create request for operation 'details'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function healthDetailsGetRequest()
+    protected function detailsRequest()
     {
 
         $resourcePath = '/health/details';
@@ -526,11 +526,11 @@ class HealthApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }

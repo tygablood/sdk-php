@@ -4,10 +4,10 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1PropertyClaimsClaimIdStatusPut**](PropertyClaimsStatusApi.md#v1propertyclaimsclaimidstatusput) | **PUT** /v1/property/claims/{claimId}/status | Updates status for property claim
+[**updateClaimStatus**](PropertyClaimsStatusApi.md#updateclaimstatus) | **PUT** /v1/property/claims/{claimId}/status | Updates status for property claim
 
-# **v1PropertyClaimsClaimIdStatusPut**
-> v1PropertyClaimsClaimIdStatusPut($body, $claim_id)
+# **updateClaimStatus**
+> updateClaimStatus($body, $claim_id)
 
 Updates status for property claim
 
@@ -30,9 +30,9 @@ $body = new \Swagger\Client\Model\ClaimStatusChangeRequest(); // \Swagger\Client
 $claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
 
 try {
-    $apiInstance->v1PropertyClaimsClaimIdStatusPut($body, $claim_id);
+    $apiInstance->updateClaimStatus($body, $claim_id);
 } catch (Exception $e) {
-    echo 'Exception when calling PropertyClaimsStatusApi->v1PropertyClaimsClaimIdStatusPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PropertyClaimsStatusApi->updateClaimStatus: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -54,8 +54,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/_*+json, application/json, text/json
- - **Accept**: application/json, text/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

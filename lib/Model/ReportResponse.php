@@ -205,6 +205,21 @@ class ReportResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['created_on'] === null) {
+            $invalidProperties[] = "'created_on' can't be null";
+        }
+        if ($this->container['download_url'] === null) {
+            $invalidProperties[] = "'download_url' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
         return $invalidProperties;
     }
 

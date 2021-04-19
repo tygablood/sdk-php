@@ -87,282 +87,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsGet
-     *
-     * Get reports for claim
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ReportResponse[]
-     */
-    public function v1PropertyClaimsClaimIdReportsGet($claim_id)
-    {
-        list($response) = $this->v1PropertyClaimsClaimIdReportsGetWithHttpInfo($claim_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdReportsGetWithHttpInfo
-     *
-     * Get reports for claim
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ReportResponse[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyClaimsClaimIdReportsGetWithHttpInfo($claim_id)
-    {
-        $returnType = '\Swagger\Client\Model\ReportResponse[]';
-        $request = $this->v1PropertyClaimsClaimIdReportsGetRequest($claim_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ReportResponse[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdReportsGetAsync
-     *
-     * Get reports for claim
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdReportsGetAsync($claim_id)
-    {
-        return $this->v1PropertyClaimsClaimIdReportsGetAsyncWithHttpInfo($claim_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdReportsGetAsyncWithHttpInfo
-     *
-     * Get reports for claim
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdReportsGetAsyncWithHttpInfo($claim_id)
-    {
-        $returnType = '\Swagger\Client\Model\ReportResponse[]';
-        $request = $this->v1PropertyClaimsClaimIdReportsGetRequest($claim_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyClaimsClaimIdReportsGet'
-     *
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyClaimsClaimIdReportsGetRequest($claim_id)
-    {
-        // verify the required parameter 'claim_id' is set
-        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdReportsGet'
-            );
-        }
-
-        $resourcePath = '/v1/property/claims/{claimId}/reports';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($claim_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'claimId' . '}',
-                ObjectSerializer::toPathValue($claim_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdReportsPost
+     * Operation createClaimReport
      *
      * Create a claim report
      *
@@ -373,14 +98,14 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\ReportResponse
      */
-    public function v1PropertyClaimsClaimIdReportsPost($body, $claim_id)
+    public function createClaimReport($body, $claim_id)
     {
-        list($response) = $this->v1PropertyClaimsClaimIdReportsPostWithHttpInfo($body, $claim_id);
+        list($response) = $this->createClaimReportWithHttpInfo($body, $claim_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsPostWithHttpInfo
+     * Operation createClaimReportWithHttpInfo
      *
      * Create a claim report
      *
@@ -391,10 +116,10 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ReportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdReportsPostWithHttpInfo($body, $claim_id)
+    public function createClaimReportWithHttpInfo($body, $claim_id)
     {
         $returnType = '\Swagger\Client\Model\ReportResponse';
-        $request = $this->v1PropertyClaimsClaimIdReportsPostRequest($body, $claim_id);
+        $request = $this->createClaimReportRequest($body, $claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -472,7 +197,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsPostAsync
+     * Operation createClaimReportAsync
      *
      * Create a claim report
      *
@@ -482,9 +207,9 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdReportsPostAsync($body, $claim_id)
+    public function createClaimReportAsync($body, $claim_id)
     {
-        return $this->v1PropertyClaimsClaimIdReportsPostAsyncWithHttpInfo($body, $claim_id)
+        return $this->createClaimReportAsyncWithHttpInfo($body, $claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -493,7 +218,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsPostAsyncWithHttpInfo
+     * Operation createClaimReportAsyncWithHttpInfo
      *
      * Create a claim report
      *
@@ -503,10 +228,10 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdReportsPostAsyncWithHttpInfo($body, $claim_id)
+    public function createClaimReportAsyncWithHttpInfo($body, $claim_id)
     {
         $returnType = '\Swagger\Client\Model\ReportResponse';
-        $request = $this->v1PropertyClaimsClaimIdReportsPostRequest($body, $claim_id);
+        $request = $this->createClaimReportRequest($body, $claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -546,7 +271,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdReportsPost'
+     * Create request for operation 'createClaimReport'
      *
      * @param  \Swagger\Client\Model\ReportCreateRequest $body The report create request (required)
      * @param  string $claim_id The claim id (required)
@@ -554,18 +279,18 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdReportsPostRequest($body, $claim_id)
+    protected function createClaimReportRequest($body, $claim_id)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling v1PropertyClaimsClaimIdReportsPost'
+                'Missing the required parameter $body when calling createClaimReport'
             );
         }
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdReportsPost'
+                'Missing the required parameter $claim_id when calling createClaimReport'
             );
         }
 
@@ -594,12 +319,12 @@ class PropertyClaimsReportsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/_*+json', 'application/json', 'text/json']
+                ['application/json', 'application/problem+json'],
+                ['application/json']
             );
         }
 
@@ -659,7 +384,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsReportIdGet
+     * Operation getClaimReportById
      *
      * Get a specific claim report
      *
@@ -670,14 +395,14 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\ReportResponse
      */
-    public function v1PropertyClaimsClaimIdReportsReportIdGet($claim_id, $report_id)
+    public function getClaimReportById($claim_id, $report_id)
     {
-        list($response) = $this->v1PropertyClaimsClaimIdReportsReportIdGetWithHttpInfo($claim_id, $report_id);
+        list($response) = $this->getClaimReportByIdWithHttpInfo($claim_id, $report_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsReportIdGetWithHttpInfo
+     * Operation getClaimReportByIdWithHttpInfo
      *
      * Get a specific claim report
      *
@@ -688,10 +413,10 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ReportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdReportsReportIdGetWithHttpInfo($claim_id, $report_id)
+    public function getClaimReportByIdWithHttpInfo($claim_id, $report_id)
     {
         $returnType = '\Swagger\Client\Model\ReportResponse';
-        $request = $this->v1PropertyClaimsClaimIdReportsReportIdGetRequest($claim_id, $report_id);
+        $request = $this->getClaimReportByIdRequest($claim_id, $report_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -769,7 +494,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsReportIdGetAsync
+     * Operation getClaimReportByIdAsync
      *
      * Get a specific claim report
      *
@@ -779,9 +504,9 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdReportsReportIdGetAsync($claim_id, $report_id)
+    public function getClaimReportByIdAsync($claim_id, $report_id)
     {
-        return $this->v1PropertyClaimsClaimIdReportsReportIdGetAsyncWithHttpInfo($claim_id, $report_id)
+        return $this->getClaimReportByIdAsyncWithHttpInfo($claim_id, $report_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -790,7 +515,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdReportsReportIdGetAsyncWithHttpInfo
+     * Operation getClaimReportByIdAsyncWithHttpInfo
      *
      * Get a specific claim report
      *
@@ -800,10 +525,10 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdReportsReportIdGetAsyncWithHttpInfo($claim_id, $report_id)
+    public function getClaimReportByIdAsyncWithHttpInfo($claim_id, $report_id)
     {
         $returnType = '\Swagger\Client\Model\ReportResponse';
-        $request = $this->v1PropertyClaimsClaimIdReportsReportIdGetRequest($claim_id, $report_id);
+        $request = $this->getClaimReportByIdRequest($claim_id, $report_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -843,7 +568,7 @@ class PropertyClaimsReportsApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdReportsReportIdGet'
+     * Create request for operation 'getClaimReportById'
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $report_id The report id (required)
@@ -851,18 +576,18 @@ class PropertyClaimsReportsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdReportsReportIdGetRequest($claim_id, $report_id)
+    protected function getClaimReportByIdRequest($claim_id, $report_id)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdReportsReportIdGet'
+                'Missing the required parameter $claim_id when calling getClaimReportById'
             );
         }
         // verify the required parameter 'report_id' is set
         if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $report_id when calling v1PropertyClaimsClaimIdReportsReportIdGet'
+                'Missing the required parameter $report_id when calling getClaimReportById'
             );
         }
 
@@ -896,11 +621,286 @@ class PropertyClaimsReportsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getClaimReports
+     *
+     * Get reports for claim
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\ReportResponse[]
+     */
+    public function getClaimReports($claim_id)
+    {
+        list($response) = $this->getClaimReportsWithHttpInfo($claim_id);
+        return $response;
+    }
+
+    /**
+     * Operation getClaimReportsWithHttpInfo
+     *
+     * Get reports for claim
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\ReportResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getClaimReportsWithHttpInfo($claim_id)
+    {
+        $returnType = '\Swagger\Client\Model\ReportResponse[]';
+        $request = $this->getClaimReportsRequest($claim_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ReportResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getClaimReportsAsync
+     *
+     * Get reports for claim
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getClaimReportsAsync($claim_id)
+    {
+        return $this->getClaimReportsAsyncWithHttpInfo($claim_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getClaimReportsAsyncWithHttpInfo
+     *
+     * Get reports for claim
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getClaimReportsAsyncWithHttpInfo($claim_id)
+    {
+        $returnType = '\Swagger\Client\Model\ReportResponse[]';
+        $request = $this->getClaimReportsRequest($claim_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getClaimReports'
+     *
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getClaimReportsRequest($claim_id)
+    {
+        // verify the required parameter 'claim_id' is set
+        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $claim_id when calling getClaimReports'
+            );
+        }
+
+        $resourcePath = '/v1/property/claims/{claimId}/reports';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($claim_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claimId' . '}',
+                ObjectSerializer::toPathValue($claim_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
                 []
             );
         }

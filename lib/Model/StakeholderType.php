@@ -44,8 +44,8 @@ class StakeholderType
      */
     const AD_HOC_COMPANY = 'AdHocCompany';
 const AD_HOC_INDIVIDUAL = 'AdHocIndividual';
-const INSTANCE = 'Instance';
-const INSTANCE_USER = 'InstanceUser';
+const ACCOUNT = 'Account';
+const ACCOUNT_USER = 'AccountUser';
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -55,7 +55,7 @@ const INSTANCE_USER = 'InstanceUser';
         return [
             self::AD_HOC_COMPANY,
 self::AD_HOC_INDIVIDUAL,
-self::INSTANCE,
-self::INSTANCE_USER,        ];
+self::ACCOUNT,
+self::ACCOUNT_USER,        ];
     }
 }

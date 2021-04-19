@@ -87,7 +87,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdFormsGet
+     * Operation getClaimTemplateFormTemplates
      *
      * Get claim template form templates
      *
@@ -98,14 +98,14 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdFormsGet($claim_template_id, $accept_language = null)
+    public function getClaimTemplateFormTemplates($claim_template_id, $accept_language = null)
     {
-        list($response) = $this->v1PropertyTemplatesClaimsClaimTemplateIdFormsGetWithHttpInfo($claim_template_id, $accept_language);
+        list($response) = $this->getClaimTemplateFormTemplatesWithHttpInfo($claim_template_id, $accept_language);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdFormsGetWithHttpInfo
+     * Operation getClaimTemplateFormTemplatesWithHttpInfo
      *
      * Get claim template form templates
      *
@@ -116,10 +116,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdFormsGetWithHttpInfo($claim_template_id, $accept_language = null)
+    public function getClaimTemplateFormTemplatesWithHttpInfo($claim_template_id, $accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdFormsGetRequest($claim_template_id, $accept_language);
+        $request = $this->getClaimTemplateFormTemplatesRequest($claim_template_id, $accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -189,7 +189,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdFormsGetAsync
+     * Operation getClaimTemplateFormTemplatesAsync
      *
      * Get claim template form templates
      *
@@ -199,9 +199,9 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdFormsGetAsync($claim_template_id, $accept_language = null)
+    public function getClaimTemplateFormTemplatesAsync($claim_template_id, $accept_language = null)
     {
-        return $this->v1PropertyTemplatesClaimsClaimTemplateIdFormsGetAsyncWithHttpInfo($claim_template_id, $accept_language)
+        return $this->getClaimTemplateFormTemplatesAsyncWithHttpInfo($claim_template_id, $accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -210,7 +210,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdFormsGetAsyncWithHttpInfo
+     * Operation getClaimTemplateFormTemplatesAsyncWithHttpInfo
      *
      * Get claim template form templates
      *
@@ -220,10 +220,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdFormsGetAsyncWithHttpInfo($claim_template_id, $accept_language = null)
+    public function getClaimTemplateFormTemplatesAsyncWithHttpInfo($claim_template_id, $accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdFormsGetRequest($claim_template_id, $accept_language);
+        $request = $this->getClaimTemplateFormTemplatesRequest($claim_template_id, $accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -263,7 +263,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesClaimsClaimTemplateIdFormsGet'
+     * Create request for operation 'getClaimTemplateFormTemplates'
      *
      * @param  string $claim_template_id (required)
      * @param  string $accept_language The culture (optional)
@@ -271,12 +271,12 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesClaimsClaimTemplateIdFormsGetRequest($claim_template_id, $accept_language = null)
+    protected function getClaimTemplateFormTemplatesRequest($claim_template_id, $accept_language = null)
     {
         // verify the required parameter 'claim_template_id' is set
         if ($claim_template_id === null || (is_array($claim_template_id) && count($claim_template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_template_id when calling v1PropertyTemplatesClaimsClaimTemplateIdFormsGet'
+                'Missing the required parameter $claim_template_id when calling getClaimTemplateFormTemplates'
             );
         }
 
@@ -306,11 +306,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -371,9 +371,9 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdReportsGet
+     * Operation getClaimTemplateReportTemplates
      *
-     * Gets claim template report templates
+     * Get claim template report templates
      *
      * @param  string $claim_template_id The claim template id (required)
      *
@@ -381,16 +381,16 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdReportsGet($claim_template_id)
+    public function getClaimTemplateReportTemplates($claim_template_id)
     {
-        list($response) = $this->v1PropertyTemplatesClaimsClaimTemplateIdReportsGetWithHttpInfo($claim_template_id);
+        list($response) = $this->getClaimTemplateReportTemplatesWithHttpInfo($claim_template_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdReportsGetWithHttpInfo
+     * Operation getClaimTemplateReportTemplatesWithHttpInfo
      *
-     * Gets claim template report templates
+     * Get claim template report templates
      *
      * @param  string $claim_template_id The claim template id (required)
      *
@@ -398,10 +398,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdReportsGetWithHttpInfo($claim_template_id)
+    public function getClaimTemplateReportTemplatesWithHttpInfo($claim_template_id)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdReportsGetRequest($claim_template_id);
+        $request = $this->getClaimTemplateReportTemplatesRequest($claim_template_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -471,18 +471,18 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdReportsGetAsync
+     * Operation getClaimTemplateReportTemplatesAsync
      *
-     * Gets claim template report templates
+     * Get claim template report templates
      *
      * @param  string $claim_template_id The claim template id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdReportsGetAsync($claim_template_id)
+    public function getClaimTemplateReportTemplatesAsync($claim_template_id)
     {
-        return $this->v1PropertyTemplatesClaimsClaimTemplateIdReportsGetAsyncWithHttpInfo($claim_template_id)
+        return $this->getClaimTemplateReportTemplatesAsyncWithHttpInfo($claim_template_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -491,19 +491,19 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdReportsGetAsyncWithHttpInfo
+     * Operation getClaimTemplateReportTemplatesAsyncWithHttpInfo
      *
-     * Gets claim template report templates
+     * Get claim template report templates
      *
      * @param  string $claim_template_id The claim template id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdReportsGetAsyncWithHttpInfo($claim_template_id)
+    public function getClaimTemplateReportTemplatesAsyncWithHttpInfo($claim_template_id)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdReportsGetRequest($claim_template_id);
+        $request = $this->getClaimTemplateReportTemplatesRequest($claim_template_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -543,19 +543,19 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesClaimsClaimTemplateIdReportsGet'
+     * Create request for operation 'getClaimTemplateReportTemplates'
      *
      * @param  string $claim_template_id The claim template id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesClaimsClaimTemplateIdReportsGetRequest($claim_template_id)
+    protected function getClaimTemplateReportTemplatesRequest($claim_template_id)
     {
         // verify the required parameter 'claim_template_id' is set
         if ($claim_template_id === null || (is_array($claim_template_id) && count($claim_template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_template_id when calling v1PropertyTemplatesClaimsClaimTemplateIdReportsGet'
+                'Missing the required parameter $claim_template_id when calling getClaimTemplateReportTemplates'
             );
         }
 
@@ -581,11 +581,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -646,7 +646,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdRolesGet
+     * Operation getClaimTemplateRoleTemplates
      *
      * Get claim template role templates
      *
@@ -656,14 +656,14 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdRolesGet($claim_template_id)
+    public function getClaimTemplateRoleTemplates($claim_template_id)
     {
-        list($response) = $this->v1PropertyTemplatesClaimsClaimTemplateIdRolesGetWithHttpInfo($claim_template_id);
+        list($response) = $this->getClaimTemplateRoleTemplatesWithHttpInfo($claim_template_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdRolesGetWithHttpInfo
+     * Operation getClaimTemplateRoleTemplatesWithHttpInfo
      *
      * Get claim template role templates
      *
@@ -673,10 +673,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdRolesGetWithHttpInfo($claim_template_id)
+    public function getClaimTemplateRoleTemplatesWithHttpInfo($claim_template_id)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdRolesGetRequest($claim_template_id);
+        $request = $this->getClaimTemplateRoleTemplatesRequest($claim_template_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -746,7 +746,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdRolesGetAsync
+     * Operation getClaimTemplateRoleTemplatesAsync
      *
      * Get claim template role templates
      *
@@ -755,9 +755,9 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdRolesGetAsync($claim_template_id)
+    public function getClaimTemplateRoleTemplatesAsync($claim_template_id)
     {
-        return $this->v1PropertyTemplatesClaimsClaimTemplateIdRolesGetAsyncWithHttpInfo($claim_template_id)
+        return $this->getClaimTemplateRoleTemplatesAsyncWithHttpInfo($claim_template_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -766,7 +766,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdRolesGetAsyncWithHttpInfo
+     * Operation getClaimTemplateRoleTemplatesAsyncWithHttpInfo
      *
      * Get claim template role templates
      *
@@ -775,10 +775,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdRolesGetAsyncWithHttpInfo($claim_template_id)
+    public function getClaimTemplateRoleTemplatesAsyncWithHttpInfo($claim_template_id)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdRolesGetRequest($claim_template_id);
+        $request = $this->getClaimTemplateRoleTemplatesRequest($claim_template_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -818,19 +818,19 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesClaimsClaimTemplateIdRolesGet'
+     * Create request for operation 'getClaimTemplateRoleTemplates'
      *
      * @param  string $claim_template_id The claim template id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesClaimsClaimTemplateIdRolesGetRequest($claim_template_id)
+    protected function getClaimTemplateRoleTemplatesRequest($claim_template_id)
     {
         // verify the required parameter 'claim_template_id' is set
         if ($claim_template_id === null || (is_array($claim_template_id) && count($claim_template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_template_id when calling v1PropertyTemplatesClaimsClaimTemplateIdRolesGet'
+                'Missing the required parameter $claim_template_id when calling getClaimTemplateRoleTemplates'
             );
         }
 
@@ -856,11 +856,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -921,7 +921,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGet
+     * Operation getClaimTemplateStatusChangeReasonTemplates
      *
      * Get claim template status change reason templates
      *
@@ -930,16 +930,16 @@ class PropertyTemplatesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\TemplateMetadataResponse[]
+     * @return \Swagger\Client\Model\ClaimStatusChangeReasonTemplateResponse[]
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGet($claim_template_id, $accept_language = null)
+    public function getClaimTemplateStatusChangeReasonTemplates($claim_template_id, $accept_language = null)
     {
-        list($response) = $this->v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetWithHttpInfo($claim_template_id, $accept_language);
+        list($response) = $this->getClaimTemplateStatusChangeReasonTemplatesWithHttpInfo($claim_template_id, $accept_language);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetWithHttpInfo
+     * Operation getClaimTemplateStatusChangeReasonTemplatesWithHttpInfo
      *
      * Get claim template status change reason templates
      *
@@ -948,12 +948,12 @@ class PropertyTemplatesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\ClaimStatusChangeReasonTemplateResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetWithHttpInfo($claim_template_id, $accept_language = null)
+    public function getClaimTemplateStatusChangeReasonTemplatesWithHttpInfo($claim_template_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetRequest($claim_template_id, $accept_language);
+        $returnType = '\Swagger\Client\Model\ClaimStatusChangeReasonTemplateResponse[]';
+        $request = $this->getClaimTemplateStatusChangeReasonTemplatesRequest($claim_template_id, $accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1004,7 +1004,7 @@ class PropertyTemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\TemplateMetadataResponse[]',
+                        '\Swagger\Client\Model\ClaimStatusChangeReasonTemplateResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1023,7 +1023,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetAsync
+     * Operation getClaimTemplateStatusChangeReasonTemplatesAsync
      *
      * Get claim template status change reason templates
      *
@@ -1033,9 +1033,9 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetAsync($claim_template_id, $accept_language = null)
+    public function getClaimTemplateStatusChangeReasonTemplatesAsync($claim_template_id, $accept_language = null)
     {
-        return $this->v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetAsyncWithHttpInfo($claim_template_id, $accept_language)
+        return $this->getClaimTemplateStatusChangeReasonTemplatesAsyncWithHttpInfo($claim_template_id, $accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1044,7 +1044,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetAsyncWithHttpInfo
+     * Operation getClaimTemplateStatusChangeReasonTemplatesAsyncWithHttpInfo
      *
      * Get claim template status change reason templates
      *
@@ -1054,10 +1054,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetAsyncWithHttpInfo($claim_template_id, $accept_language = null)
+    public function getClaimTemplateStatusChangeReasonTemplatesAsyncWithHttpInfo($claim_template_id, $accept_language = null)
     {
-        $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetRequest($claim_template_id, $accept_language);
+        $returnType = '\Swagger\Client\Model\ClaimStatusChangeReasonTemplateResponse[]';
+        $request = $this->getClaimTemplateStatusChangeReasonTemplatesRequest($claim_template_id, $accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1097,7 +1097,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGet'
+     * Create request for operation 'getClaimTemplateStatusChangeReasonTemplates'
      *
      * @param  string $claim_template_id The claim template id (required)
      * @param  string $accept_language The culture (optional)
@@ -1105,12 +1105,12 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGetRequest($claim_template_id, $accept_language = null)
+    protected function getClaimTemplateStatusChangeReasonTemplatesRequest($claim_template_id, $accept_language = null)
     {
         // verify the required parameter 'claim_template_id' is set
         if ($claim_template_id === null || (is_array($claim_template_id) && count($claim_template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_template_id when calling v1PropertyTemplatesClaimsClaimTemplateIdStatusChangeReasonsGet'
+                'Missing the required parameter $claim_template_id when calling getClaimTemplateStatusChangeReasonTemplates'
             );
         }
 
@@ -1140,11 +1140,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -1205,35 +1205,35 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsGet
+     * Operation getClaimTemplates
      *
-     * Gets claim templates
+     * Get claim templates
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesClaimsGet()
+    public function getClaimTemplates()
     {
-        list($response) = $this->v1PropertyTemplatesClaimsGetWithHttpInfo();
+        list($response) = $this->getClaimTemplatesWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsGetWithHttpInfo
+     * Operation getClaimTemplatesWithHttpInfo
      *
-     * Gets claim templates
+     * Get claim templates
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesClaimsGetWithHttpInfo()
+    public function getClaimTemplatesWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsGetRequest();
+        $request = $this->getClaimTemplatesRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -1303,17 +1303,17 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsGetAsync
+     * Operation getClaimTemplatesAsync
      *
-     * Gets claim templates
+     * Get claim templates
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsGetAsync()
+    public function getClaimTemplatesAsync()
     {
-        return $this->v1PropertyTemplatesClaimsGetAsyncWithHttpInfo()
+        return $this->getClaimTemplatesAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1322,18 +1322,18 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesClaimsGetAsyncWithHttpInfo
+     * Operation getClaimTemplatesAsyncWithHttpInfo
      *
-     * Gets claim templates
+     * Get claim templates
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesClaimsGetAsyncWithHttpInfo()
+    public function getClaimTemplatesAsyncWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesClaimsGetRequest();
+        $request = $this->getClaimTemplatesRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1373,13 +1373,13 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesClaimsGet'
+     * Create request for operation 'getClaimTemplates'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesClaimsGetRequest()
+    protected function getClaimTemplatesRequest()
     {
 
         $resourcePath = '/v1/property/templates/claims';
@@ -1396,11 +1396,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -1461,7 +1461,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesFormsGet
+     * Operation getFormTemplates
      *
      * Get form templates
      *
@@ -1471,14 +1471,14 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesFormsGet($accept_language = null)
+    public function getFormTemplates($accept_language = null)
     {
-        list($response) = $this->v1PropertyTemplatesFormsGetWithHttpInfo($accept_language);
+        list($response) = $this->getFormTemplatesWithHttpInfo($accept_language);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesFormsGetWithHttpInfo
+     * Operation getFormTemplatesWithHttpInfo
      *
      * Get form templates
      *
@@ -1488,10 +1488,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesFormsGetWithHttpInfo($accept_language = null)
+    public function getFormTemplatesWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesFormsGetRequest($accept_language);
+        $request = $this->getFormTemplatesRequest($accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1561,7 +1561,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesFormsGetAsync
+     * Operation getFormTemplatesAsync
      *
      * Get form templates
      *
@@ -1570,9 +1570,9 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesFormsGetAsync($accept_language = null)
+    public function getFormTemplatesAsync($accept_language = null)
     {
-        return $this->v1PropertyTemplatesFormsGetAsyncWithHttpInfo($accept_language)
+        return $this->getFormTemplatesAsyncWithHttpInfo($accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1581,7 +1581,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesFormsGetAsyncWithHttpInfo
+     * Operation getFormTemplatesAsyncWithHttpInfo
      *
      * Get form templates
      *
@@ -1590,10 +1590,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesFormsGetAsyncWithHttpInfo($accept_language = null)
+    public function getFormTemplatesAsyncWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesFormsGetRequest($accept_language);
+        $request = $this->getFormTemplatesRequest($accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1633,14 +1633,14 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesFormsGet'
+     * Create request for operation 'getFormTemplates'
      *
      * @param  string $accept_language The culture (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesFormsGetRequest($accept_language = null)
+    protected function getFormTemplatesRequest($accept_language = null)
     {
 
         $resourcePath = '/v1/property/templates/forms';
@@ -1661,11 +1661,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -1726,37 +1726,39 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesPerilsGet
+     * Operation getPerilCauseTemplates
      *
-     * Get peril templates
+     * Get peril causes templates
      *
+     * @param  string $peril_id The peril id (required)
      * @param  string $accept_language The culture (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesPerilsGet($accept_language = null)
+    public function getPerilCauseTemplates($peril_id, $accept_language = null)
     {
-        list($response) = $this->v1PropertyTemplatesPerilsGetWithHttpInfo($accept_language);
+        list($response) = $this->getPerilCauseTemplatesWithHttpInfo($peril_id, $accept_language);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesPerilsGetWithHttpInfo
+     * Operation getPerilCauseTemplatesWithHttpInfo
      *
-     * Get peril templates
+     * Get peril causes templates
      *
+     * @param  string $peril_id The peril id (required)
      * @param  string $accept_language The culture (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesPerilsGetWithHttpInfo($accept_language = null)
+    public function getPerilCauseTemplatesWithHttpInfo($peril_id, $accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesPerilsGetRequest($accept_language);
+        $request = $this->getPerilCauseTemplatesRequest($peril_id, $accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1826,18 +1828,19 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesPerilsGetAsync
+     * Operation getPerilCauseTemplatesAsync
      *
-     * Get peril templates
+     * Get peril causes templates
      *
+     * @param  string $peril_id The peril id (required)
      * @param  string $accept_language The culture (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesPerilsGetAsync($accept_language = null)
+    public function getPerilCauseTemplatesAsync($peril_id, $accept_language = null)
     {
-        return $this->v1PropertyTemplatesPerilsGetAsyncWithHttpInfo($accept_language)
+        return $this->getPerilCauseTemplatesAsyncWithHttpInfo($peril_id, $accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1846,19 +1849,20 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesPerilsGetAsyncWithHttpInfo
+     * Operation getPerilCauseTemplatesAsyncWithHttpInfo
      *
-     * Get peril templates
+     * Get peril causes templates
      *
+     * @param  string $peril_id The peril id (required)
      * @param  string $accept_language The culture (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesPerilsGetAsyncWithHttpInfo($accept_language = null)
+    public function getPerilCauseTemplatesAsyncWithHttpInfo($peril_id, $accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesPerilsGetRequest($accept_language);
+        $request = $this->getPerilCauseTemplatesRequest($peril_id, $accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1898,276 +1902,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesPerilsGet'
-     *
-     * @param  string $accept_language The culture (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyTemplatesPerilsGetRequest($accept_language = null)
-    {
-
-        $resourcePath = '/v1/property/templates/perils';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // header params
-        if ($accept_language !== null) {
-            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyTemplatesPerilsPerilIdCausesGet
-     *
-     * Get peril causes templates
-     *
-     * @param  string $peril_id The peril id (required)
-     * @param  string $accept_language The culture (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\TemplateMetadataResponse[]
-     */
-    public function v1PropertyTemplatesPerilsPerilIdCausesGet($peril_id, $accept_language = null)
-    {
-        list($response) = $this->v1PropertyTemplatesPerilsPerilIdCausesGetWithHttpInfo($peril_id, $accept_language);
-        return $response;
-    }
-
-    /**
-     * Operation v1PropertyTemplatesPerilsPerilIdCausesGetWithHttpInfo
-     *
-     * Get peril causes templates
-     *
-     * @param  string $peril_id The peril id (required)
-     * @param  string $accept_language The culture (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyTemplatesPerilsPerilIdCausesGetWithHttpInfo($peril_id, $accept_language = null)
-    {
-        $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesPerilsPerilIdCausesGetRequest($peril_id, $accept_language);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\TemplateMetadataResponse[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyTemplatesPerilsPerilIdCausesGetAsync
-     *
-     * Get peril causes templates
-     *
-     * @param  string $peril_id The peril id (required)
-     * @param  string $accept_language The culture (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyTemplatesPerilsPerilIdCausesGetAsync($peril_id, $accept_language = null)
-    {
-        return $this->v1PropertyTemplatesPerilsPerilIdCausesGetAsyncWithHttpInfo($peril_id, $accept_language)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyTemplatesPerilsPerilIdCausesGetAsyncWithHttpInfo
-     *
-     * Get peril causes templates
-     *
-     * @param  string $peril_id The peril id (required)
-     * @param  string $accept_language The culture (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyTemplatesPerilsPerilIdCausesGetAsyncWithHttpInfo($peril_id, $accept_language = null)
-    {
-        $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesPerilsPerilIdCausesGetRequest($peril_id, $accept_language);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyTemplatesPerilsPerilIdCausesGet'
+     * Create request for operation 'getPerilCauseTemplates'
      *
      * @param  string $peril_id The peril id (required)
      * @param  string $accept_language The culture (optional)
@@ -2175,12 +1910,12 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesPerilsPerilIdCausesGetRequest($peril_id, $accept_language = null)
+    protected function getPerilCauseTemplatesRequest($peril_id, $accept_language = null)
     {
         // verify the required parameter 'peril_id' is set
         if ($peril_id === null || (is_array($peril_id) && count($peril_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $peril_id when calling v1PropertyTemplatesPerilsPerilIdCausesGet'
+                'Missing the required parameter $peril_id when calling getPerilCauseTemplates'
             );
         }
 
@@ -2210,11 +1945,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -2275,35 +2010,37 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesPoliciesGet
+     * Operation getPerilsTemplates
      *
-     * Get policy templates
+     * Get peril templates
      *
+     * @param  string $accept_language The culture (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesPoliciesGet()
+    public function getPerilsTemplates($accept_language = null)
     {
-        list($response) = $this->v1PropertyTemplatesPoliciesGetWithHttpInfo();
+        list($response) = $this->getPerilsTemplatesWithHttpInfo($accept_language);
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesPoliciesGetWithHttpInfo
+     * Operation getPerilsTemplatesWithHttpInfo
      *
-     * Get policy templates
+     * Get peril templates
      *
+     * @param  string $accept_language The culture (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesPoliciesGetWithHttpInfo()
+    public function getPerilsTemplatesWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesPoliciesGetRequest();
+        $request = $this->getPerilsTemplatesRequest($accept_language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2373,17 +2110,18 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesPoliciesGetAsync
+     * Operation getPerilsTemplatesAsync
      *
-     * Get policy templates
+     * Get peril templates
      *
+     * @param  string $accept_language The culture (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesPoliciesGetAsync()
+    public function getPerilsTemplatesAsync($accept_language = null)
     {
-        return $this->v1PropertyTemplatesPoliciesGetAsyncWithHttpInfo()
+        return $this->getPerilsTemplatesAsyncWithHttpInfo($accept_language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2392,18 +2130,19 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesPoliciesGetAsyncWithHttpInfo
+     * Operation getPerilsTemplatesAsyncWithHttpInfo
      *
-     * Get policy templates
+     * Get peril templates
      *
+     * @param  string $accept_language The culture (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesPoliciesGetAsyncWithHttpInfo()
+    public function getPerilsTemplatesAsyncWithHttpInfo($accept_language = null)
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesPoliciesGetRequest();
+        $request = $this->getPerilsTemplatesRequest($accept_language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2443,13 +2182,274 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesPoliciesGet'
+     * Create request for operation 'getPerilsTemplates'
+     *
+     * @param  string $accept_language The culture (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getPerilsTemplatesRequest($accept_language = null)
+    {
+
+        $resourcePath = '/v1/property/templates/perils';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['accept-language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPolicyTemplates
+     *
+     * Get policy templates
+     *
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\TemplateMetadataResponse[]
+     */
+    public function getPolicyTemplates()
+    {
+        list($response) = $this->getPolicyTemplatesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPolicyTemplatesWithHttpInfo
+     *
+     * Get policy templates
+     *
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPolicyTemplatesWithHttpInfo()
+    {
+        $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
+        $request = $this->getPolicyTemplatesRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\TemplateMetadataResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPolicyTemplatesAsync
+     *
+     * Get policy templates
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPolicyTemplatesAsync()
+    {
+        return $this->getPolicyTemplatesAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPolicyTemplatesAsyncWithHttpInfo
+     *
+     * Get policy templates
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPolicyTemplatesAsyncWithHttpInfo()
+    {
+        $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
+        $request = $this->getPolicyTemplatesRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPolicyTemplates'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesPoliciesGetRequest()
+    protected function getPolicyTemplatesRequest()
     {
 
         $resourcePath = '/v1/property/templates/policies';
@@ -2466,11 +2466,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -2531,7 +2531,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesReportsGet
+     * Operation getReportTemplates
      *
      * Get instance report templates
      *
@@ -2540,14 +2540,14 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesReportsGet()
+    public function getReportTemplates()
     {
-        list($response) = $this->v1PropertyTemplatesReportsGetWithHttpInfo();
+        list($response) = $this->getReportTemplatesWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesReportsGetWithHttpInfo
+     * Operation getReportTemplatesWithHttpInfo
      *
      * Get instance report templates
      *
@@ -2556,10 +2556,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesReportsGetWithHttpInfo()
+    public function getReportTemplatesWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesReportsGetRequest();
+        $request = $this->getReportTemplatesRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -2629,7 +2629,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesReportsGetAsync
+     * Operation getReportTemplatesAsync
      *
      * Get instance report templates
      *
@@ -2637,9 +2637,9 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesReportsGetAsync()
+    public function getReportTemplatesAsync()
     {
-        return $this->v1PropertyTemplatesReportsGetAsyncWithHttpInfo()
+        return $this->getReportTemplatesAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2648,7 +2648,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesReportsGetAsyncWithHttpInfo
+     * Operation getReportTemplatesAsyncWithHttpInfo
      *
      * Get instance report templates
      *
@@ -2656,10 +2656,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesReportsGetAsyncWithHttpInfo()
+    public function getReportTemplatesAsyncWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesReportsGetRequest();
+        $request = $this->getReportTemplatesRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2699,13 +2699,13 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesReportsGet'
+     * Create request for operation 'getReportTemplates'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesReportsGetRequest()
+    protected function getReportTemplatesRequest()
     {
 
         $resourcePath = '/v1/property/templates/reports';
@@ -2722,11 +2722,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -2787,7 +2787,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesRoleGet
+     * Operation getRoleTemplates
      *
      * Get role templates
      *
@@ -2796,14 +2796,14 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TemplateMetadataResponse[]
      */
-    public function v1PropertyTemplatesRoleGet()
+    public function getRoleTemplates()
     {
-        list($response) = $this->v1PropertyTemplatesRoleGetWithHttpInfo();
+        list($response) = $this->getRoleTemplatesWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation v1PropertyTemplatesRoleGetWithHttpInfo
+     * Operation getRoleTemplatesWithHttpInfo
      *
      * Get role templates
      *
@@ -2812,10 +2812,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TemplateMetadataResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyTemplatesRoleGetWithHttpInfo()
+    public function getRoleTemplatesWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesRoleGetRequest();
+        $request = $this->getRoleTemplatesRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -2885,7 +2885,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesRoleGetAsync
+     * Operation getRoleTemplatesAsync
      *
      * Get role templates
      *
@@ -2893,9 +2893,9 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesRoleGetAsync()
+    public function getRoleTemplatesAsync()
     {
-        return $this->v1PropertyTemplatesRoleGetAsyncWithHttpInfo()
+        return $this->getRoleTemplatesAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2904,7 +2904,7 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Operation v1PropertyTemplatesRoleGetAsyncWithHttpInfo
+     * Operation getRoleTemplatesAsyncWithHttpInfo
      *
      * Get role templates
      *
@@ -2912,10 +2912,10 @@ class PropertyTemplatesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyTemplatesRoleGetAsyncWithHttpInfo()
+    public function getRoleTemplatesAsyncWithHttpInfo()
     {
         $returnType = '\Swagger\Client\Model\TemplateMetadataResponse[]';
-        $request = $this->v1PropertyTemplatesRoleGetRequest();
+        $request = $this->getRoleTemplatesRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2955,16 +2955,16 @@ class PropertyTemplatesApi
     }
 
     /**
-     * Create request for operation 'v1PropertyTemplatesRoleGet'
+     * Create request for operation 'getRoleTemplates'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyTemplatesRoleGetRequest()
+    protected function getRoleTemplatesRequest()
     {
 
-        $resourcePath = '/v1/property/templates/role';
+        $resourcePath = '/v1/property/templates/roles';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2978,11 +2978,11 @@ class PropertyTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }

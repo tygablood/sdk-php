@@ -87,37 +87,39 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersGet
+     * Operation createClaimStakeholder
      *
-     * Get claim stakeholders
+     * Add claim stakeholder
      *
+     * @param  \Swagger\Client\Model\StakeholderCreateRequest $body The stakeholder create request (required)
      * @param  string $claim_id The claim id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\IStakeholderResponse[]
+     * @return \Swagger\Client\Model\StakeholderResponse
      */
-    public function v1PropertyClaimsClaimIdStakeholdersGet($claim_id)
+    public function createClaimStakeholder($body, $claim_id)
     {
-        list($response) = $this->v1PropertyClaimsClaimIdStakeholdersGetWithHttpInfo($claim_id);
+        list($response) = $this->createClaimStakeholderWithHttpInfo($body, $claim_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersGetWithHttpInfo
+     * Operation createClaimStakeholderWithHttpInfo
      *
-     * Get claim stakeholders
+     * Add claim stakeholder
      *
+     * @param  \Swagger\Client\Model\StakeholderCreateRequest $body The stakeholder create request (required)
      * @param  string $claim_id The claim id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\IStakeholderResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\StakeholderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdStakeholdersGetWithHttpInfo($claim_id)
+    public function createClaimStakeholderWithHttpInfo($body, $claim_id)
     {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse[]';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersGetRequest($claim_id);
+        $returnType = '\Swagger\Client\Model\StakeholderResponse';
+        $request = $this->createClaimStakeholderRequest($body, $claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -168,7 +170,7 @@ class PropertyClaimsStakeholdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\IStakeholderResponse[]',
+                        '\Swagger\Client\Model\StakeholderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -187,18 +189,19 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersGetAsync
+     * Operation createClaimStakeholderAsync
      *
-     * Get claim stakeholders
+     * Add claim stakeholder
      *
+     * @param  \Swagger\Client\Model\StakeholderCreateRequest $body The stakeholder create request (required)
      * @param  string $claim_id The claim id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStakeholdersGetAsync($claim_id)
+    public function createClaimStakeholderAsync($body, $claim_id)
     {
-        return $this->v1PropertyClaimsClaimIdStakeholdersGetAsyncWithHttpInfo($claim_id)
+        return $this->createClaimStakeholderAsyncWithHttpInfo($body, $claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -207,19 +210,20 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersGetAsyncWithHttpInfo
+     * Operation createClaimStakeholderAsyncWithHttpInfo
      *
-     * Get claim stakeholders
+     * Add claim stakeholder
      *
+     * @param  \Swagger\Client\Model\StakeholderCreateRequest $body The stakeholder create request (required)
      * @param  string $claim_id The claim id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStakeholdersGetAsyncWithHttpInfo($claim_id)
+    public function createClaimStakeholderAsyncWithHttpInfo($body, $claim_id)
     {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse[]';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersGetRequest($claim_id);
+        $returnType = '\Swagger\Client\Model\StakeholderResponse';
+        $request = $this->createClaimStakeholderRequest($body, $claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -259,305 +263,26 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdStakeholdersGet'
+     * Create request for operation 'createClaimStakeholder'
      *
+     * @param  \Swagger\Client\Model\StakeholderCreateRequest $body The stakeholder create request (required)
      * @param  string $claim_id The claim id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdStakeholdersGetRequest($claim_id)
-    {
-        // verify the required parameter 'claim_id' is set
-        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdStakeholdersGet'
-            );
-        }
-
-        $resourcePath = '/v1/property/claims/{claimId}/stakeholders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($claim_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'claimId' . '}',
-                ObjectSerializer::toPathValue($claim_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersPost
-     *
-     * Add claim stakeholder
-     *
-     * @param  \Swagger\Client\Model\IStakeholderCreateRequest $body The stakeholder create request (required)
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\IStakeholderResponse
-     */
-    public function v1PropertyClaimsClaimIdStakeholdersPost($body, $claim_id)
-    {
-        list($response) = $this->v1PropertyClaimsClaimIdStakeholdersPostWithHttpInfo($body, $claim_id);
-        return $response;
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersPostWithHttpInfo
-     *
-     * Add claim stakeholder
-     *
-     * @param  \Swagger\Client\Model\IStakeholderCreateRequest $body The stakeholder create request (required)
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\IStakeholderResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function v1PropertyClaimsClaimIdStakeholdersPostWithHttpInfo($body, $claim_id)
-    {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersPostRequest($body, $claim_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\IStakeholderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersPostAsync
-     *
-     * Add claim stakeholder
-     *
-     * @param  \Swagger\Client\Model\IStakeholderCreateRequest $body The stakeholder create request (required)
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdStakeholdersPostAsync($body, $claim_id)
-    {
-        return $this->v1PropertyClaimsClaimIdStakeholdersPostAsyncWithHttpInfo($body, $claim_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersPostAsyncWithHttpInfo
-     *
-     * Add claim stakeholder
-     *
-     * @param  \Swagger\Client\Model\IStakeholderCreateRequest $body The stakeholder create request (required)
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function v1PropertyClaimsClaimIdStakeholdersPostAsyncWithHttpInfo($body, $claim_id)
-    {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersPostRequest($body, $claim_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'v1PropertyClaimsClaimIdStakeholdersPost'
-     *
-     * @param  \Swagger\Client\Model\IStakeholderCreateRequest $body The stakeholder create request (required)
-     * @param  string $claim_id The claim id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function v1PropertyClaimsClaimIdStakeholdersPostRequest($body, $claim_id)
+    protected function createClaimStakeholderRequest($body, $claim_id)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling v1PropertyClaimsClaimIdStakeholdersPost'
+                'Missing the required parameter $body when calling createClaimStakeholder'
             );
         }
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdStakeholdersPost'
+                'Missing the required parameter $claim_id when calling createClaimStakeholder'
             );
         }
 
@@ -586,12 +311,12 @@ class PropertyClaimsStakeholdersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/_*+json', 'application/json', 'text/json']
+                ['application/json', 'application/problem+json'],
+                ['application/json']
             );
         }
 
@@ -651,7 +376,7 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdGet
+     * Operation getClaimStakeholderById
      *
      * Get claim stakeholder
      *
@@ -660,16 +385,16 @@ class PropertyClaimsStakeholdersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\IStakeholderResponse
+     * @return \Swagger\Client\Model\StakeholderResponse
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdGet($claim_id, $stakeholder_id)
+    public function getClaimStakeholderById($claim_id, $stakeholder_id)
     {
-        list($response) = $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetWithHttpInfo($claim_id, $stakeholder_id);
+        list($response) = $this->getClaimStakeholderByIdWithHttpInfo($claim_id, $stakeholder_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetWithHttpInfo
+     * Operation getClaimStakeholderByIdWithHttpInfo
      *
      * Get claim stakeholder
      *
@@ -678,12 +403,12 @@ class PropertyClaimsStakeholdersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\IStakeholderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\StakeholderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetWithHttpInfo($claim_id, $stakeholder_id)
+    public function getClaimStakeholderByIdWithHttpInfo($claim_id, $stakeholder_id)
     {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetRequest($claim_id, $stakeholder_id);
+        $returnType = '\Swagger\Client\Model\StakeholderResponse';
+        $request = $this->getClaimStakeholderByIdRequest($claim_id, $stakeholder_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -734,7 +459,7 @@ class PropertyClaimsStakeholdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\IStakeholderResponse',
+                        '\Swagger\Client\Model\StakeholderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -753,7 +478,7 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetAsync
+     * Operation getClaimStakeholderByIdAsync
      *
      * Get claim stakeholder
      *
@@ -763,9 +488,9 @@ class PropertyClaimsStakeholdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetAsync($claim_id, $stakeholder_id)
+    public function getClaimStakeholderByIdAsync($claim_id, $stakeholder_id)
     {
-        return $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetAsyncWithHttpInfo($claim_id, $stakeholder_id)
+        return $this->getClaimStakeholderByIdAsyncWithHttpInfo($claim_id, $stakeholder_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -774,7 +499,7 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetAsyncWithHttpInfo
+     * Operation getClaimStakeholderByIdAsyncWithHttpInfo
      *
      * Get claim stakeholder
      *
@@ -784,10 +509,10 @@ class PropertyClaimsStakeholdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetAsyncWithHttpInfo($claim_id, $stakeholder_id)
+    public function getClaimStakeholderByIdAsyncWithHttpInfo($claim_id, $stakeholder_id)
     {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetRequest($claim_id, $stakeholder_id);
+        $returnType = '\Swagger\Client\Model\StakeholderResponse';
+        $request = $this->getClaimStakeholderByIdRequest($claim_id, $stakeholder_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -827,7 +552,7 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdStakeholdersStakeholderIdGet'
+     * Create request for operation 'getClaimStakeholderById'
      *
      * @param  string $claim_id The claim id (required)
      * @param  string $stakeholder_id The stakeholder id (required)
@@ -835,18 +560,18 @@ class PropertyClaimsStakeholdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdStakeholdersStakeholderIdGetRequest($claim_id, $stakeholder_id)
+    protected function getClaimStakeholderByIdRequest($claim_id, $stakeholder_id)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdStakeholdersStakeholderIdGet'
+                'Missing the required parameter $claim_id when calling getClaimStakeholderById'
             );
         }
         // verify the required parameter 'stakeholder_id' is set
         if ($stakeholder_id === null || (is_array($stakeholder_id) && count($stakeholder_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $stakeholder_id when calling v1PropertyClaimsClaimIdStakeholdersStakeholderIdGet'
+                'Missing the required parameter $stakeholder_id when calling getClaimStakeholderById'
             );
         }
 
@@ -880,11 +605,11 @@ class PropertyClaimsStakeholdersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['application/json', 'application/problem+json'],
                 []
             );
         }
@@ -945,41 +670,37 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdPut
+     * Operation getClaimStakeholders
      *
-     * Update claim stakeholder
+     * Get claim stakeholders
      *
-     * @param  \Swagger\Client\Model\IStakeholderUpdateRequest $body The stakeholder update request (required)
      * @param  string $claim_id The claim id (required)
-     * @param  string $stakeholder_id The stakeholder id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\IStakeholderResponse
+     * @return \Swagger\Client\Model\StakeholderResponse[]
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdPut($body, $claim_id, $stakeholder_id)
+    public function getClaimStakeholders($claim_id)
     {
-        list($response) = $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutWithHttpInfo($body, $claim_id, $stakeholder_id);
+        list($response) = $this->getClaimStakeholdersWithHttpInfo($claim_id);
         return $response;
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutWithHttpInfo
+     * Operation getClaimStakeholdersWithHttpInfo
      *
-     * Update claim stakeholder
+     * Get claim stakeholders
      *
-     * @param  \Swagger\Client\Model\IStakeholderUpdateRequest $body The stakeholder update request (required)
      * @param  string $claim_id The claim id (required)
-     * @param  string $stakeholder_id The stakeholder id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\IStakeholderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\StakeholderResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutWithHttpInfo($body, $claim_id, $stakeholder_id)
+    public function getClaimStakeholdersWithHttpInfo($claim_id)
     {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutRequest($body, $claim_id, $stakeholder_id);
+        $returnType = '\Swagger\Client\Model\StakeholderResponse[]';
+        $request = $this->getClaimStakeholdersRequest($claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1030,28 +751,12 @@ class PropertyClaimsStakeholdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\IStakeholderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
+                        '\Swagger\Client\Model\StakeholderResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Swagger\Client\Model\ProblemDetails',
@@ -1065,20 +770,18 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutAsync
+     * Operation getClaimStakeholdersAsync
      *
-     * Update claim stakeholder
+     * Get claim stakeholders
      *
-     * @param  \Swagger\Client\Model\IStakeholderUpdateRequest $body The stakeholder update request (required)
      * @param  string $claim_id The claim id (required)
-     * @param  string $stakeholder_id The stakeholder id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutAsync($body, $claim_id, $stakeholder_id)
+    public function getClaimStakeholdersAsync($claim_id)
     {
-        return $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutAsyncWithHttpInfo($body, $claim_id, $stakeholder_id)
+        return $this->getClaimStakeholdersAsyncWithHttpInfo($claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1087,21 +790,19 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Operation v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutAsyncWithHttpInfo
+     * Operation getClaimStakeholdersAsyncWithHttpInfo
      *
-     * Update claim stakeholder
+     * Get claim stakeholders
      *
-     * @param  \Swagger\Client\Model\IStakeholderUpdateRequest $body The stakeholder update request (required)
      * @param  string $claim_id The claim id (required)
-     * @param  string $stakeholder_id The stakeholder id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutAsyncWithHttpInfo($body, $claim_id, $stakeholder_id)
+    public function getClaimStakeholdersAsyncWithHttpInfo($claim_id)
     {
-        $returnType = '\Swagger\Client\Model\IStakeholderResponse';
-        $request = $this->v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutRequest($body, $claim_id, $stakeholder_id);
+        $returnType = '\Swagger\Client\Model\StakeholderResponse[]';
+        $request = $this->getClaimStakeholdersRequest($claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1141,33 +842,332 @@ class PropertyClaimsStakeholdersApi
     }
 
     /**
-     * Create request for operation 'v1PropertyClaimsClaimIdStakeholdersStakeholderIdPut'
+     * Create request for operation 'getClaimStakeholders'
      *
-     * @param  \Swagger\Client\Model\IStakeholderUpdateRequest $body The stakeholder update request (required)
+     * @param  string $claim_id The claim id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getClaimStakeholdersRequest($claim_id)
+    {
+        // verify the required parameter 'claim_id' is set
+        if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $claim_id when calling getClaimStakeholders'
+            );
+        }
+
+        $resourcePath = '/v1/property/claims/{claimId}/stakeholders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($claim_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'claimId' . '}',
+                ObjectSerializer::toPathValue($claim_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/problem+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/problem+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateClaimStakeholder
+     *
+     * Update claim stakeholder
+     *
+     * @param  \Swagger\Client\Model\StakeholderUpdateRequest $body The stakeholder update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $stakeholder_id The stakeholder id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\StakeholderResponse
+     */
+    public function updateClaimStakeholder($body, $claim_id, $stakeholder_id)
+    {
+        list($response) = $this->updateClaimStakeholderWithHttpInfo($body, $claim_id, $stakeholder_id);
+        return $response;
+    }
+
+    /**
+     * Operation updateClaimStakeholderWithHttpInfo
+     *
+     * Update claim stakeholder
+     *
+     * @param  \Swagger\Client\Model\StakeholderUpdateRequest $body The stakeholder update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $stakeholder_id The stakeholder id (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\StakeholderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateClaimStakeholderWithHttpInfo($body, $claim_id, $stakeholder_id)
+    {
+        $returnType = '\Swagger\Client\Model\StakeholderResponse';
+        $request = $this->updateClaimStakeholderRequest($body, $claim_id, $stakeholder_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\StakeholderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateClaimStakeholderAsync
+     *
+     * Update claim stakeholder
+     *
+     * @param  \Swagger\Client\Model\StakeholderUpdateRequest $body The stakeholder update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $stakeholder_id The stakeholder id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateClaimStakeholderAsync($body, $claim_id, $stakeholder_id)
+    {
+        return $this->updateClaimStakeholderAsyncWithHttpInfo($body, $claim_id, $stakeholder_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateClaimStakeholderAsyncWithHttpInfo
+     *
+     * Update claim stakeholder
+     *
+     * @param  \Swagger\Client\Model\StakeholderUpdateRequest $body The stakeholder update request (required)
+     * @param  string $claim_id The claim id (required)
+     * @param  string $stakeholder_id The stakeholder id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateClaimStakeholderAsyncWithHttpInfo($body, $claim_id, $stakeholder_id)
+    {
+        $returnType = '\Swagger\Client\Model\StakeholderResponse';
+        $request = $this->updateClaimStakeholderRequest($body, $claim_id, $stakeholder_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateClaimStakeholder'
+     *
+     * @param  \Swagger\Client\Model\StakeholderUpdateRequest $body The stakeholder update request (required)
      * @param  string $claim_id The claim id (required)
      * @param  string $stakeholder_id The stakeholder id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1PropertyClaimsClaimIdStakeholdersStakeholderIdPutRequest($body, $claim_id, $stakeholder_id)
+    protected function updateClaimStakeholderRequest($body, $claim_id, $stakeholder_id)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling v1PropertyClaimsClaimIdStakeholdersStakeholderIdPut'
+                'Missing the required parameter $body when calling updateClaimStakeholder'
             );
         }
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $claim_id when calling v1PropertyClaimsClaimIdStakeholdersStakeholderIdPut'
+                'Missing the required parameter $claim_id when calling updateClaimStakeholder'
             );
         }
         // verify the required parameter 'stakeholder_id' is set
         if ($stakeholder_id === null || (is_array($stakeholder_id) && count($stakeholder_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $stakeholder_id when calling v1PropertyClaimsClaimIdStakeholdersStakeholderIdPut'
+                'Missing the required parameter $stakeholder_id when calling updateClaimStakeholder'
             );
         }
 
@@ -1204,12 +1204,12 @@ class PropertyClaimsStakeholdersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['application/json', 'application/problem+json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/_*+json', 'application/json', 'text/json']
+                ['application/json', 'application/problem+json'],
+                ['application/json']
             );
         }
 
