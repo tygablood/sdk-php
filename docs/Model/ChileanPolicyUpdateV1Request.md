@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **broker_stakeholder_id** | **string** |  | [optional] 
 **country** | **string** |  | 
 **coverages** | [**\Swagger\Client\Model\IChileanCoverageOrSublimitV1Request[]**](IChileanCoverageOrSublimitV1Request.md) |  | [optional] 
-**currency** | **string** |  | 
+**currency** | **string** |  | [optional] 
 **deductible** | [**\Swagger\Client\Model\DeductibleV1Request**](DeductibleV1Request.md) |  | [optional] 
 **effective_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **expiration_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **inception_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **insured_stakeholder_ids** | **string[]** |  | [optional] 
 **insurer_stakeholder_id** | **string** |  | [optional] 
-**item_number** | **int** |  | [optional] 
+**item_number** | **int** | The item number | [optional] 
 **mortgages** | [**\Swagger\Client\Model\MortgageV1Request[]**](MortgageV1Request.md) |  | [optional] 
 **onsite_contact_stakeholder_id** | **string** |  | [optional] 
 **policy_number** | **string** |  | [optional] 

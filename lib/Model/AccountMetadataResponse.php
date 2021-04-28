@@ -221,7 +221,7 @@ class AccountMetadataResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The account id
      *
      * @return $this
      */
@@ -245,7 +245,7 @@ class AccountMetadataResponse implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The account name
      *
      * @return $this
      */

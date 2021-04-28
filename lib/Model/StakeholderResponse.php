@@ -41,7 +41,7 @@ use \Swagger\Client\ObjectSerializer;
  */
 class StakeholderResponse implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = 'type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -176,10 +176,6 @@ class StakeholderResponse implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
@@ -193,9 +189,6 @@ class StakeholderResponse implements ModelInterface, ArrayAccess
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -225,7 +218,7 @@ class StakeholderResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The stakeholder id
      *
      * @return $this
      */

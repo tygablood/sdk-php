@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**city** | **string** |  | [optional] 
-**country** | **string** |  | [optional] 
-**postal_code** | **string** |  | [optional] 
-**region** | **string** |  | [optional] 
-**street** | **string** |  | [optional] 
-**street2** | **string** |  | [optional] 
-**street3** | **string** |  | [optional] 
+**city** | **string** | The city | [optional] 
+**country** | **string** | The country | [optional] 
+**postal_code** | **string** | The postal code | [optional] 
+**region** | **string** | The region | [optional] 
+**street** | **string** | The street | [optional] 
+**street2** | **string** | The street line 2 | [optional] 
+**street3** | **string** | The street line 3 | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

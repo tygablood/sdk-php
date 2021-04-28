@@ -407,7 +407,7 @@ class MediaCreatedResponse implements ModelInterface, ArrayAccess
     /**
      * Sets upload_url
      *
-     * @param string $upload_url upload_url
+     * @param string $upload_url The upload url
      *
      * @return $this
      */

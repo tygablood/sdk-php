@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | 
-**name** | **string** |  | 
+**id** | **string** | The report template id | 
+**name** | **string** | The report template name | 
 **owner** | [**\Swagger\Client\Model\AccountMetadataResponse**](AccountMetadataResponse.md) |  | 
 **status** | [**\Swagger\Client\Model\ClaimStatusType**](ClaimStatusType.md) |  | 
 

@@ -104,6 +104,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *HealthApi* | [**alive**](docs/Api/HealthApi.md#alive) | **GET** /health/alive | Returns \&quot;alive\&quot; if the service is available.
 *HealthApi* | [**details**](docs/Api/HealthApi.md#details) | **GET** /health/details | Returns the health details of the service and its dependencies.
+*PropertyClaimsApi* | [**createClaim**](docs/Api/PropertyClaimsApi.md#createclaim) | **POST** /v1/property/claims | Create a claim
+*PropertyClaimsApi* | [**getClaim**](docs/Api/PropertyClaimsApi.md#getclaim) | **GET** /v1/property/claims/{claimId} | Get claim
+*PropertyClaimsApi* | [**updateClaim**](docs/Api/PropertyClaimsApi.md#updateclaim) | **PUT** /v1/property/claims/{claimId} | Update claim
+*PropertyClaimsLossApi* | [**getClaimLoss**](docs/Api/PropertyClaimsLossApi.md#getclaimloss) | **GET** /v1/property/claims/{claimId}/loss | Get claim loss
+*PropertyClaimsLossApi* | [**updateClaimLoss**](docs/Api/PropertyClaimsLossApi.md#updateclaimloss) | **PUT** /v1/property/claims/{claimId}/loss | Update claim loss
 *PropertyClaimsMediaApi* | [**createMedia**](docs/Api/PropertyClaimsMediaApi.md#createmedia) | **POST** /v1/property/claims/{claimId}/media | Create claim media
 *PropertyClaimsMediaApi* | [**getMedia**](docs/Api/PropertyClaimsMediaApi.md#getmedia) | **GET** /v1/property/claims/{claimId}/media | Get claim media
 *PropertyClaimsMediaApi* | [**getMediaById**](docs/Api/PropertyClaimsMediaApi.md#getmediabyid) | **GET** /v1/property/claims/{claimId}/media/{mediaId} | Get claim media item
@@ -145,14 +150,23 @@ Class | Method | HTTP request | Description
  - [AddressType](docs/Model/AddressType.md)
  - [AddressV1Request](docs/Model/AddressV1Request.md)
  - [AddressV1Response](docs/Model/AddressV1Response.md)
+ - [CauseOfLossCreateRequest](docs/Model/CauseOfLossCreateRequest.md)
+ - [CauseOfLossResponse](docs/Model/CauseOfLossResponse.md)
+ - [CauseOfLossUpdateRequest](docs/Model/CauseOfLossUpdateRequest.md)
  - [ChileanPolicyUpdateV1Request](docs/Model/ChileanPolicyUpdateV1Request.md)
  - [ChileanPolicyV1Response](docs/Model/ChileanPolicyV1Response.md)
  - [ChileanPrimaryCoverageV1Response](docs/Model/ChileanPrimaryCoverageV1Response.md)
  - [ChileanSubcoverageV1Response](docs/Model/ChileanSubcoverageV1Response.md)
  - [ChileanSublimitV1Response](docs/Model/ChileanSublimitV1Response.md)
+ - [ClaimCreateAdHocCompanyStakeholderCreateRequest](docs/Model/ClaimCreateAdHocCompanyStakeholderCreateRequest.md)
+ - [ClaimCreateAdHocIndividualStakeholderCreateRequest](docs/Model/ClaimCreateAdHocIndividualStakeholderCreateRequest.md)
+ - [ClaimCreateRequest](docs/Model/ClaimCreateRequest.md)
+ - [ClaimCreateStakeholderCreateRequest](docs/Model/ClaimCreateStakeholderCreateRequest.md)
+ - [ClaimResponse](docs/Model/ClaimResponse.md)
  - [ClaimStatusChangeReasonTemplateResponse](docs/Model/ClaimStatusChangeReasonTemplateResponse.md)
  - [ClaimStatusChangeRequest](docs/Model/ClaimStatusChangeRequest.md)
  - [ClaimStatusType](docs/Model/ClaimStatusType.md)
+ - [ClaimUpdateRequest](docs/Model/ClaimUpdateRequest.md)
  - [CompanyStakeholderResponse](docs/Model/CompanyStakeholderResponse.md)
  - [CoverageOrSublimitV1Response](docs/Model/CoverageOrSublimitV1Response.md)
  - [CoverageType](docs/Model/CoverageType.md)
@@ -168,9 +182,13 @@ Class | Method | HTTP request | Description
  - [GenericSublimitV1Response](docs/Model/GenericSublimitV1Response.md)
  - [IChileanCoverageOrSublimitV1Request](docs/Model/IChileanCoverageOrSublimitV1Request.md)
  - [ICoverageOrSublimitV1Request](docs/Model/ICoverageOrSublimitV1Request.md)
+ - [ICoverageOrSublimitV1RequestIPolicyCreateRequest](docs/Model/ICoverageOrSublimitV1RequestIPolicyCreateRequest.md)
  - [ICoverageOrSublimitV1RequestIPolicyUpdateV1Request](docs/Model/ICoverageOrSublimitV1RequestIPolicyUpdateV1Request.md)
  - [IGenericCoverageOrSublimitV1Request](docs/Model/IGenericCoverageOrSublimitV1Request.md)
  - [IndividualStakeholderResponse](docs/Model/IndividualStakeholderResponse.md)
+ - [LossCreateRequest](docs/Model/LossCreateRequest.md)
+ - [LossResponse](docs/Model/LossResponse.md)
+ - [LossUpdateRequest](docs/Model/LossUpdateRequest.md)
  - [MediaCreateRequest](docs/Model/MediaCreateRequest.md)
  - [MediaCreatedResponse](docs/Model/MediaCreatedResponse.md)
  - [MediaResponse](docs/Model/MediaResponse.md)
@@ -178,9 +196,15 @@ Class | Method | HTTP request | Description
  - [MediaUpdatedResponse](docs/Model/MediaUpdatedResponse.md)
  - [MortgageV1Request](docs/Model/MortgageV1Request.md)
  - [MortgageV1Response](docs/Model/MortgageV1Response.md)
+ - [PerilCreateRequest](docs/Model/PerilCreateRequest.md)
+ - [PerilResponse](docs/Model/PerilResponse.md)
+ - [PerilUpdateRequest](docs/Model/PerilUpdateRequest.md)
  - [PhoneNumber](docs/Model/PhoneNumber.md)
  - [PhoneNumberType](docs/Model/PhoneNumberType.md)
  - [PolicyResponse](docs/Model/PolicyResponse.md)
+ - [PotentialSubrogationCreateRequest](docs/Model/PotentialSubrogationCreateRequest.md)
+ - [PotentialSubrogationResponse](docs/Model/PotentialSubrogationResponse.md)
+ - [PotentialSubrogationUpdateRequest](docs/Model/PotentialSubrogationUpdateRequest.md)
  - [PrimaryCoverageV1Response](docs/Model/PrimaryCoverageV1Response.md)
  - [ProblemDetails](docs/Model/ProblemDetails.md)
  - [ReportCreateRequest](docs/Model/ReportCreateRequest.md)

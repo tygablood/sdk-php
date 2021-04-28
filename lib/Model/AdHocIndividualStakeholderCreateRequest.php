@@ -251,7 +251,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets addresses
      *
-     * @param \Swagger\Client\Model\Address[] $addresses addresses
+     * @param \Swagger\Client\Model\Address[] $addresses The stakeholder addresses
      *
      * @return $this
      */
@@ -275,7 +275,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets company_stakeholder_id
      *
-     * @param string $company_stakeholder_id company_stakeholder_id
+     * @param string $company_stakeholder_id The stakeholder company stakeholder id
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param string $email The stakeholder email
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The stakeholder name
      *
      * @return $this
      */
@@ -347,7 +347,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets phone_numbers
      *
-     * @param \Swagger\Client\Model\PhoneNumber[] $phone_numbers phone_numbers
+     * @param \Swagger\Client\Model\PhoneNumber[] $phone_numbers The stakeholder phone numbers
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets tax_id
      *
-     * @param string $tax_id tax_id
+     * @param string $tax_id The stakeholder tax id
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class AdHocIndividualStakeholderCreateRequest extends StakeholderCreateRequest
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title The stakeholder title
      *
      * @return $this
      */

@@ -254,7 +254,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets city
      *
-     * @param string $city city
+     * @param string $city The city
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string $country The country
      *
      * @return $this
      */
@@ -302,7 +302,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets postal_code
      *
-     * @param string $postal_code postal_code
+     * @param string $postal_code The postal code
      *
      * @return $this
      */
@@ -326,7 +326,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets region
      *
-     * @param string $region region
+     * @param string $region The region
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets street
      *
-     * @param string $street street
+     * @param string $street The street
      *
      * @return $this
      */
@@ -374,7 +374,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets street2
      *
-     * @param string $street2 street2
+     * @param string $street2 The street line 2
      *
      * @return $this
      */
@@ -398,7 +398,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets street3
      *
-     * @param string $street3 street3
+     * @param string $street3 The street line 3
      *
      * @return $this
      */

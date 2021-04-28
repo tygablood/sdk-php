@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | 
 **name** | **string** |  | 
 **updated_on** | [**\DateTime**](\DateTime.md) |  | 
-**upload_url** | **string** |  | 
+**upload_url** | **string** | The upload url | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

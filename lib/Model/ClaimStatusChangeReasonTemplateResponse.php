@@ -239,7 +239,7 @@ class ClaimStatusChangeReasonTemplateResponse implements ModelInterface, ArrayAc
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The report template id
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class ClaimStatusChangeReasonTemplateResponse implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The report template name
      *
      * @return $this
      */

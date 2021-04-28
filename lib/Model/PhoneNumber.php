@@ -221,7 +221,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess
     /**
      * Sets number
      *
-     * @param string $number number
+     * @param string $number The phone number
      *
      * @return $this
      */

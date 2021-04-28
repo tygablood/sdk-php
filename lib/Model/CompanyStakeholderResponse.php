@@ -236,7 +236,7 @@ class CompanyStakeholderResponse extends StakeholderResponse
     /**
      * Sets addresses
      *
-     * @param \Swagger\Client\Model\Address[] $addresses addresses
+     * @param \Swagger\Client\Model\Address[] $addresses The stakeholder addresses
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class CompanyStakeholderResponse extends StakeholderResponse
     /**
      * Sets email
      *
-     * @param string $email email
+     * @param string $email The stakeholder email
      *
      * @return $this
      */
@@ -284,7 +284,7 @@ class CompanyStakeholderResponse extends StakeholderResponse
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The stakeholder name
      *
      * @return $this
      */
@@ -308,7 +308,7 @@ class CompanyStakeholderResponse extends StakeholderResponse
     /**
      * Sets phone_numbers
      *
-     * @param \Swagger\Client\Model\PhoneNumber[] $phone_numbers phone_numbers
+     * @param \Swagger\Client\Model\PhoneNumber[] $phone_numbers The stakeholder phone numbers
      *
      * @return $this
      */
@@ -332,7 +332,7 @@ class CompanyStakeholderResponse extends StakeholderResponse
     /**
      * Sets tax_id
      *
-     * @param string $tax_id tax_id
+     * @param string $tax_id The stakeholder tax id
      *
      * @return $this
      */

@@ -315,7 +315,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets apply_deductible_across_all_coverages
      *
-     * @param bool $apply_deductible_across_all_coverages apply_deductible_across_all_coverages
+     * @param bool $apply_deductible_across_all_coverages Does deductible apply across all coverages
      *
      * @return $this
      */
@@ -339,7 +339,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets beneficiary_stakeholder_ids
      *
-     * @param string[] $beneficiary_stakeholder_ids beneficiary_stakeholder_ids
+     * @param string[] $beneficiary_stakeholder_ids List of beneficiary stakeholder ids
      *
      * @return $this
      */
@@ -363,7 +363,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets broker_stakeholder_id
      *
-     * @param string $broker_stakeholder_id broker_stakeholder_id
+     * @param string $broker_stakeholder_id The broker stakeholder id
      *
      * @return $this
      */
@@ -387,7 +387,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string $country The policy country
      *
      * @return $this
      */
@@ -411,7 +411,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets coverages
      *
-     * @param \Swagger\Client\Model\ICoverageOrSublimitV1Request[] $coverages coverages
+     * @param \Swagger\Client\Model\ICoverageOrSublimitV1Request[] $coverages List of coverages
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets currency
      *
-     * @param string $currency currency
+     * @param string $currency The currency of the policy
      *
      * @return $this
      */
@@ -483,7 +483,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets effective_date
      *
-     * @param \DateTime $effective_date effective_date
+     * @param \DateTime $effective_date The effective date
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets expiration_date
      *
-     * @param \DateTime $expiration_date expiration_date
+     * @param \DateTime $expiration_date The expiration date
      *
      * @return $this
      */
@@ -531,7 +531,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets inception_date
      *
-     * @param \DateTime $inception_date inception_date
+     * @param \DateTime $inception_date The inception date
      *
      * @return $this
      */
@@ -555,7 +555,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets insured_stakeholder_ids
      *
-     * @param string[] $insured_stakeholder_ids insured_stakeholder_ids
+     * @param string[] $insured_stakeholder_ids List of insured stakeholder ids
      *
      * @return $this
      */
@@ -579,7 +579,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets insurer_stakeholder_id
      *
-     * @param string $insurer_stakeholder_id insurer_stakeholder_id
+     * @param string $insurer_stakeholder_id The insurer stakeholder id
      *
      * @return $this
      */
@@ -603,7 +603,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets mortgages
      *
-     * @param \Swagger\Client\Model\MortgageV1Request[] $mortgages mortgages
+     * @param \Swagger\Client\Model\MortgageV1Request[] $mortgages List of mortgages
      *
      * @return $this
      */
@@ -627,7 +627,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets onsite_contact_stakeholder_id
      *
-     * @param string $onsite_contact_stakeholder_id onsite_contact_stakeholder_id
+     * @param string $onsite_contact_stakeholder_id The onsite contact stakeholder id
      *
      * @return $this
      */
@@ -651,7 +651,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets policy_number
      *
-     * @param string $policy_number policy_number
+     * @param string $policy_number The policy number.   Must match the policy number pattern set up in the policy template rules.
      *
      * @return $this
      */
@@ -675,7 +675,7 @@ class ICoverageOrSublimitV1RequestIPolicyUpdateV1Request implements ModelInterfa
     /**
      * Sets policy_owner_stakeholder_id
      *
-     * @param string $policy_owner_stakeholder_id policy_owner_stakeholder_id
+     * @param string $policy_owner_stakeholder_id The policy owner stakeholder id
      *
      * @return $this
      */

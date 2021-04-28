@@ -224,7 +224,7 @@ class ClaimStatusChangeRequest implements ModelInterface, ArrayAccess
     /**
      * Sets note
      *
-     * @param string $note note
+     * @param string $note Notes about the status change
      *
      * @return $this
      */
@@ -248,7 +248,7 @@ class ClaimStatusChangeRequest implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param string $reason The status change reason
      *
      * @return $this
      */

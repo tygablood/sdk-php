@@ -212,7 +212,7 @@ class ReportCreateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets template_id
      *
-     * @param string $template_id template_id
+     * @param string $template_id The report template id
      *
      * @return $this
      */

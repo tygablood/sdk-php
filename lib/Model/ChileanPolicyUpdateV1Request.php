@@ -286,9 +286,6 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
         }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
         if ($this->container['risk_address'] === null) {
             $invalidProperties[] = "'risk_address' can't be null";
         }
@@ -608,7 +605,7 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess
     /**
      * Sets item_number
      *
-     * @param int $item_number item_number
+     * @param int $item_number The item number
      *
      * @return $this
      */

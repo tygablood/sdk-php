@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_on** | [**\DateTime**](\DateTime.md) |  | 
 **description** | **string** |  | [optional] 
-**download_url** | **string** |  | 
+**download_url** | **string** | The download url | 
 **filename** | **string** |  | 
 **id** | **string** |  | 
 **name** | **string** |  | 

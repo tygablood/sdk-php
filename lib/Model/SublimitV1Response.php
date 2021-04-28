@@ -248,7 +248,7 @@ class SublimitV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The coverage or sublimit id
      *
      * @return $this
      */
@@ -272,7 +272,7 @@ class SublimitV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class SublimitV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets parent_coverage_id
      *
-     * @param string $parent_coverage_id parent_coverage_id
+     * @param string $parent_coverage_id The parent coverage id
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class SublimitV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets per_item_limit
      *
-     * @param double $per_item_limit per_item_limit
+     * @param double $per_item_limit The per item limit
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class SublimitV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets per_occurrence_limit
      *
-     * @param double $per_occurrence_limit per_occurrence_limit
+     * @param double $per_occurrence_limit The per occurrence limit
      *
      * @return $this
      */

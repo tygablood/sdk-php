@@ -227,7 +227,7 @@ class DeductibleV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets minimum
      *
-     * @param double $minimum minimum
+     * @param double $minimum The minimum
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class DeductibleV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets percentage
      *
-     * @param double $percentage percentage
+     * @param double $percentage The percentage
      *
      * @return $this
      */

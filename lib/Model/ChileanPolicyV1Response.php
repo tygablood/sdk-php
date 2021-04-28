@@ -203,7 +203,7 @@ class ChileanPolicyV1Response extends PolicyResponse
     /**
      * Sets item_number
      *
-     * @param int $item_number item_number
+     * @param int $item_number The item number
      *
      * @return $this
      */

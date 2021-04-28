@@ -206,7 +206,7 @@ class SubcoverageV1Response extends CoverageV1Response
     /**
      * Sets parent_coverage_id
      *
-     * @param string $parent_coverage_id parent_coverage_id
+     * @param string $parent_coverage_id The parent coverage id
      *
      * @return $this
      */

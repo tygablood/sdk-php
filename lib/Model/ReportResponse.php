@@ -248,7 +248,7 @@ class ReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets created_on
      *
-     * @param \DateTime $created_on created_on
+     * @param \DateTime $created_on The date and time the report was created on
      *
      * @return $this
      */
@@ -272,7 +272,7 @@ class ReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets download_url
      *
-     * @param string $download_url download_url
+     * @param string $download_url The url to download the report from
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class ReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The report id
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class ReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The report name
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class ReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets template_id
      *
-     * @param string $template_id template_id
+     * @param string $template_id The template id the report was created from
      *
      * @return $this
      */

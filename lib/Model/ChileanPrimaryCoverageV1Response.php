@@ -209,7 +209,7 @@ class ChileanPrimaryCoverageV1Response extends PrimaryCoverageV1Response
     /**
      * Sets pol
      *
-     * @param string $pol pol
+     * @param string $pol The POL
      *
      * @return $this
      */

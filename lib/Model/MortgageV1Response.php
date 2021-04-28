@@ -230,7 +230,7 @@ class MortgageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The mortgage id
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class MortgageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets loan_number
      *
-     * @param string $loan_number loan_number
+     * @param string $loan_number The loan number
      *
      * @return $this
      */
@@ -278,7 +278,7 @@ class MortgageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets mortgagee_stakeholder_id
      *
-     * @param string $mortgagee_stakeholder_id mortgagee_stakeholder_id
+     * @param string $mortgagee_stakeholder_id The mortgagee stakeholder id
      *
      * @return $this
      */
@@ -302,7 +302,7 @@ class MortgageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets mortgagor_stakeholder_id
      *
-     * @param string $mortgagor_stakeholder_id mortgagor_stakeholder_id
+     * @param string $mortgagor_stakeholder_id The mortgagor stakeholder id
      *
      * @return $this
      */

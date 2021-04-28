@@ -215,7 +215,7 @@ class MediaUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description description
+     * @param string $description The description
      *
      * @return $this
      */
@@ -239,7 +239,7 @@ class MediaUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name
      *
      * @return $this
      */

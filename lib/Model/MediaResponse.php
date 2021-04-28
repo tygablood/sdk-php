@@ -311,7 +311,7 @@ class MediaResponse implements ModelInterface, ArrayAccess
     /**
      * Sets download_url
      *
-     * @param string $download_url download_url
+     * @param string $download_url The download url
      *
      * @return $this
      */

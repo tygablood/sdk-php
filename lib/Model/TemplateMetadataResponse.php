@@ -230,7 +230,7 @@ class TemplateMetadataResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The report template id
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class TemplateMetadataResponse implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The report template name
      *
      * @return $this
      */

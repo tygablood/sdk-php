@@ -266,7 +266,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets apply_depreciation
      *
-     * @param bool $apply_depreciation apply_depreciation
+     * @param bool $apply_depreciation Does coverage apply depreciation
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets depreciation_is_recoverable
      *
-     * @param bool $depreciation_is_recoverable depreciation_is_recoverable
+     * @param bool $depreciation_is_recoverable Is depreciation recoverable
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id The coverage or sublimit id
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name
      *
      * @return $this
      */
@@ -386,7 +386,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets per_item_limit
      *
-     * @param double $per_item_limit per_item_limit
+     * @param double $per_item_limit The per item limit
      *
      * @return $this
      */
@@ -410,7 +410,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets per_occurrence_limit
      *
-     * @param double $per_occurrence_limit per_occurrence_limit
+     * @param double $per_occurrence_limit The per occurrence limit
      *
      * @return $this
      */
@@ -434,7 +434,7 @@ class CoverageV1Response implements ModelInterface, ArrayAccess
     /**
      * Sets reserve
      *
-     * @param double $reserve reserve
+     * @param double $reserve The reserve
      *
      * @return $this
      */

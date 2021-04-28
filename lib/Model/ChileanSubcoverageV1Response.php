@@ -209,7 +209,7 @@ class ChileanSubcoverageV1Response extends SubcoverageV1Response
     /**
      * Sets cad
      *
-     * @param string $cad cad
+     * @param string $cad The CAD
      *
      * @return $this
      */
