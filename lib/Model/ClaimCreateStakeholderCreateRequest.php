@@ -42,7 +42,7 @@ use \Swagger\Client\ObjectSerializer;
  */
 class ClaimCreateStakeholderCreateRequest implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = 'type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -177,10 +177,6 @@ class ClaimCreateStakeholderCreateRequest implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
