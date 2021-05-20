@@ -1,55 +1,62 @@
-# Swagger\Client\PropertyClaimsReportsApi
+# OpenAPI\Client\PropertyClaimsReportsApi
 
-All URIs are relative to */*
+All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createClaimReport**](PropertyClaimsReportsApi.md#createclaimreport) | **POST** /v1/property/claims/{claimId}/reports | Create a claim report
-[**getClaimReportById**](PropertyClaimsReportsApi.md#getclaimreportbyid) | **GET** /v1/property/claims/{claimId}/reports/{reportId} | Get a specific claim report
-[**getClaimReports**](PropertyClaimsReportsApi.md#getclaimreports) | **GET** /v1/property/claims/{claimId}/reports | Get reports for claim
+[**createClaimReport()**](PropertyClaimsReportsApi.md#createClaimReport) | **POST** /v1/property/claims/{claimId}/reports | Create a claim report
+[**getClaimReportById()**](PropertyClaimsReportsApi.md#getClaimReportById) | **GET** /v1/property/claims/{claimId}/reports/{reportId} | Get a specific claim report
+[**getClaimReports()**](PropertyClaimsReportsApi.md#getClaimReports) | **GET** /v1/property/claims/{claimId}/reports | Get reports for claim
 
-# **createClaimReport**
-> \Swagger\Client\Model\ReportResponse createClaimReport($body, $claim_id)
+
+## `createClaimReport()`
+
+```php
+createClaimReport($claim_id, $report_create_request): \OpenAPI\Client\Model\ReportResponse
+```
 
 Create a claim report
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsReportsApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ReportCreateRequest(); // \Swagger\Client\Model\ReportCreateRequest | The report create request
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
+$claim_id = 'claim_id_example'; // string | The claim id
+$report_create_request = {"templateId":"76872450-7838-4c1e-b961-3d1f1ad45269"}; // \OpenAPI\Client\Model\ReportCreateRequest | The report create request
 
 try {
-    $result = $apiInstance->createClaimReport($body, $claim_id);
+    $result = $apiInstance->createClaimReport($claim_id, $report_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsReportsApi->createClaimReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ReportCreateRequest**](../Model/ReportCreateRequest.md)| The report create request |
  **claim_id** | [**string**](../Model/.md)| The claim id |
+ **report_create_request** | [**\OpenAPI\Client\Model\ReportCreateRequest**](../Model/ReportCreateRequest.md)| The report create request |
 
 ### Return type
 
-[**\Swagger\Client\Model\ReportResponse**](../Model/ReportResponse.md)
+[**\OpenAPI\Client\Model\ReportResponse**](../Model/ReportResponse.md)
 
 ### Authorization
 
@@ -57,33 +64,42 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getClaimReportById**
-> \Swagger\Client\Model\ReportResponse getClaimReportById($claim_id, $report_id)
+## `getClaimReportById()`
+
+```php
+getClaimReportById($claim_id, $report_id): \OpenAPI\Client\Model\ReportResponse
+```
 
 Get a specific claim report
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsReportsApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
-$report_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The report id
+$claim_id = 'claim_id_example'; // string | The claim id
+$report_id = 'report_id_example'; // string | The report id
 
 try {
     $result = $apiInstance->getClaimReportById($claim_id, $report_id);
@@ -91,7 +107,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsReportsApi->getClaimReportById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -103,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ReportResponse**](../Model/ReportResponse.md)
+[**\OpenAPI\Client\Model\ReportResponse**](../Model/ReportResponse.md)
 
 ### Authorization
 
@@ -111,32 +126,41 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getClaimReports**
-> \Swagger\Client\Model\ReportResponse[] getClaimReports($claim_id)
+## `getClaimReports()`
+
+```php
+getClaimReports($claim_id): \OpenAPI\Client\Model\ReportResponse[]
+```
 
 Get reports for claim
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsReportsApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsReportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
+$claim_id = 'claim_id_example'; // string | The claim id
 
 try {
     $result = $apiInstance->getClaimReports($claim_id);
@@ -144,7 +168,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsReportsApi->getClaimReports: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -155,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ReportResponse[]**](../Model/ReportResponse.md)
+[**\OpenAPI\Client\Model\ReportResponse[]**](../Model/ReportResponse.md)
 
 ### Authorization
 
@@ -163,8 +186,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

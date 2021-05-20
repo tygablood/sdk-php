@@ -1,16 +1,16 @@
-# Address
+# # Address
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**city** | **string** | The city | [optional] 
-**country** | **string** | The country | [optional] 
-**postal_code** | **string** | The postal code | [optional] 
-**region** | **string** | The region | [optional] 
-**street** | **string** | The street | [optional] 
-**street2** | **string** | The street line 2 | [optional] 
-**street3** | **string** | The street line 3 | [optional] 
-**type** | [**\Swagger\Client\Model\AddressType**](AddressType.md) |  | 
+**city** | **string** | The city | [optional]
+**country** | **string** | The country | [optional]
+**postal_code** | **string** | The postal code | [optional]
+**region** | **string** | The region | [optional]
+**street** | **string** | The street | [optional]
+**street2** | **string** | The street line 2 | [optional]
+**street3** | **string** | The street line 3 | [optional]
+**type** | [**\OpenAPI\Client\Model\AddressType**](AddressType.md) |  |
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

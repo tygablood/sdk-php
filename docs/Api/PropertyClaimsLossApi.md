@@ -1,33 +1,41 @@
-# Swagger\Client\PropertyClaimsLossApi
+# OpenAPI\Client\PropertyClaimsLossApi
 
-All URIs are relative to */*
+All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getClaimLoss**](PropertyClaimsLossApi.md#getclaimloss) | **GET** /v1/property/claims/{claimId}/loss | Get claim loss
-[**updateClaimLoss**](PropertyClaimsLossApi.md#updateclaimloss) | **PUT** /v1/property/claims/{claimId}/loss | Update claim loss
+[**getClaimLoss()**](PropertyClaimsLossApi.md#getClaimLoss) | **GET** /v1/property/claims/{claimId}/loss | Get claim loss
+[**updateClaimLoss()**](PropertyClaimsLossApi.md#updateClaimLoss) | **PUT** /v1/property/claims/{claimId}/loss | Update claim loss
 
-# **getClaimLoss**
-> \Swagger\Client\Model\LossResponse getClaimLoss($claim_id)
+
+## `getClaimLoss()`
+
+```php
+getClaimLoss($claim_id): \OpenAPI\Client\Model\LossResponse
+```
 
 Get claim loss
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsLossApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsLossApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
+$claim_id = 'claim_id_example'; // string | The claim id
 
 try {
     $result = $apiInstance->getClaimLoss($claim_id);
@@ -35,7 +43,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsLossApi->getClaimLoss: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -46,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\LossResponse**](../Model/LossResponse.md)
+[**\OpenAPI\Client\Model\LossResponse**](../Model/LossResponse.md)
 
 ### Authorization
 
@@ -54,48 +61,56 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **updateClaimLoss**
-> updateClaimLoss($body, $claim_id)
+## `updateClaimLoss()`
+
+```php
+updateClaimLoss($claim_id, $loss_update_request)
+```
 
 Update claim loss
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsLossApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsLossApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\LossUpdateRequest(); // \Swagger\Client\Model\LossUpdateRequest | The update request
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
+$claim_id = 'claim_id_example'; // string | The claim id
+$loss_update_request = {"firstNoticeOfLoss":"2001-01-01T00:00:00.0000000","lossDate":"2001-01-12T00:00:00.0000000","lossDescription":"The loss description","peril":{"causeOfLoss":{"explanation":"The loss cause explanation","templateId":"166bd393-00f6-4778-8305-46c907dc5a5a"},"templateId":"213c72b8-79b1-4f59-915d-f0ec1678c45f"},"potentialSubrogation":{"explanation":"The potential subrogation explanation"}}; // \OpenAPI\Client\Model\LossUpdateRequest | The update request
 
 try {
-    $apiInstance->updateClaimLoss($body, $claim_id);
+    $apiInstance->updateClaimLoss($claim_id, $loss_update_request);
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsLossApi->updateClaimLoss: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\LossUpdateRequest**](../Model/LossUpdateRequest.md)| The update request |
  **claim_id** | [**string**](../Model/.md)| The claim id |
+ **loss_update_request** | [**\OpenAPI\Client\Model\LossUpdateRequest**](../Model/LossUpdateRequest.md)| The update request |
 
 ### Return type
 
@@ -107,8 +122,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

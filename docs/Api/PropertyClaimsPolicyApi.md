@@ -1,33 +1,41 @@
-# Swagger\Client\PropertyClaimsPolicyApi
+# OpenAPI\Client\PropertyClaimsPolicyApi
 
-All URIs are relative to */*
+All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getClaimPolicy**](PropertyClaimsPolicyApi.md#getclaimpolicy) | **GET** /v1/property/claims/{claimId}/policy | Get claim policy
-[**updateClaimPolicy**](PropertyClaimsPolicyApi.md#updateclaimpolicy) | **PUT** /v1/property/claims/{claimId}/policy | Update claim policy
+[**getClaimPolicy()**](PropertyClaimsPolicyApi.md#getClaimPolicy) | **GET** /v1/property/claims/{claimId}/policy | Get claim policy
+[**updateClaimPolicy()**](PropertyClaimsPolicyApi.md#updateClaimPolicy) | **PUT** /v1/property/claims/{claimId}/policy | Update claim policy
 
-# **getClaimPolicy**
-> \Swagger\Client\Model\PolicyResponse getClaimPolicy($claim_id)
+
+## `getClaimPolicy()`
+
+```php
+getClaimPolicy($claim_id): \OpenAPI\Client\Model\PolicyResponse
+```
 
 Get claim policy
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsPolicyApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsPolicyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
+$claim_id = 'claim_id_example'; // string | The claim id
 
 try {
     $result = $apiInstance->getClaimPolicy($claim_id);
@@ -35,7 +43,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsPolicyApi->getClaimPolicy: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -46,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PolicyResponse**](../Model/PolicyResponse.md)
+[**\OpenAPI\Client\Model\PolicyResponse**](../Model/PolicyResponse.md)
 
 ### Authorization
 
@@ -54,48 +61,56 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **updateClaimPolicy**
-> updateClaimPolicy($body, $claim_id)
+## `updateClaimPolicy()`
+
+```php
+updateClaimPolicy($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+```
 
 Update claim policy
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: ApiKey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\PropertyClaimsPolicyApi(
+
+// Configure API key authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PropertyClaimsPolicyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request(); // \Swagger\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request | The updated policy
-$claim_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | The claim id
+$claim_id = 'claim_id_example'; // string | The claim id
+$i_coverage_or_sublimit_v1_request_i_policy_update_v1_request = {"applyDeductibleAcrossAllCoverages":true,"beneficiaryStakeholderIds":["727d5097-5d97-41b8-89b4-bd344120a514"],"brokerStakeholderId":"7f449dbb-746e-4655-9a88-39006fbc851e","country":"CL","coverages":[{"applyDepreciation":true,"deductible":{"minimum":50000,"percentage":15,"type":"PercentageOfCoveredValuePlusMinimum"},"depreciationIsRecoverable":false,"id":"0350afd0-1ff3-47f1-8a13-78fe49766acc","name":"Homeowners Policy","perItemLimit":50000,"perOccurrenceLimit":100000,"pol":120131490,"reserve":5000,"type":"PrimaryCoverage"},{"applyDepreciation":true,"cad":120130070,"deductible":{"minimum":50,"percentage":null,"type":"SingleValue"},"depreciationIsRecoverable":false,"id":"76abf1ba-5889-4f25-94a9-037f248b2876","name":"Collectibles Coverage","parentCoverageId":"0350afd0-1ff3-47f1-8a13-78fe49766acc","perItemLimit":1000,"perOccurrenceLimit":70000,"reserve":null,"type":"Subcoverage"},{"id":"1fa3ac5b-1c0c-4772-94c1-8bc84fd35c4d","name":"Theft sublimit","parentCoverageId":"0350afd0-1ff3-47f1-8a13-78fe49766acc","perItemLimit":10000,"perOccurrenceLimit":70000,"type":"Sublimit"}],"currency":"CLP","deductible":{"minimum":50000,"percentage":15,"type":"PercentageOfCoveredValuePlusMinimum"},"effectiveDate":"2001-01-01T00:00:00.0000000","expirationDate":"2001-12-31T00:00:00.0000000","inceptionDate":"2001-01-01T00:00:00.0000000","insuredStakeholderIds":["19668c4d-02fe-4a7d-9ff2-4e285e8812ac"],"insurerStakeholderId":"332a42c5-1ce7-4a44-8f86-4223075ae523","itemNumber":42,"mortgages":[{"id":null,"loanNumber":"518c1876","mortgageeStakeholderId":"478e2fd6-5bb4-441f-8434-32a01db75e03","mortgagorStakeholderId":"3bd56131-684e-401a-86e5-219673168416"}],"onsiteContactStakeholderId":"088f385a-65fd-42ce-b751-d84f65147077","policyNumber":"256f6a26","policyOwnerStakeholderId":"627d45ed-04ba-4e83-876f-ef371e623961","riskAddress":{"city":"Hornitos","country":"CL","postalCode":1580000,"region":"Atacama","street":"Calle Vasco De Gama, 5585","street2":null,"street3":null}}; // \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request | The updated policy
 
 try {
-    $apiInstance->updateClaimPolicy($body, $claim_id);
+    $apiInstance->updateClaimPolicy($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request);
 } catch (Exception $e) {
     echo 'Exception when calling PropertyClaimsPolicyApi->updateClaimPolicy: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request**](../Model/ICoverageOrSublimitV1RequestIPolicyUpdateV1Request.md)| The updated policy |
  **claim_id** | [**string**](../Model/.md)| The claim id |
+ **i_coverage_or_sublimit_v1_request_i_policy_update_v1_request** | [**\OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request**](../Model/ICoverageOrSublimitV1RequestIPolicyUpdateV1Request.md)| The updated policy |
 
 ### Return type
 
@@ -107,8 +122,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/problem+json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

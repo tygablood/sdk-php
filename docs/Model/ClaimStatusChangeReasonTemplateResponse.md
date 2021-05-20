@@ -1,12 +1,12 @@
-# ClaimStatusChangeReasonTemplateResponse
+# # ClaimStatusChangeReasonTemplateResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The report template id | 
-**name** | **string** | The report template name | 
-**owner** | [**\Swagger\Client\Model\AccountMetadataResponse**](AccountMetadataResponse.md) |  | 
-**status** | [**\Swagger\Client\Model\ClaimStatusType**](ClaimStatusType.md) |  | 
+**id** | **string** | The report template id |
+**name** | **string** | The report template name |
+**owner** | [**\OpenAPI\Client\Model\AccountMetadataResponse**](AccountMetadataResponse.md) |  |
+**status** | [**\OpenAPI\Client\Model\ClaimStatusType**](ClaimStatusType.md) |  |
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
