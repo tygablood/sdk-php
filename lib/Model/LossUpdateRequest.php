@@ -214,6 +214,9 @@ class LossUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['loss_date'] === null) {
+            $invalidProperties[] = "'loss_date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -256,7 +259,7 @@ class LossUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets loss_date
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getLossDate()
     {
@@ -266,7 +269,7 @@ class LossUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets loss_date
      *
-     * @param \DateTime|null $loss_date The loss daet
+     * @param \DateTime $loss_date The loss daet
      *
      * @return self
      */

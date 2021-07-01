@@ -80,15 +80,6 @@ class GenericSubcoverageV1ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "apply_depreciation"
      */
     public function testPropertyApplyDepreciation()
@@ -116,36 +107,9 @@ class GenericSubcoverageV1ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "parent_coverage_id"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "per_item_limit"
-     */
-    public function testPropertyPerItemLimit()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "per_occurrence_limit"
-     */
-    public function testPropertyPerOccurrenceLimit()
+    public function testPropertyParentCoverageId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

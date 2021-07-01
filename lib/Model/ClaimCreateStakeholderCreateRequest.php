@@ -45,7 +45,7 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class ClaimCreateStakeholderCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -186,6 +186,9 @@ class ClaimCreateStakeholderCreateRequest implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**

@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChileanSubcoverageV1Response extends ChileanCoverageOrSublimit
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -59,15 +57,11 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cad' => 'string',
-        'type' => '\OpenAPI\Client\Model\CoverageType',
         'apply_depreciation' => 'bool',
+        'cad' => 'string',
         'deductible' => '\OpenAPI\Client\Model\DeductibleV1Response',
         'depreciation_is_recoverable' => 'bool',
-        'id' => 'string',
-        'name' => 'string',
-        'per_item_limit' => 'double',
-        'per_occurrence_limit' => 'double',
+        'parent_coverage_id' => 'string',
         'reserve' => 'double'
     ];
 
@@ -79,15 +73,11 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cad' => null,
-        'type' => null,
         'apply_depreciation' => null,
+        'cad' => null,
         'deductible' => null,
         'depreciation_is_recoverable' => null,
-        'id' => 'uuid',
-        'name' => null,
-        'per_item_limit' => 'double',
-        'per_occurrence_limit' => 'double',
+        'parent_coverage_id' => 'uuid',
         'reserve' => 'double'
     ];
 
@@ -98,7 +88,7 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -108,7 +98,7 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -118,15 +108,11 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'cad' => 'cad',
-        'type' => 'type',
         'apply_depreciation' => 'applyDepreciation',
+        'cad' => 'cad',
         'deductible' => 'deductible',
         'depreciation_is_recoverable' => 'depreciationIsRecoverable',
-        'id' => 'id',
-        'name' => 'name',
-        'per_item_limit' => 'perItemLimit',
-        'per_occurrence_limit' => 'perOccurrenceLimit',
+        'parent_coverage_id' => 'parentCoverageId',
         'reserve' => 'reserve'
     ];
 
@@ -136,15 +122,11 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'cad' => 'setCad',
-        'type' => 'setType',
         'apply_depreciation' => 'setApplyDepreciation',
+        'cad' => 'setCad',
         'deductible' => 'setDeductible',
         'depreciation_is_recoverable' => 'setDepreciationIsRecoverable',
-        'id' => 'setId',
-        'name' => 'setName',
-        'per_item_limit' => 'setPerItemLimit',
-        'per_occurrence_limit' => 'setPerOccurrenceLimit',
+        'parent_coverage_id' => 'setParentCoverageId',
         'reserve' => 'setReserve'
     ];
 
@@ -154,15 +136,11 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'cad' => 'getCad',
-        'type' => 'getType',
         'apply_depreciation' => 'getApplyDepreciation',
+        'cad' => 'getCad',
         'deductible' => 'getDeductible',
         'depreciation_is_recoverable' => 'getDepreciationIsRecoverable',
-        'id' => 'getId',
-        'name' => 'getName',
-        'per_item_limit' => 'getPerItemLimit',
-        'per_occurrence_limit' => 'getPerOccurrenceLimit',
+        'parent_coverage_id' => 'getParentCoverageId',
         'reserve' => 'getReserve'
     ];
 
@@ -174,7 +152,7 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -184,7 +162,7 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -194,7 +172,7 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -208,12 +186,6 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -223,16 +195,17 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->container['cad'] = $data['cad'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        parent::__construct($data);
+
         $this->container['apply_depreciation'] = $data['apply_depreciation'] ?? null;
+        $this->container['cad'] = $data['cad'] ?? null;
         $this->container['deductible'] = $data['deductible'] ?? null;
         $this->container['depreciation_is_recoverable'] = $data['depreciation_is_recoverable'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['per_item_limit'] = $data['per_item_limit'] ?? null;
-        $this->container['per_occurrence_limit'] = $data['per_occurrence_limit'] ?? null;
+        $this->container['parent_coverage_id'] = $data['parent_coverage_id'] ?? null;
         $this->container['reserve'] = $data['reserve'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -242,16 +215,13 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['apply_depreciation'] === null) {
             $invalidProperties[] = "'apply_depreciation' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['parent_coverage_id'] === null) {
+            $invalidProperties[] = "'parent_coverage_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -267,54 +237,6 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets cad
-     *
-     * @return string|null
-     */
-    public function getCad()
-    {
-        return $this->container['cad'];
-    }
-
-    /**
-     * Sets cad
-     *
-     * @param string|null $cad The CAD
-     *
-     * @return self
-     */
-    public function setCad($cad)
-    {
-        $this->container['cad'] = $cad;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\CoverageType|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\CoverageType|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets apply_depreciation
@@ -336,6 +258,30 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
     public function setApplyDepreciation($apply_depreciation)
     {
         $this->container['apply_depreciation'] = $apply_depreciation;
+
+        return $this;
+    }
+
+    /**
+     * Gets cad
+     *
+     * @return string|null
+     */
+    public function getCad()
+    {
+        return $this->container['cad'];
+    }
+
+    /**
+     * Sets cad
+     *
+     * @param string|null $cad The CAD
+     *
+     * @return self
+     */
+    public function setCad($cad)
+    {
+        $this->container['cad'] = $cad;
 
         return $this;
     }
@@ -389,97 +335,25 @@ class ChileanSubcoverageV1Response implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets id
+     * Gets parent_coverage_id
      *
      * @return string
      */
-    public function getId()
+    public function getParentCoverageId()
     {
-        return $this->container['id'];
+        return $this->container['parent_coverage_id'];
     }
 
     /**
-     * Sets id
+     * Sets parent_coverage_id
      *
-     * @param string $id The coverage or sublimit id
+     * @param string $parent_coverage_id The parent coverage id
      *
      * @return self
      */
-    public function setId($id)
+    public function setParentCoverageId($parent_coverage_id)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_item_limit
-     *
-     * @return double|null
-     */
-    public function getPerItemLimit()
-    {
-        return $this->container['per_item_limit'];
-    }
-
-    /**
-     * Sets per_item_limit
-     *
-     * @param double|null $per_item_limit The per item limit
-     *
-     * @return self
-     */
-    public function setPerItemLimit($per_item_limit)
-    {
-        $this->container['per_item_limit'] = $per_item_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_occurrence_limit
-     *
-     * @return double|null
-     */
-    public function getPerOccurrenceLimit()
-    {
-        return $this->container['per_occurrence_limit'];
-    }
-
-    /**
-     * Sets per_occurrence_limit
-     *
-     * @param double|null $per_occurrence_limit The per occurrence limit
-     *
-     * @return self
-     */
-    public function setPerOccurrenceLimit($per_occurrence_limit)
-    {
-        $this->container['per_occurrence_limit'] = $per_occurrence_limit;
+        $this->container['parent_coverage_id'] = $parent_coverage_id;
 
         return $this;
     }

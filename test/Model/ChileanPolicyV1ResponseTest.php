@@ -80,6 +80,15 @@ class ChileanPolicyV1ResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "coverages"
+     */
+    public function testPropertyCoverages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "item_number"
      */
     public function testPropertyItemNumber()

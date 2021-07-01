@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **claim_template_id** | **string** | The claim template id |
 **loss** | [**\OpenAPI\Client\Model\LossCreateRequest**](LossCreateRequest.md) |  |
 **name** | **string** | The claim name |
-**policy** | [**\OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyCreateRequest**](ICoverageOrSublimitV1RequestIPolicyCreateRequest.md) |  |
+**policy** | [**\OpenAPI\Client\Model\PolicyCreateRequestBase**](PolicyCreateRequestBase.md) |  |
 **reference_number** | **string** | The reference number | [optional]
-**stakeholders** | [**\OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[]**](ClaimCreateStakeholderCreateRequest.md) | The stakeholders | [optional]
+**stakeholders** | [**\OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[]**](ClaimCreateStakeholderCreateRequest.md) | The stakeholders |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

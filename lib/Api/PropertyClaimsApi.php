@@ -123,7 +123,7 @@ class PropertyClaimsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportResponse|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails
+     * @return \OpenAPI\Client\Model\ClaimCreateResponse|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails
      */
     public function createClaim($claim_create_request)
     {
@@ -140,7 +140,7 @@ class PropertyClaimsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportResponse|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ClaimCreateResponse|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function createClaimWithHttpInfo($claim_create_request)
     {
@@ -176,14 +176,14 @@ class PropertyClaimsApi
 
             switch($statusCode) {
                 case 202:
-                    if ('\OpenAPI\Client\Model\ReportResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ClaimCreateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ClaimCreateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,7 +213,7 @@ class PropertyClaimsApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportResponse';
+            $returnType = '\OpenAPI\Client\Model\ClaimCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -231,7 +231,7 @@ class PropertyClaimsApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportResponse',
+                        '\OpenAPI\Client\Model\ClaimCreateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -289,7 +289,7 @@ class PropertyClaimsApi
      */
     public function createClaimAsyncWithHttpInfo($claim_create_request)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportResponse';
+        $returnType = '\OpenAPI\Client\Model\ClaimCreateResponse';
         $request = $this->createClaimRequest($claim_create_request);
 
         return $this->client

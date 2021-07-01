@@ -214,6 +214,18 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
+        }
+        if ($this->container['instance'] === null) {
+            $invalidProperties[] = "'instance' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -232,7 +244,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets detail
      *
-     * @return string|null
+     * @return string
      */
     public function getDetail()
     {
@@ -242,7 +254,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets detail
      *
-     * @param string|null $detail detail
+     * @param string $detail detail
      *
      * @return self
      */
@@ -256,7 +268,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets instance
      *
-     * @return string|null
+     * @return string
      */
     public function getInstance()
     {
@@ -266,7 +278,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets instance
      *
-     * @param string|null $instance instance
+     * @param string $instance instance
      *
      * @return self
      */
@@ -304,7 +316,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -314,7 +326,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string $title title
      *
      * @return self
      */
@@ -328,7 +340,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string|null
+     * @return string
      */
     public function getType()
     {
@@ -338,7 +350,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string $type type
      *
      * @return self
      */

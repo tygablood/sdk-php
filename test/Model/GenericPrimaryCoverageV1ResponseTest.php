@@ -80,15 +80,6 @@ class GenericPrimaryCoverageV1ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "apply_depreciation"
      */
     public function testPropertyApplyDepreciation()
@@ -110,42 +101,6 @@ class GenericPrimaryCoverageV1ResponseTest extends TestCase
      * Test attribute "depreciation_is_recoverable"
      */
     public function testPropertyDepreciationIsRecoverable()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "per_item_limit"
-     */
-    public function testPropertyPerItemLimit()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "per_occurrence_limit"
-     */
-    public function testPropertyPerOccurrenceLimit()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

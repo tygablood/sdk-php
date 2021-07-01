@@ -40,7 +40,7 @@ $apiInstance = new OpenAPI\Client\Api\PropertyClaimsStakeholdersApi(
     $config
 );
 $claim_id = 'claim_id_example'; // string | The claim id
-$stakeholder_create_request = {"addresses":[{"city":"Ponyville","country":"US","postalCode":1234,"region":"PA","street":"123 Mane Street","street2":null,"street3":null,"type":"Work"}],"email":"inquiry@company.example","name":"Ad Hoc Company, Inc. Ltd.","phoneNumbers":[{"number":"+1 200 555 0198","type":"Work"}],"taxId":"12-3456789","type":"AdHocCompany"}; // \OpenAPI\Client\Model\StakeholderCreateRequest | The stakeholder create request
+$stakeholder_create_request = {"addresses":[{"city":"Ponyville","country":"US","dependentLocality":null,"postalCode":1234,"region":"PA","street":"123 Mane Street","street2":null,"street3":null,"type":"Work"}],"email":"inquiry@company.example","name":"Ad Hoc Company, Inc. Ltd.","phoneNumbers":[{"number":"+1 200 555 0198","type":"Work"}],"taxId":"12-3456789","type":"AdHocCompany"}; // \OpenAPI\Client\Model\StakeholderCreateRequest | The stakeholder create request
 
 try {
     $result = $apiInstance->createClaimStakeholder($claim_id, $stakeholder_create_request);
@@ -229,7 +229,7 @@ $apiInstance = new OpenAPI\Client\Api\PropertyClaimsStakeholdersApi(
 );
 $claim_id = 'claim_id_example'; // string | The claim id
 $stakeholder_id = 'stakeholder_id_example'; // string | The stakeholder id
-$stakeholder_update_request = {"addresses":[{"city":"Ponyville","country":"US","postalCode":1234,"region":"PA","street":"123 Mane Street","street2":null,"street3":null,"type":"Work"}],"email":"inquiry@company.example","name":"Ad Hoc Company, Inc. Ltd.","phoneNumbers":[{"number":"+1 200 555 0198","type":"Work"}],"taxId":"12-3456789","type":"AdHocCompany"}; // \OpenAPI\Client\Model\StakeholderUpdateRequest | The stakeholder update request
+$stakeholder_update_request = {"addresses":[{"city":"Ponyville","country":"US","dependentLocality":null,"postalCode":1234,"region":"PA","street":"123 Mane Street","street2":null,"street3":null,"type":"Work"}],"email":"inquiry@company.example","name":"Ad Hoc Company, Inc. Ltd.","phoneNumbers":[{"number":"+1 200 555 0198","type":"Work"}],"taxId":"12-3456789","type":"AdHocCompany"}; // \OpenAPI\Client\Model\StakeholderUpdateRequest | The stakeholder update request
 
 try {
     $result = $apiInstance->updateClaimStakeholder($claim_id, $stakeholder_id, $stakeholder_update_request);

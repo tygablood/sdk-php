@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdHocIndividualStakeholderUpdateRequest extends StakeholderUpdateRequest
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -65,8 +63,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'string',
         'phone_numbers' => '\OpenAPI\Client\Model\PhoneNumber[]',
         'tax_id' => 'string',
-        'title' => 'string',
-        'type' => '\OpenAPI\Client\Model\StakeholderType'
+        'title' => 'string'
     ];
 
     /**
@@ -83,8 +80,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
         'name' => null,
         'phone_numbers' => null,
         'tax_id' => null,
-        'title' => null,
-        'type' => null
+        'title' => null
     ];
 
     /**
@@ -94,7 +90,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -104,7 +100,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -120,8 +116,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'name',
         'phone_numbers' => 'phoneNumbers',
         'tax_id' => 'taxId',
-        'title' => 'title',
-        'type' => 'type'
+        'title' => 'title'
     ];
 
     /**
@@ -136,8 +131,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'setName',
         'phone_numbers' => 'setPhoneNumbers',
         'tax_id' => 'setTaxId',
-        'title' => 'setTitle',
-        'type' => 'setType'
+        'title' => 'setTitle'
     ];
 
     /**
@@ -152,8 +146,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
         'name' => 'getName',
         'phone_numbers' => 'getPhoneNumbers',
         'tax_id' => 'getTaxId',
-        'title' => 'getTitle',
-        'type' => 'getType'
+        'title' => 'getTitle'
     ];
 
     /**
@@ -164,7 +157,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -174,7 +167,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -184,7 +177,7 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -198,12 +191,6 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -213,6 +200,8 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->container['addresses'] = $data['addresses'] ?? null;
         $this->container['company_stakeholder_id'] = $data['company_stakeholder_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
@@ -220,7 +209,9 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
         $this->container['phone_numbers'] = $data['phone_numbers'] ?? null;
         $this->container['tax_id'] = $data['tax_id'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -230,13 +221,10 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -417,30 +405,6 @@ class AdHocIndividualStakeholderUpdateRequest implements ModelInterface, ArrayAc
     public function setTitle($title)
     {
         $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\StakeholderType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\StakeholderType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

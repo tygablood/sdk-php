@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **string** |  | [optional]
-**is_critical** | **bool** |  | [optional]
-**key** | **string** |  | [optional]
-**latency** | **int** |  | [optional]
-**name** | **string** |  | [optional]
-**status** | [**\OpenAPI\Client\Model\ServiceStatus**](ServiceStatus.md) |  | [optional]
+**error** | **string** |  |
+**is_critical** | **bool** |  |
+**key** | **string** |  |
+**latency** | **int** |  |
+**name** | **string** |  |
+**status** | [**\OpenAPI\Client\Model\ServiceStatus**](ServiceStatus.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **string** | The city | [optional]
-**country** | **string** | The country | [optional]
+**country** | **string** | The country |
+**dependent_locality** | **string** | Dependent locality for Chile addresses | [optional]
 **postal_code** | **string** | The postal code | [optional]
 **region** | **string** | The region | [optional]
 **street** | **string** | The street | [optional]

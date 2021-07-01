@@ -44,7 +44,7 @@ use \OpenAPI\Client\ObjectSerializer;
  */
 class StakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -60,7 +60,7 @@ class StakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\OpenAPI\Client\Model\StakeholderType'
+        'type' => 'string'
     ];
 
     /**
@@ -185,6 +185,9 @@ class StakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -198,6 +201,9 @@ class StakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -241,7 +247,7 @@ class StakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \OpenAPI\Client\Model\StakeholderType|null
+     * @return string
      */
     public function getType()
     {
@@ -251,7 +257,7 @@ class StakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \OpenAPI\Client\Model\StakeholderType|null $type type
+     * @param string $type The stakeholder type discriminator
      *
      * @return self
      */

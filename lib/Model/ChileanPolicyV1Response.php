@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChileanPolicyV1Response extends PolicyResponse
+class ChileanPolicyV1Response extends PolicyV1ResponseBase
 {
     public const DISCRIMINATOR = 'country';
 
@@ -57,6 +57,7 @@ class ChileanPolicyV1Response extends PolicyResponse
       * @var string[]
       */
     protected static $openAPITypes = [
+        'coverages' => '\OpenAPI\Client\Model\ChileanCoverageOrSublimit[]',
         'item_number' => 'int'
     ];
 
@@ -68,6 +69,7 @@ class ChileanPolicyV1Response extends PolicyResponse
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'coverages' => null,
         'item_number' => 'int32'
     ];
 
@@ -98,6 +100,7 @@ class ChileanPolicyV1Response extends PolicyResponse
      * @var string[]
      */
     protected static $attributeMap = [
+        'coverages' => 'coverages',
         'item_number' => 'itemNumber'
     ];
 
@@ -107,6 +110,7 @@ class ChileanPolicyV1Response extends PolicyResponse
      * @var string[]
      */
     protected static $setters = [
+        'coverages' => 'setCoverages',
         'item_number' => 'setItemNumber'
     ];
 
@@ -116,6 +120,7 @@ class ChileanPolicyV1Response extends PolicyResponse
      * @var string[]
      */
     protected static $getters = [
+        'coverages' => 'getCoverages',
         'item_number' => 'getItemNumber'
     ];
 
@@ -172,6 +177,7 @@ class ChileanPolicyV1Response extends PolicyResponse
     {
         parent::__construct($data);
 
+        $this->container['coverages'] = $data['coverages'] ?? null;
         $this->container['item_number'] = $data['item_number'] ?? null;
 
         // Initialize discriminator property with the model name.
@@ -187,6 +193,9 @@ class ChileanPolicyV1Response extends PolicyResponse
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['coverages'] === null) {
+            $invalidProperties[] = "'coverages' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -201,6 +210,30 @@ class ChileanPolicyV1Response extends PolicyResponse
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets coverages
+     *
+     * @return \OpenAPI\Client\Model\ChileanCoverageOrSublimit[]
+     */
+    public function getCoverages()
+    {
+        return $this->container['coverages'];
+    }
+
+    /**
+     * Sets coverages
+     *
+     * @param \OpenAPI\Client\Model\ChileanCoverageOrSublimit[] $coverages List of coverages
+     *
+     * @return self
+     */
+    public function setCoverages($coverages)
+    {
+        $this->container['coverages'] = $coverages;
+
+        return $this;
+    }
 
     /**
      * Gets item_number

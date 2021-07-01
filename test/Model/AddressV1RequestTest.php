@@ -98,6 +98,15 @@ class AddressV1RequestTest extends TestCase
     }
 
     /**
+     * Test attribute "dependent_locality"
+     */
+    public function testPropertyDependentLocality()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "postal_code"
      */
     public function testPropertyPostalCode()

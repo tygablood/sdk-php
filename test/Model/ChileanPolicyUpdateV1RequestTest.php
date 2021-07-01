@@ -80,42 +80,6 @@ class ChileanPolicyUpdateV1RequestTest extends TestCase
     }
 
     /**
-     * Test attribute "apply_deductible_across_all_coverages"
-     */
-    public function testPropertyApplyDeductibleAcrossAllCoverages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "beneficiary_stakeholder_ids"
-     */
-    public function testPropertyBeneficiaryStakeholderIds()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "broker_stakeholder_id"
-     */
-    public function testPropertyBrokerStakeholderId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "country"
-     */
-    public function testPropertyCountry()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "coverages"
      */
     public function testPropertyCoverages()
@@ -125,117 +89,9 @@ class ChileanPolicyUpdateV1RequestTest extends TestCase
     }
 
     /**
-     * Test attribute "currency"
-     */
-    public function testPropertyCurrency()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "deductible"
-     */
-    public function testPropertyDeductible()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "effective_date"
-     */
-    public function testPropertyEffectiveDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "expiration_date"
-     */
-    public function testPropertyExpirationDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "inception_date"
-     */
-    public function testPropertyInceptionDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "insured_stakeholder_ids"
-     */
-    public function testPropertyInsuredStakeholderIds()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "insurer_stakeholder_id"
-     */
-    public function testPropertyInsurerStakeholderId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "item_number"
      */
     public function testPropertyItemNumber()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "mortgages"
-     */
-    public function testPropertyMortgages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "onsite_contact_stakeholder_id"
-     */
-    public function testPropertyOnsiteContactStakeholderId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "policy_number"
-     */
-    public function testPropertyPolicyNumber()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "policy_owner_stakeholder_id"
-     */
-    public function testPropertyPolicyOwnerStakeholderId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "risk_address"
-     */
-    public function testPropertyRiskAddress()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

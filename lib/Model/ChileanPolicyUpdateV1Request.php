@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChileanPolicyUpdateV1Request extends PolicyUpdateRequestBase
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'country';
 
     /**
       * The original name of the model.
@@ -59,24 +57,8 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'apply_deductible_across_all_coverages' => 'bool',
-        'beneficiary_stakeholder_ids' => 'string[]',
-        'broker_stakeholder_id' => 'string',
-        'country' => 'string',
-        'coverages' => '\OpenAPI\Client\Model\IChileanCoverageOrSublimitV1Request[]',
-        'currency' => 'string',
-        'deductible' => '\OpenAPI\Client\Model\DeductibleV1Request',
-        'effective_date' => '\DateTime',
-        'expiration_date' => '\DateTime',
-        'inception_date' => '\DateTime',
-        'insured_stakeholder_ids' => 'string[]',
-        'insurer_stakeholder_id' => 'string',
-        'item_number' => 'int',
-        'mortgages' => '\OpenAPI\Client\Model\MortgageV1Request[]',
-        'onsite_contact_stakeholder_id' => 'string',
-        'policy_number' => 'string',
-        'policy_owner_stakeholder_id' => 'string',
-        'risk_address' => '\OpenAPI\Client\Model\AddressV1Request'
+        'coverages' => '\OpenAPI\Client\Model\ChileanCoverageOrSublimitBase[]',
+        'item_number' => 'int'
     ];
 
     /**
@@ -87,24 +69,8 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'apply_deductible_across_all_coverages' => null,
-        'beneficiary_stakeholder_ids' => 'uuid',
-        'broker_stakeholder_id' => 'uuid',
-        'country' => null,
         'coverages' => null,
-        'currency' => null,
-        'deductible' => null,
-        'effective_date' => 'date-time',
-        'expiration_date' => 'date-time',
-        'inception_date' => 'date-time',
-        'insured_stakeholder_ids' => 'uuid',
-        'insurer_stakeholder_id' => 'uuid',
-        'item_number' => 'int32',
-        'mortgages' => null,
-        'onsite_contact_stakeholder_id' => 'uuid',
-        'policy_number' => null,
-        'policy_owner_stakeholder_id' => 'uuid',
-        'risk_address' => null
+        'item_number' => 'int32'
     ];
 
     /**
@@ -114,7 +80,7 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -124,7 +90,7 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -134,24 +100,8 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'apply_deductible_across_all_coverages' => 'applyDeductibleAcrossAllCoverages',
-        'beneficiary_stakeholder_ids' => 'beneficiaryStakeholderIds',
-        'broker_stakeholder_id' => 'brokerStakeholderId',
-        'country' => 'country',
         'coverages' => 'coverages',
-        'currency' => 'currency',
-        'deductible' => 'deductible',
-        'effective_date' => 'effectiveDate',
-        'expiration_date' => 'expirationDate',
-        'inception_date' => 'inceptionDate',
-        'insured_stakeholder_ids' => 'insuredStakeholderIds',
-        'insurer_stakeholder_id' => 'insurerStakeholderId',
-        'item_number' => 'itemNumber',
-        'mortgages' => 'mortgages',
-        'onsite_contact_stakeholder_id' => 'onsiteContactStakeholderId',
-        'policy_number' => 'policyNumber',
-        'policy_owner_stakeholder_id' => 'policyOwnerStakeholderId',
-        'risk_address' => 'riskAddress'
+        'item_number' => 'itemNumber'
     ];
 
     /**
@@ -160,24 +110,8 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'apply_deductible_across_all_coverages' => 'setApplyDeductibleAcrossAllCoverages',
-        'beneficiary_stakeholder_ids' => 'setBeneficiaryStakeholderIds',
-        'broker_stakeholder_id' => 'setBrokerStakeholderId',
-        'country' => 'setCountry',
         'coverages' => 'setCoverages',
-        'currency' => 'setCurrency',
-        'deductible' => 'setDeductible',
-        'effective_date' => 'setEffectiveDate',
-        'expiration_date' => 'setExpirationDate',
-        'inception_date' => 'setInceptionDate',
-        'insured_stakeholder_ids' => 'setInsuredStakeholderIds',
-        'insurer_stakeholder_id' => 'setInsurerStakeholderId',
-        'item_number' => 'setItemNumber',
-        'mortgages' => 'setMortgages',
-        'onsite_contact_stakeholder_id' => 'setOnsiteContactStakeholderId',
-        'policy_number' => 'setPolicyNumber',
-        'policy_owner_stakeholder_id' => 'setPolicyOwnerStakeholderId',
-        'risk_address' => 'setRiskAddress'
+        'item_number' => 'setItemNumber'
     ];
 
     /**
@@ -186,24 +120,8 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'apply_deductible_across_all_coverages' => 'getApplyDeductibleAcrossAllCoverages',
-        'beneficiary_stakeholder_ids' => 'getBeneficiaryStakeholderIds',
-        'broker_stakeholder_id' => 'getBrokerStakeholderId',
-        'country' => 'getCountry',
         'coverages' => 'getCoverages',
-        'currency' => 'getCurrency',
-        'deductible' => 'getDeductible',
-        'effective_date' => 'getEffectiveDate',
-        'expiration_date' => 'getExpirationDate',
-        'inception_date' => 'getInceptionDate',
-        'insured_stakeholder_ids' => 'getInsuredStakeholderIds',
-        'insurer_stakeholder_id' => 'getInsurerStakeholderId',
-        'item_number' => 'getItemNumber',
-        'mortgages' => 'getMortgages',
-        'onsite_contact_stakeholder_id' => 'getOnsiteContactStakeholderId',
-        'policy_number' => 'getPolicyNumber',
-        'policy_owner_stakeholder_id' => 'getPolicyOwnerStakeholderId',
-        'risk_address' => 'getRiskAddress'
+        'item_number' => 'getItemNumber'
     ];
 
     /**
@@ -214,7 +132,7 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -224,7 +142,7 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -234,7 +152,7 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -248,12 +166,6 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -263,24 +175,13 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->container['apply_deductible_across_all_coverages'] = $data['apply_deductible_across_all_coverages'] ?? null;
-        $this->container['beneficiary_stakeholder_ids'] = $data['beneficiary_stakeholder_ids'] ?? null;
-        $this->container['broker_stakeholder_id'] = $data['broker_stakeholder_id'] ?? null;
-        $this->container['country'] = $data['country'] ?? null;
+        parent::__construct($data);
+
         $this->container['coverages'] = $data['coverages'] ?? null;
-        $this->container['currency'] = $data['currency'] ?? null;
-        $this->container['deductible'] = $data['deductible'] ?? null;
-        $this->container['effective_date'] = $data['effective_date'] ?? null;
-        $this->container['expiration_date'] = $data['expiration_date'] ?? null;
-        $this->container['inception_date'] = $data['inception_date'] ?? null;
-        $this->container['insured_stakeholder_ids'] = $data['insured_stakeholder_ids'] ?? null;
-        $this->container['insurer_stakeholder_id'] = $data['insurer_stakeholder_id'] ?? null;
         $this->container['item_number'] = $data['item_number'] ?? null;
-        $this->container['mortgages'] = $data['mortgages'] ?? null;
-        $this->container['onsite_contact_stakeholder_id'] = $data['onsite_contact_stakeholder_id'] ?? null;
-        $this->container['policy_number'] = $data['policy_number'] ?? null;
-        $this->container['policy_owner_stakeholder_id'] = $data['policy_owner_stakeholder_id'] ?? null;
-        $this->container['risk_address'] = $data['risk_address'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['country'] = static::$openAPIModelName;
     }
 
     /**
@@ -290,29 +191,10 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['country'] === null) {
-            $invalidProperties[] = "'country' can't be null";
-        }
-        if ((mb_strlen($this->container['country']) > 2)) {
-            $invalidProperties[] = "invalid value for 'country', the character length must be smaller than or equal to 2.";
-        }
-
-        if ((mb_strlen($this->container['country']) < 2)) {
-            $invalidProperties[] = "invalid value for 'country', the character length must be bigger than or equal to 2.";
-        }
-
-        if (!is_null($this->container['currency']) && (mb_strlen($this->container['currency']) > 3)) {
-            $invalidProperties[] = "invalid value for 'currency', the character length must be smaller than or equal to 3.";
-        }
-
-        if (!is_null($this->container['currency']) && (mb_strlen($this->container['currency']) < 3)) {
-            $invalidProperties[] = "invalid value for 'currency', the character length must be bigger than or equal to 3.";
-        }
-
-        if ($this->container['risk_address'] === null) {
-            $invalidProperties[] = "'risk_address' can't be null";
+        if ($this->container['coverages'] === null) {
+            $invalidProperties[] = "'coverages' can't be null";
         }
         return $invalidProperties;
     }
@@ -330,112 +212,9 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets apply_deductible_across_all_coverages
-     *
-     * @return bool|null
-     */
-    public function getApplyDeductibleAcrossAllCoverages()
-    {
-        return $this->container['apply_deductible_across_all_coverages'];
-    }
-
-    /**
-     * Sets apply_deductible_across_all_coverages
-     *
-     * @param bool|null $apply_deductible_across_all_coverages apply_deductible_across_all_coverages
-     *
-     * @return self
-     */
-    public function setApplyDeductibleAcrossAllCoverages($apply_deductible_across_all_coverages)
-    {
-        $this->container['apply_deductible_across_all_coverages'] = $apply_deductible_across_all_coverages;
-
-        return $this;
-    }
-
-    /**
-     * Gets beneficiary_stakeholder_ids
-     *
-     * @return string[]|null
-     */
-    public function getBeneficiaryStakeholderIds()
-    {
-        return $this->container['beneficiary_stakeholder_ids'];
-    }
-
-    /**
-     * Sets beneficiary_stakeholder_ids
-     *
-     * @param string[]|null $beneficiary_stakeholder_ids beneficiary_stakeholder_ids
-     *
-     * @return self
-     */
-    public function setBeneficiaryStakeholderIds($beneficiary_stakeholder_ids)
-    {
-        $this->container['beneficiary_stakeholder_ids'] = $beneficiary_stakeholder_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets broker_stakeholder_id
-     *
-     * @return string|null
-     */
-    public function getBrokerStakeholderId()
-    {
-        return $this->container['broker_stakeholder_id'];
-    }
-
-    /**
-     * Sets broker_stakeholder_id
-     *
-     * @param string|null $broker_stakeholder_id broker_stakeholder_id
-     *
-     * @return self
-     */
-    public function setBrokerStakeholderId($broker_stakeholder_id)
-    {
-        $this->container['broker_stakeholder_id'] = $broker_stakeholder_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string $country country
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if ((mb_strlen($country) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $country when calling ChileanPolicyUpdateV1Request., must be smaller than or equal to 2.');
-        }
-        if ((mb_strlen($country) < 2)) {
-            throw new \InvalidArgumentException('invalid length for $country when calling ChileanPolicyUpdateV1Request., must be bigger than or equal to 2.');
-        }
-
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
      * Gets coverages
      *
-     * @return \OpenAPI\Client\Model\IChileanCoverageOrSublimitV1Request[]|null
+     * @return \OpenAPI\Client\Model\ChileanCoverageOrSublimitBase[]
      */
     public function getCoverages()
     {
@@ -445,188 +224,13 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets coverages
      *
-     * @param \OpenAPI\Client\Model\IChileanCoverageOrSublimitV1Request[]|null $coverages coverages
+     * @param \OpenAPI\Client\Model\ChileanCoverageOrSublimitBase[] $coverages List of coverages
      *
      * @return self
      */
     public function setCoverages($coverages)
     {
         $this->container['coverages'] = $coverages;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency currency
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (!is_null($currency) && (mb_strlen($currency) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $currency when calling ChileanPolicyUpdateV1Request., must be smaller than or equal to 3.');
-        }
-        if (!is_null($currency) && (mb_strlen($currency) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $currency when calling ChileanPolicyUpdateV1Request., must be bigger than or equal to 3.');
-        }
-
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets deductible
-     *
-     * @return \OpenAPI\Client\Model\DeductibleV1Request|null
-     */
-    public function getDeductible()
-    {
-        return $this->container['deductible'];
-    }
-
-    /**
-     * Sets deductible
-     *
-     * @param \OpenAPI\Client\Model\DeductibleV1Request|null $deductible deductible
-     *
-     * @return self
-     */
-    public function setDeductible($deductible)
-    {
-        $this->container['deductible'] = $deductible;
-
-        return $this;
-    }
-
-    /**
-     * Gets effective_date
-     *
-     * @return \DateTime|null
-     */
-    public function getEffectiveDate()
-    {
-        return $this->container['effective_date'];
-    }
-
-    /**
-     * Sets effective_date
-     *
-     * @param \DateTime|null $effective_date effective_date
-     *
-     * @return self
-     */
-    public function setEffectiveDate($effective_date)
-    {
-        $this->container['effective_date'] = $effective_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpirationDate()
-    {
-        return $this->container['expiration_date'];
-    }
-
-    /**
-     * Sets expiration_date
-     *
-     * @param \DateTime|null $expiration_date expiration_date
-     *
-     * @return self
-     */
-    public function setExpirationDate($expiration_date)
-    {
-        $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets inception_date
-     *
-     * @return \DateTime|null
-     */
-    public function getInceptionDate()
-    {
-        return $this->container['inception_date'];
-    }
-
-    /**
-     * Sets inception_date
-     *
-     * @param \DateTime|null $inception_date inception_date
-     *
-     * @return self
-     */
-    public function setInceptionDate($inception_date)
-    {
-        $this->container['inception_date'] = $inception_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets insured_stakeholder_ids
-     *
-     * @return string[]|null
-     */
-    public function getInsuredStakeholderIds()
-    {
-        return $this->container['insured_stakeholder_ids'];
-    }
-
-    /**
-     * Sets insured_stakeholder_ids
-     *
-     * @param string[]|null $insured_stakeholder_ids insured_stakeholder_ids
-     *
-     * @return self
-     */
-    public function setInsuredStakeholderIds($insured_stakeholder_ids)
-    {
-        $this->container['insured_stakeholder_ids'] = $insured_stakeholder_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets insurer_stakeholder_id
-     *
-     * @return string|null
-     */
-    public function getInsurerStakeholderId()
-    {
-        return $this->container['insurer_stakeholder_id'];
-    }
-
-    /**
-     * Sets insurer_stakeholder_id
-     *
-     * @param string|null $insurer_stakeholder_id insurer_stakeholder_id
-     *
-     * @return self
-     */
-    public function setInsurerStakeholderId($insurer_stakeholder_id)
-    {
-        $this->container['insurer_stakeholder_id'] = $insurer_stakeholder_id;
 
         return $this;
     }
@@ -651,126 +255,6 @@ class ChileanPolicyUpdateV1Request implements ModelInterface, ArrayAccess, \Json
     public function setItemNumber($item_number)
     {
         $this->container['item_number'] = $item_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets mortgages
-     *
-     * @return \OpenAPI\Client\Model\MortgageV1Request[]|null
-     */
-    public function getMortgages()
-    {
-        return $this->container['mortgages'];
-    }
-
-    /**
-     * Sets mortgages
-     *
-     * @param \OpenAPI\Client\Model\MortgageV1Request[]|null $mortgages mortgages
-     *
-     * @return self
-     */
-    public function setMortgages($mortgages)
-    {
-        $this->container['mortgages'] = $mortgages;
-
-        return $this;
-    }
-
-    /**
-     * Gets onsite_contact_stakeholder_id
-     *
-     * @return string|null
-     */
-    public function getOnsiteContactStakeholderId()
-    {
-        return $this->container['onsite_contact_stakeholder_id'];
-    }
-
-    /**
-     * Sets onsite_contact_stakeholder_id
-     *
-     * @param string|null $onsite_contact_stakeholder_id onsite_contact_stakeholder_id
-     *
-     * @return self
-     */
-    public function setOnsiteContactStakeholderId($onsite_contact_stakeholder_id)
-    {
-        $this->container['onsite_contact_stakeholder_id'] = $onsite_contact_stakeholder_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets policy_number
-     *
-     * @return string|null
-     */
-    public function getPolicyNumber()
-    {
-        return $this->container['policy_number'];
-    }
-
-    /**
-     * Sets policy_number
-     *
-     * @param string|null $policy_number policy_number
-     *
-     * @return self
-     */
-    public function setPolicyNumber($policy_number)
-    {
-        $this->container['policy_number'] = $policy_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets policy_owner_stakeholder_id
-     *
-     * @return string|null
-     */
-    public function getPolicyOwnerStakeholderId()
-    {
-        return $this->container['policy_owner_stakeholder_id'];
-    }
-
-    /**
-     * Sets policy_owner_stakeholder_id
-     *
-     * @param string|null $policy_owner_stakeholder_id policy_owner_stakeholder_id
-     *
-     * @return self
-     */
-    public function setPolicyOwnerStakeholderId($policy_owner_stakeholder_id)
-    {
-        $this->container['policy_owner_stakeholder_id'] = $policy_owner_stakeholder_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets risk_address
-     *
-     * @return \OpenAPI\Client\Model\AddressV1Request
-     */
-    public function getRiskAddress()
-    {
-        return $this->container['risk_address'];
-    }
-
-    /**
-     * Sets risk_address
-     *
-     * @param \OpenAPI\Client\Model\AddressV1Request $risk_address risk_address
-     *
-     * @return self
-     */
-    public function setRiskAddress($risk_address)
-    {
-        $this->container['risk_address'] = $risk_address;
 
         return $this;
     }

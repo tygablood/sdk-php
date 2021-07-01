@@ -64,7 +64,7 @@ class ClaimCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'claim_template_id' => 'string',
         'loss' => '\OpenAPI\Client\Model\LossCreateRequest',
         'name' => 'string',
-        'policy' => '\OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyCreateRequest',
+        'policy' => '\OpenAPI\Client\Model\PolicyCreateRequestBase',
         'reference_number' => 'string',
         'stakeholders' => '\OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[]'
     ];
@@ -247,6 +247,9 @@ class ClaimCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['policy'] === null) {
             $invalidProperties[] = "'policy' can't be null";
         }
+        if ($this->container['stakeholders'] === null) {
+            $invalidProperties[] = "'stakeholders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -385,7 +388,7 @@ class ClaimCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets policy
      *
-     * @return \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyCreateRequest
+     * @return \OpenAPI\Client\Model\PolicyCreateRequestBase
      */
     public function getPolicy()
     {
@@ -395,7 +398,7 @@ class ClaimCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets policy
      *
-     * @param \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyCreateRequest $policy policy
+     * @param \OpenAPI\Client\Model\PolicyCreateRequestBase $policy policy
      *
      * @return self
      */
@@ -433,7 +436,7 @@ class ClaimCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets stakeholders
      *
-     * @return \OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[]|null
+     * @return \OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[]
      */
     public function getStakeholders()
     {
@@ -443,7 +446,7 @@ class ClaimCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets stakeholders
      *
-     * @param \OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[]|null $stakeholders The stakeholders
+     * @param \OpenAPI\Client\Model\ClaimCreateStakeholderCreateRequest[] $stakeholders The stakeholders
      *
      * @return self
      */

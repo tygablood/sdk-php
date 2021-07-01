@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IndividualStakeholderResponse extends StakeholderResponse
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -65,9 +63,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         'name' => 'string',
         'phone_numbers' => '\OpenAPI\Client\Model\PhoneNumber[]',
         'tax_id' => 'string',
-        'title' => 'string',
-        'id' => 'string',
-        'type' => '\OpenAPI\Client\Model\StakeholderType'
+        'title' => 'string'
     ];
 
     /**
@@ -84,9 +80,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         'name' => null,
         'phone_numbers' => null,
         'tax_id' => null,
-        'title' => null,
-        'id' => 'uuid',
-        'type' => null
+        'title' => null
     ];
 
     /**
@@ -96,7 +90,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -106,7 +100,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -122,9 +116,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         'name' => 'name',
         'phone_numbers' => 'phoneNumbers',
         'tax_id' => 'taxId',
-        'title' => 'title',
-        'id' => 'id',
-        'type' => 'type'
+        'title' => 'title'
     ];
 
     /**
@@ -139,9 +131,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         'name' => 'setName',
         'phone_numbers' => 'setPhoneNumbers',
         'tax_id' => 'setTaxId',
-        'title' => 'setTitle',
-        'id' => 'setId',
-        'type' => 'setType'
+        'title' => 'setTitle'
     ];
 
     /**
@@ -156,9 +146,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         'name' => 'getName',
         'phone_numbers' => 'getPhoneNumbers',
         'tax_id' => 'getTaxId',
-        'title' => 'getTitle',
-        'id' => 'getId',
-        'type' => 'getType'
+        'title' => 'getTitle'
     ];
 
     /**
@@ -169,7 +157,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -179,7 +167,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -189,7 +177,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -203,12 +191,6 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -218,6 +200,8 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->container['addresses'] = $data['addresses'] ?? null;
         $this->container['company_stakeholder_id'] = $data['company_stakeholder_id'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
@@ -225,8 +209,9 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         $this->container['phone_numbers'] = $data['phone_numbers'] ?? null;
         $this->container['tax_id'] = $data['tax_id'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -236,7 +221,7 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['addresses'] === null) {
             $invalidProperties[] = "'addresses' can't be null";
@@ -246,9 +231,6 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
         }
         if ($this->container['phone_numbers'] === null) {
             $invalidProperties[] = "'phone_numbers' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
         }
         return $invalidProperties;
     }
@@ -429,54 +411,6 @@ class IndividualStakeholderResponse implements ModelInterface, ArrayAccess, \Jso
     public function setTitle($title)
     {
         $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id The stakeholder id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\StakeholderType|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\StakeholderType|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

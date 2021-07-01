@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GenericSublimitV1Response extends GenericCoverageOrSublimit
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -59,12 +57,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\OpenAPI\Client\Model\CoverageType',
-        'id' => 'string',
-        'name' => 'string',
-        'parent_coverage_id' => 'string',
-        'per_item_limit' => 'double',
-        'per_occurrence_limit' => 'double'
+        'parent_coverage_id' => 'string'
     ];
 
     /**
@@ -75,12 +68,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'id' => 'uuid',
-        'name' => null,
-        'parent_coverage_id' => 'uuid',
-        'per_item_limit' => 'double',
-        'per_occurrence_limit' => 'double'
+        'parent_coverage_id' => 'uuid'
     ];
 
     /**
@@ -90,7 +78,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -100,7 +88,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -110,12 +98,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'id' => 'id',
-        'name' => 'name',
-        'parent_coverage_id' => 'parentCoverageId',
-        'per_item_limit' => 'perItemLimit',
-        'per_occurrence_limit' => 'perOccurrenceLimit'
+        'parent_coverage_id' => 'parentCoverageId'
     ];
 
     /**
@@ -124,12 +107,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'id' => 'setId',
-        'name' => 'setName',
-        'parent_coverage_id' => 'setParentCoverageId',
-        'per_item_limit' => 'setPerItemLimit',
-        'per_occurrence_limit' => 'setPerOccurrenceLimit'
+        'parent_coverage_id' => 'setParentCoverageId'
     ];
 
     /**
@@ -138,12 +116,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'id' => 'getId',
-        'name' => 'getName',
-        'parent_coverage_id' => 'getParentCoverageId',
-        'per_item_limit' => 'getPerItemLimit',
-        'per_occurrence_limit' => 'getPerOccurrenceLimit'
+        'parent_coverage_id' => 'getParentCoverageId'
     ];
 
     /**
@@ -154,7 +127,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -164,7 +137,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -174,7 +147,7 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -188,12 +161,6 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -203,12 +170,12 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
+        parent::__construct($data);
+
         $this->container['parent_coverage_id'] = $data['parent_coverage_id'] ?? null;
-        $this->container['per_item_limit'] = $data['per_item_limit'] ?? null;
-        $this->container['per_occurrence_limit'] = $data['per_occurrence_limit'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -218,14 +185,8 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if ($this->container['parent_coverage_id'] === null) {
             $invalidProperties[] = "'parent_coverage_id' can't be null";
         }
@@ -243,78 +204,6 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\CoverageType|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\CoverageType|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id The coverage or sublimit id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
 
     /**
      * Gets parent_coverage_id
@@ -336,54 +225,6 @@ class GenericSublimitV1Response implements ModelInterface, ArrayAccess, \JsonSer
     public function setParentCoverageId($parent_coverage_id)
     {
         $this->container['parent_coverage_id'] = $parent_coverage_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_item_limit
-     *
-     * @return double|null
-     */
-    public function getPerItemLimit()
-    {
-        return $this->container['per_item_limit'];
-    }
-
-    /**
-     * Sets per_item_limit
-     *
-     * @param double|null $per_item_limit The per item limit
-     *
-     * @return self
-     */
-    public function setPerItemLimit($per_item_limit)
-    {
-        $this->container['per_item_limit'] = $per_item_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_occurrence_limit
-     *
-     * @return double|null
-     */
-    public function getPerOccurrenceLimit()
-    {
-        return $this->container['per_occurrence_limit'];
-    }
-
-    /**
-     * Sets per_occurrence_limit
-     *
-     * @param double|null $per_occurrence_limit The per occurrence limit
-     *
-     * @return self
-     */
-    public function setPerOccurrenceLimit($per_occurrence_limit)
-    {
-        $this->container['per_occurrence_limit'] = $per_occurrence_limit;
 
         return $this;
     }

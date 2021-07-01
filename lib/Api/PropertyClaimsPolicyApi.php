@@ -123,7 +123,7 @@ class PropertyClaimsPolicyApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PolicyResponse|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails
+     * @return \OpenAPI\Client\Model\PolicyV1ResponseBase|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails
      */
     public function getClaimPolicy($claim_id)
     {
@@ -140,7 +140,7 @@ class PropertyClaimsPolicyApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PolicyResponse|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\PolicyV1ResponseBase|\OpenAPI\Client\Model\ProblemDetails|\OpenAPI\Client\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClaimPolicyWithHttpInfo($claim_id)
     {
@@ -176,14 +176,14 @@ class PropertyClaimsPolicyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PolicyResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\PolicyV1ResponseBase' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PolicyResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PolicyV1ResponseBase', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -213,7 +213,7 @@ class PropertyClaimsPolicyApi
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PolicyResponse';
+            $returnType = '\OpenAPI\Client\Model\PolicyV1ResponseBase';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -231,7 +231,7 @@ class PropertyClaimsPolicyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PolicyResponse',
+                        '\OpenAPI\Client\Model\PolicyV1ResponseBase',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -289,7 +289,7 @@ class PropertyClaimsPolicyApi
      */
     public function getClaimPolicyAsyncWithHttpInfo($claim_id)
     {
-        $returnType = '\OpenAPI\Client\Model\PolicyResponse';
+        $returnType = '\OpenAPI\Client\Model\PolicyV1ResponseBase';
         $request = $this->getClaimPolicyRequest($claim_id);
 
         return $this->client
@@ -429,15 +429,15 @@ class PropertyClaimsPolicyApi
      * Update claim policy
      *
      * @param  string $claim_id The claim id (required)
-     * @param  \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request The updated policy (required)
+     * @param  \OpenAPI\Client\Model\PolicyUpdateRequestBase $policy_update_request_base The updated policy (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateClaimPolicy($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+    public function updateClaimPolicy($claim_id, $policy_update_request_base)
     {
-        $this->updateClaimPolicyWithHttpInfo($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request);
+        $this->updateClaimPolicyWithHttpInfo($claim_id, $policy_update_request_base);
     }
 
     /**
@@ -446,15 +446,15 @@ class PropertyClaimsPolicyApi
      * Update claim policy
      *
      * @param  string $claim_id The claim id (required)
-     * @param  \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request The updated policy (required)
+     * @param  \OpenAPI\Client\Model\PolicyUpdateRequestBase $policy_update_request_base The updated policy (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateClaimPolicyWithHttpInfo($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+    public function updateClaimPolicyWithHttpInfo($claim_id, $policy_update_request_base)
     {
-        $request = $this->updateClaimPolicyRequest($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request);
+        $request = $this->updateClaimPolicyRequest($claim_id, $policy_update_request_base);
 
         try {
             $options = $this->createHttpClientOption();
@@ -523,14 +523,14 @@ class PropertyClaimsPolicyApi
      * Update claim policy
      *
      * @param  string $claim_id The claim id (required)
-     * @param  \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request The updated policy (required)
+     * @param  \OpenAPI\Client\Model\PolicyUpdateRequestBase $policy_update_request_base The updated policy (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateClaimPolicyAsync($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+    public function updateClaimPolicyAsync($claim_id, $policy_update_request_base)
     {
-        return $this->updateClaimPolicyAsyncWithHttpInfo($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+        return $this->updateClaimPolicyAsyncWithHttpInfo($claim_id, $policy_update_request_base)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -544,15 +544,15 @@ class PropertyClaimsPolicyApi
      * Update claim policy
      *
      * @param  string $claim_id The claim id (required)
-     * @param  \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request The updated policy (required)
+     * @param  \OpenAPI\Client\Model\PolicyUpdateRequestBase $policy_update_request_base The updated policy (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateClaimPolicyAsyncWithHttpInfo($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+    public function updateClaimPolicyAsyncWithHttpInfo($claim_id, $policy_update_request_base)
     {
         $returnType = '';
-        $request = $this->updateClaimPolicyRequest($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request);
+        $request = $this->updateClaimPolicyRequest($claim_id, $policy_update_request_base);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -581,12 +581,12 @@ class PropertyClaimsPolicyApi
      * Create request for operation 'updateClaimPolicy'
      *
      * @param  string $claim_id The claim id (required)
-     * @param  \OpenAPI\Client\Model\ICoverageOrSublimitV1RequestIPolicyUpdateV1Request $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request The updated policy (required)
+     * @param  \OpenAPI\Client\Model\PolicyUpdateRequestBase $policy_update_request_base The updated policy (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateClaimPolicyRequest($claim_id, $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)
+    public function updateClaimPolicyRequest($claim_id, $policy_update_request_base)
     {
         // verify the required parameter 'claim_id' is set
         if ($claim_id === null || (is_array($claim_id) && count($claim_id) === 0)) {
@@ -594,10 +594,10 @@ class PropertyClaimsPolicyApi
                 'Missing the required parameter $claim_id when calling updateClaimPolicy'
             );
         }
-        // verify the required parameter 'i_coverage_or_sublimit_v1_request_i_policy_update_v1_request' is set
-        if ($i_coverage_or_sublimit_v1_request_i_policy_update_v1_request === null || (is_array($i_coverage_or_sublimit_v1_request_i_policy_update_v1_request) && count($i_coverage_or_sublimit_v1_request_i_policy_update_v1_request) === 0)) {
+        // verify the required parameter 'policy_update_request_base' is set
+        if ($policy_update_request_base === null || (is_array($policy_update_request_base) && count($policy_update_request_base) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request when calling updateClaimPolicy'
+                'Missing the required parameter $policy_update_request_base when calling updateClaimPolicy'
             );
         }
 
@@ -632,11 +632,11 @@ class PropertyClaimsPolicyApi
         }
 
         // for model (json/xml)
-        if (isset($i_coverage_or_sublimit_v1_request_i_policy_update_v1_request)) {
+        if (isset($policy_update_request_base)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($i_coverage_or_sublimit_v1_request_i_policy_update_v1_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($policy_update_request_base));
             } else {
-                $httpBody = $i_coverage_or_sublimit_v1_request_i_policy_update_v1_request;
+                $httpBody = $policy_update_request_base;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

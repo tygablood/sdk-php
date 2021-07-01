@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChileanPrimaryCoverageV1Response extends ChileanCoverageOrSublimit
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -59,15 +57,10 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pol' => 'string',
-        'type' => '\OpenAPI\Client\Model\CoverageType',
         'apply_depreciation' => 'bool',
         'deductible' => '\OpenAPI\Client\Model\DeductibleV1Response',
         'depreciation_is_recoverable' => 'bool',
-        'id' => 'string',
-        'name' => 'string',
-        'per_item_limit' => 'double',
-        'per_occurrence_limit' => 'double',
+        'pol' => 'string',
         'reserve' => 'double'
     ];
 
@@ -79,15 +72,10 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pol' => null,
-        'type' => null,
         'apply_depreciation' => null,
         'deductible' => null,
         'depreciation_is_recoverable' => null,
-        'id' => 'uuid',
-        'name' => null,
-        'per_item_limit' => 'double',
-        'per_occurrence_limit' => 'double',
+        'pol' => null,
         'reserve' => 'double'
     ];
 
@@ -98,7 +86,7 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -108,7 +96,7 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -118,15 +106,10 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'pol' => 'pol',
-        'type' => 'type',
         'apply_depreciation' => 'applyDepreciation',
         'deductible' => 'deductible',
         'depreciation_is_recoverable' => 'depreciationIsRecoverable',
-        'id' => 'id',
-        'name' => 'name',
-        'per_item_limit' => 'perItemLimit',
-        'per_occurrence_limit' => 'perOccurrenceLimit',
+        'pol' => 'pol',
         'reserve' => 'reserve'
     ];
 
@@ -136,15 +119,10 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'pol' => 'setPol',
-        'type' => 'setType',
         'apply_depreciation' => 'setApplyDepreciation',
         'deductible' => 'setDeductible',
         'depreciation_is_recoverable' => 'setDepreciationIsRecoverable',
-        'id' => 'setId',
-        'name' => 'setName',
-        'per_item_limit' => 'setPerItemLimit',
-        'per_occurrence_limit' => 'setPerOccurrenceLimit',
+        'pol' => 'setPol',
         'reserve' => 'setReserve'
     ];
 
@@ -154,15 +132,10 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'pol' => 'getPol',
-        'type' => 'getType',
         'apply_depreciation' => 'getApplyDepreciation',
         'deductible' => 'getDeductible',
         'depreciation_is_recoverable' => 'getDepreciationIsRecoverable',
-        'id' => 'getId',
-        'name' => 'getName',
-        'per_item_limit' => 'getPerItemLimit',
-        'per_occurrence_limit' => 'getPerOccurrenceLimit',
+        'pol' => 'getPol',
         'reserve' => 'getReserve'
     ];
 
@@ -174,7 +147,7 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -184,7 +157,7 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -194,7 +167,7 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -208,12 +181,6 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -223,16 +190,16 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->container['pol'] = $data['pol'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        parent::__construct($data);
+
         $this->container['apply_depreciation'] = $data['apply_depreciation'] ?? null;
         $this->container['deductible'] = $data['deductible'] ?? null;
         $this->container['depreciation_is_recoverable'] = $data['depreciation_is_recoverable'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['per_item_limit'] = $data['per_item_limit'] ?? null;
-        $this->container['per_occurrence_limit'] = $data['per_occurrence_limit'] ?? null;
+        $this->container['pol'] = $data['pol'] ?? null;
         $this->container['reserve'] = $data['reserve'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -242,16 +209,10 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['apply_depreciation'] === null) {
             $invalidProperties[] = "'apply_depreciation' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
         }
         return $invalidProperties;
     }
@@ -267,54 +228,6 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets pol
-     *
-     * @return string|null
-     */
-    public function getPol()
-    {
-        return $this->container['pol'];
-    }
-
-    /**
-     * Sets pol
-     *
-     * @param string|null $pol The POL
-     *
-     * @return self
-     */
-    public function setPol($pol)
-    {
-        $this->container['pol'] = $pol;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\CoverageType|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\CoverageType|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets apply_depreciation
@@ -389,97 +302,25 @@ class ChileanPrimaryCoverageV1Response implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets id
+     * Gets pol
      *
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getPol()
     {
-        return $this->container['id'];
+        return $this->container['pol'];
     }
 
     /**
-     * Sets id
+     * Sets pol
      *
-     * @param string $id The coverage or sublimit id
+     * @param string|null $pol The POL
      *
      * @return self
      */
-    public function setId($id)
+    public function setPol($pol)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_item_limit
-     *
-     * @return double|null
-     */
-    public function getPerItemLimit()
-    {
-        return $this->container['per_item_limit'];
-    }
-
-    /**
-     * Sets per_item_limit
-     *
-     * @param double|null $per_item_limit The per item limit
-     *
-     * @return self
-     */
-    public function setPerItemLimit($per_item_limit)
-    {
-        $this->container['per_item_limit'] = $per_item_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets per_occurrence_limit
-     *
-     * @return double|null
-     */
-    public function getPerOccurrenceLimit()
-    {
-        return $this->container['per_occurrence_limit'];
-    }
-
-    /**
-     * Sets per_occurrence_limit
-     *
-     * @param double|null $per_occurrence_limit The per occurrence limit
-     *
-     * @return self
-     */
-    public function setPerOccurrenceLimit($per_occurrence_limit)
-    {
-        $this->container['per_occurrence_limit'] = $per_occurrence_limit;
+        $this->container['pol'] = $pol;
 
         return $this;
     }

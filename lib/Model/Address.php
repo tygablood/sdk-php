@@ -61,6 +61,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'city' => 'string',
         'country' => 'string',
+        'dependent_locality' => 'string',
         'postal_code' => 'string',
         'region' => 'string',
         'street' => 'string',
@@ -79,6 +80,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'city' => null,
         'country' => 'ISO 3166',
+        'dependent_locality' => null,
         'postal_code' => null,
         'region' => null,
         'street' => null,
@@ -116,6 +118,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'city' => 'city',
         'country' => 'country',
+        'dependent_locality' => 'dependentLocality',
         'postal_code' => 'postalCode',
         'region' => 'region',
         'street' => 'street',
@@ -132,6 +135,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'city' => 'setCity',
         'country' => 'setCountry',
+        'dependent_locality' => 'setDependentLocality',
         'postal_code' => 'setPostalCode',
         'region' => 'setRegion',
         'street' => 'setStreet',
@@ -148,6 +152,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'city' => 'getCity',
         'country' => 'getCountry',
+        'dependent_locality' => 'getDependentLocality',
         'postal_code' => 'getPostalCode',
         'region' => 'getRegion',
         'street' => 'getStreet',
@@ -215,6 +220,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['city'] = $data['city'] ?? null;
         $this->container['country'] = $data['country'] ?? null;
+        $this->container['dependent_locality'] = $data['dependent_locality'] ?? null;
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['region'] = $data['region'] ?? null;
         $this->container['street'] = $data['street'] ?? null;
@@ -232,6 +238,9 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -277,7 +286,7 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country
      *
-     * @return string|null
+     * @return string
      */
     public function getCountry()
     {
@@ -287,13 +296,37 @@ class Address implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param string|null $country The country
+     * @param string $country The country
      *
      * @return self
      */
     public function setCountry($country)
     {
         $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependent_locality
+     *
+     * @return string|null
+     */
+    public function getDependentLocality()
+    {
+        return $this->container['dependent_locality'];
+    }
+
+    /**
+     * Sets dependent_locality
+     *
+     * @param string|null $dependent_locality Dependent locality for Chile addresses
+     *
+     * @return self
+     */
+    public function setDependentLocality($dependent_locality)
+    {
+        $this->container['dependent_locality'] = $dependent_locality;
 
         return $this;
     }

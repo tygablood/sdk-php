@@ -205,6 +205,9 @@ class MediaCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['filename'] === null) {
             $invalidProperties[] = "'filename' can't be null";
         }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -271,7 +274,7 @@ class MediaCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -281,7 +284,7 @@ class MediaCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets name
      *
-     * @param string|null $name The name
+     * @param string $name The name
      *
      * @return self
      */

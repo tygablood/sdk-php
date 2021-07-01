@@ -9,7 +9,5 @@ Name | Type | Description | Notes
 **name** | **string** | The stakeholder name |
 **phone_numbers** | [**\OpenAPI\Client\Model\PhoneNumber[]**](PhoneNumber.md) | The stakeholder phone numbers |
 **tax_id** | **string** | The stakeholder tax id | [optional]
-**id** | **string** | The stakeholder id |
-**type** | [**\OpenAPI\Client\Model\StakeholderType**](StakeholderType.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

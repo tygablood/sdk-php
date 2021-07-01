@@ -80,24 +80,6 @@ class ChileanPrimaryCoverageV1ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "pol"
-     */
-    public function testPropertyPol()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "apply_depreciation"
      */
     public function testPropertyApplyDepreciation()
@@ -125,36 +107,9 @@ class ChileanPrimaryCoverageV1ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "pol"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "per_item_limit"
-     */
-    public function testPropertyPerItemLimit()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "per_occurrence_limit"
-     */
-    public function testPropertyPerOccurrenceLimit()
+    public function testPropertyPol()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\Model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdHocCompanyStakeholderCreateRequest extends StakeholderCreateRequest
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -63,8 +61,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
         'email' => 'string',
         'name' => 'string',
         'phone_numbers' => '\OpenAPI\Client\Model\PhoneNumber[]',
-        'tax_id' => 'string',
-        'type' => '\OpenAPI\Client\Model\StakeholderType'
+        'tax_id' => 'string'
     ];
 
     /**
@@ -79,8 +76,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
         'email' => 'email',
         'name' => null,
         'phone_numbers' => null,
-        'tax_id' => null,
-        'type' => null
+        'tax_id' => null
     ];
 
     /**
@@ -90,7 +86,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -100,7 +96,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -114,8 +110,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
         'email' => 'email',
         'name' => 'name',
         'phone_numbers' => 'phoneNumbers',
-        'tax_id' => 'taxId',
-        'type' => 'type'
+        'tax_id' => 'taxId'
     ];
 
     /**
@@ -128,8 +123,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
         'email' => 'setEmail',
         'name' => 'setName',
         'phone_numbers' => 'setPhoneNumbers',
-        'tax_id' => 'setTaxId',
-        'type' => 'setType'
+        'tax_id' => 'setTaxId'
     ];
 
     /**
@@ -142,8 +136,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
         'email' => 'getEmail',
         'name' => 'getName',
         'phone_numbers' => 'getPhoneNumbers',
-        'tax_id' => 'getTaxId',
-        'type' => 'getType'
+        'tax_id' => 'getTaxId'
     ];
 
     /**
@@ -154,7 +147,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -164,7 +157,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -174,7 +167,7 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -188,12 +181,6 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -203,12 +190,16 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->container['addresses'] = $data['addresses'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['phone_numbers'] = $data['phone_numbers'] ?? null;
         $this->container['tax_id'] = $data['tax_id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -218,13 +209,10 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -357,30 +345,6 @@ class AdHocCompanyStakeholderCreateRequest implements ModelInterface, ArrayAcces
     public function setTaxId($tax_id)
     {
         $this->container['tax_id'] = $tax_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\StakeholderType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\StakeholderType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

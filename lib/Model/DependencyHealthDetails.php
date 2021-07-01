@@ -220,6 +220,24 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if ($this->container['error'] === null) {
+            $invalidProperties[] = "'error' can't be null";
+        }
+        if ($this->container['is_critical'] === null) {
+            $invalidProperties[] = "'is_critical' can't be null";
+        }
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container['latency'] === null) {
+            $invalidProperties[] = "'latency' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -238,7 +256,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets error
      *
-     * @return string|null
+     * @return string
      */
     public function getError()
     {
@@ -248,7 +266,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets error
      *
-     * @param string|null $error error
+     * @param string $error error
      *
      * @return self
      */
@@ -262,7 +280,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets is_critical
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsCritical()
     {
@@ -272,7 +290,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets is_critical
      *
-     * @param bool|null $is_critical is_critical
+     * @param bool $is_critical is_critical
      *
      * @return self
      */
@@ -286,7 +304,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets key
      *
-     * @return string|null
+     * @return string
      */
     public function getKey()
     {
@@ -296,7 +314,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets key
      *
-     * @param string|null $key key
+     * @param string $key key
      *
      * @return self
      */
@@ -310,7 +328,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets latency
      *
-     * @return int|null
+     * @return int
      */
     public function getLatency()
     {
@@ -320,7 +338,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets latency
      *
-     * @param int|null $latency latency
+     * @param int $latency latency
      *
      * @return self
      */
@@ -334,7 +352,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -344,7 +362,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string $name name
      *
      * @return self
      */
@@ -358,7 +376,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\ServiceStatus|null
+     * @return \OpenAPI\Client\Model\ServiceStatus
      */
     public function getStatus()
     {
@@ -368,7 +386,7 @@ class DependencyHealthDetails implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\ServiceStatus|null $status status
+     * @param \OpenAPI\Client\Model\ServiceStatus $status status
      *
      * @return self
      */
