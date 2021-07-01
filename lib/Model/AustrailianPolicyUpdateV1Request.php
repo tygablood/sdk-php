@@ -1,6 +1,6 @@
 <?php
 /**
- * FrenchPolicyUpdateV1Request
+ * AustrailianPolicyUpdateV1Request
  *
  * PHP version 7.2
  *
@@ -30,7 +30,7 @@ namespace OpenAPI\Client\Model;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * FrenchPolicyUpdateV1Request Class Doc Comment
+ * AustrailianPolicyUpdateV1Request Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FrenchPolicyUpdateV1Request extends PolicyUpdateRequestBase
+class AustrailianPolicyUpdateV1Request extends PolicyUpdateRequestBase
 {
     public const DISCRIMINATOR = 'country';
 
@@ -49,7 +49,7 @@ class FrenchPolicyUpdateV1Request extends PolicyUpdateRequestBase
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FrenchPolicyUpdateV1Request';
+    protected static $openAPIModelName = 'AustrailianPolicyUpdateV1Request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -175,7 +175,7 @@ class FrenchPolicyUpdateV1Request extends PolicyUpdateRequestBase
         $this->container['coverages'] = $data['coverages'] ?? null;
 
         // Initialize discriminator property with the model name.
-        $this->container['country'] = 'FR';
+        $this->container['country'] = 'AU';
     }
 
     /**
