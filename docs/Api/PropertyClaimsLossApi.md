@@ -96,7 +96,7 @@ $apiInstance = new OpenAPI\Client\Api\PropertyClaimsLossApi(
     $config
 );
 $claim_id = 'claim_id_example'; // string | The claim id
-$loss_update_request = {"firstNoticeOfLoss":"2001-01-01T00:00:00.0000000","lossDate":"2001-01-12T00:00:00.0000000","lossDescription":"The loss description","peril":{"causeOfLoss":{"explanation":"The loss cause explanation","templateId":"166bd393-00f6-4778-8305-46c907dc5a5a"},"templateId":"213c72b8-79b1-4f59-915d-f0ec1678c45f"},"potentialSubrogation":{"explanation":"The potential subrogation explanation"}}; // \OpenAPI\Client\Model\LossUpdateRequest | The update request
+$loss_update_request = {"firstNoticeOfLoss":"2001-01-01T00:00:00","lossDate":"2001-01-12T00:00:00","lossDescription":"The loss description","peril":{"causeOfLoss":{"explanation":"The loss cause explanation","templateId":"166bd393-00f6-4778-8305-46c907dc5a5a"},"templateId":"213c72b8-79b1-4f59-915d-f0ec1678c45f"},"potentialSubrogation":{"explanation":"The potential subrogation explanation"}}; // \OpenAPI\Client\Model\LossUpdateRequest | The update request
 
 try {
     $apiInstance->updateClaimLoss($claim_id, $loss_update_request);

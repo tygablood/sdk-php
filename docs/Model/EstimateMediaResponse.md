@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_on** | [**\DateTime**](\DateTime.md) |  |
+**folder_id** | **string** | The id of the folder which contains the media item. | [optional]
 **description** | **string** |  | [optional]
+**created_on** | [**\DateTime**](\DateTime.md) |  |
 **download_url** | **string** | The download url |
 **filename** | **string** |  |
-**folder_id** | **string** | The id of the folder which contains the media item. | [optional]
 **id** | **string** |  |
 **name** | **string** |  |
 **updated_on** | [**\DateTime**](\DateTime.md) |  |

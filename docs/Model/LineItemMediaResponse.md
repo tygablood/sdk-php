@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_on** | [**\DateTime**](\DateTime.md) |  |
 **description** | **string** |  | [optional]
+**created_on** | [**\DateTime**](\DateTime.md) |  |
 **download_url** | **string** | The download url |
 **filename** | **string** |  |
 **id** | **string** |  |

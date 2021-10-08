@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**country** | **string** | The policy country |
 **apply_deductible_across_all_coverages** | **bool** | Does deductible apply across all coverages |
 **beneficiary_stakeholder_ids** | **string[]** | List of beneficiary stakeholder ids |
 **broker_stakeholder_id** | **string** | The broker stakeholder id | [optional]
-**country** | **string** | The policy country |
 **currency** | **string** | The currency of the policy |
 **deductible** | [**\OpenAPI\Client\Model\DeductibleV1Response**](DeductibleV1Response.md) |  | [optional]
 **effective_date** | [**\DateTime**](\DateTime.md) | The effective date | [optional]

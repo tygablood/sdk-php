@@ -7,7 +7,8 @@ The Xactimate One API allows you to integrate your current services and applicat
 
 ### Requirements
 
-PHP 7.2 and later.
+PHP 7.3 and later.
+Should also work with PHP 8.0 but has not been tested.
 
 ### Composer
 
@@ -81,6 +82,7 @@ Class | Method | HTTP request | Description
 *PropertyClaimsApi* | [**createClaim**](docs/Api/PropertyClaimsApi.md#createclaim) | **POST** /v1/property/claims | Create a claim
 *PropertyClaimsApi* | [**getClaim**](docs/Api/PropertyClaimsApi.md#getclaim) | **GET** /v1/property/claims/{claimId} | Get claim
 *PropertyClaimsApi* | [**updateClaim**](docs/Api/PropertyClaimsApi.md#updateclaim) | **PUT** /v1/property/claims/{claimId} | Update claim
+*PropertyClaimsCalculationsApi* | [**getClaimCalculations**](docs/Api/PropertyClaimsCalculationsApi.md#getclaimcalculations) | **GET** /v1/property/claims/{claimId}/calculations | 
 *PropertyClaimsEstimationApi* | [**getClaimEstimates**](docs/Api/PropertyClaimsEstimationApi.md#getclaimestimates) | **GET** /v1/property/claims/{claimId}/estimates | Get claim estimates
 *PropertyClaimsEstimationApi* | [**getEstimateByEstimateId**](docs/Api/PropertyClaimsEstimationApi.md#getestimatebyestimateid) | **GET** /v1/property/claims/{claimId}/estimates/{estimateId} | Get estimate by estimate id
 *PropertyClaimsFormsApi* | [**createPropertyClaimForm**](docs/Api/PropertyClaimsFormsApi.md#createpropertyclaimform) | **POST** /v1/property/claims/{claimId}/forms | Create a form
@@ -134,6 +136,7 @@ Class | Method | HTTP request | Description
 - [AmericanPolicyCreateV1Request](docs/Model/AmericanPolicyCreateV1Request.md)
 - [AmericanPolicyUpdateV1Request](docs/Model/AmericanPolicyUpdateV1Request.md)
 - [AmericanPolicyV1Response](docs/Model/AmericanPolicyV1Response.md)
+- [AppliedDeductibleResponse](docs/Model/AppliedDeductibleResponse.md)
 - [AustralianPolicyCreateV1Request](docs/Model/AustralianPolicyCreateV1Request.md)
 - [AustralianPolicyUpdateV1Request](docs/Model/AustralianPolicyUpdateV1Request.md)
 - [AustralianPolicyV1Response](docs/Model/AustralianPolicyV1Response.md)
@@ -157,6 +160,7 @@ Class | Method | HTTP request | Description
 - [ChileanSubcoverageV1Response](docs/Model/ChileanSubcoverageV1Response.md)
 - [ChileanSublimitV1Request](docs/Model/ChileanSublimitV1Request.md)
 - [ChileanSublimitV1Response](docs/Model/ChileanSublimitV1Response.md)
+- [ClaimCalculationsResponse](docs/Model/ClaimCalculationsResponse.md)
 - [ClaimCreateAdHocCompanyStakeholderCreateRequest](docs/Model/ClaimCreateAdHocCompanyStakeholderCreateRequest.md)
 - [ClaimCreateAdHocIndividualStakeholderCreateRequest](docs/Model/ClaimCreateAdHocIndividualStakeholderCreateRequest.md)
 - [ClaimCreateRequest](docs/Model/ClaimCreateRequest.md)
@@ -171,6 +175,8 @@ Class | Method | HTTP request | Description
 - [ConditionType](docs/Model/ConditionType.md)
 - [CostBreakdownResponse](docs/Model/CostBreakdownResponse.md)
 - [CoverageType](docs/Model/CoverageType.md)
+- [CurrencyDetailsResponse](docs/Model/CurrencyDetailsResponse.md)
+- [DeductibleResponse](docs/Model/DeductibleResponse.md)
 - [DeductibleType](docs/Model/DeductibleType.md)
 - [DeductibleV1Request](docs/Model/DeductibleV1Request.md)
 - [DeductibleV1Response](docs/Model/DeductibleV1Response.md)
@@ -204,9 +210,12 @@ Class | Method | HTTP request | Description
 - [GenericSublimitV1Response](docs/Model/GenericSublimitV1Response.md)
 - [IndividualStakeholderResponse](docs/Model/IndividualStakeholderResponse.md)
 - [LineItemActivityPricingResponse](docs/Model/LineItemActivityPricingResponse.md)
+- [LineItemCalculationsResponse](docs/Model/LineItemCalculationsResponse.md)
 - [LineItemMediaResponse](docs/Model/LineItemMediaResponse.md)
 - [LineItemPricingResponse](docs/Model/LineItemPricingResponse.md)
 - [LineItemResponse](docs/Model/LineItemResponse.md)
+- [LineItemsCalculationsResponse](docs/Model/LineItemsCalculationsResponse.md)
+- [LineItemsEstimatesResponse](docs/Model/LineItemsEstimatesResponse.md)
 - [LossCreateRequest](docs/Model/LossCreateRequest.md)
 - [LossResponse](docs/Model/LossResponse.md)
 - [LossUpdateRequest](docs/Model/LossUpdateRequest.md)
@@ -231,6 +240,7 @@ Class | Method | HTTP request | Description
 - [PotentialSubrogationCreateRequest](docs/Model/PotentialSubrogationCreateRequest.md)
 - [PotentialSubrogationResponse](docs/Model/PotentialSubrogationResponse.md)
 - [PotentialSubrogationUpdateRequest](docs/Model/PotentialSubrogationUpdateRequest.md)
+- [PrimaryCoverageCalculationsResponse](docs/Model/PrimaryCoverageCalculationsResponse.md)
 - [ProblemDetails](docs/Model/ProblemDetails.md)
 - [ReportCreateRequest](docs/Model/ReportCreateRequest.md)
 - [ReportResponse](docs/Model/ReportResponse.md)
@@ -240,8 +250,12 @@ Class | Method | HTTP request | Description
 - [StakeholderResponse](docs/Model/StakeholderResponse.md)
 - [StakeholderType](docs/Model/StakeholderType.md)
 - [StakeholderUpdateRequest](docs/Model/StakeholderUpdateRequest.md)
+- [SubcoverageCalculationsResponse](docs/Model/SubcoverageCalculationsResponse.md)
+- [SublimitCalculationsResponse](docs/Model/SublimitCalculationsResponse.md)
 - [TemplateMetadataResponse](docs/Model/TemplateMetadataResponse.md)
+- [TotalBreakdownResponse](docs/Model/TotalBreakdownResponse.md)
 - [UnitOfLength](docs/Model/UnitOfLength.md)
+- [UsageBreakdownResponse](docs/Model/UsageBreakdownResponse.md)
 
 ## Authorization
 
@@ -269,5 +283,5 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `null`
+- API version: `1.0.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apply_depreciation** | **bool** | Does coverage apply depreciation |
+**apply_depreciation** | **bool** | Does coverage apply depreciation | [optional]
 **deductible** | [**\OpenAPI\Client\Model\DeductibleV1Response**](DeductibleV1Response.md) |  | [optional]
 **depreciation_is_recoverable** | **bool** | Is depreciation recoverable | [optional]
 **pol** | **string** | The POL | [optional]
