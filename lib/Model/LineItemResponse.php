@@ -71,6 +71,7 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'string',
         'pricing' => '\OpenAPI\Client\Model\LineItemPricingResponse',
         'quantity' => 'double',
+        'reported_pricing' => '\OpenAPI\Client\Model\LineItemReportedPricingResponse',
         'units' => 'string'
     ];
 
@@ -94,6 +95,7 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => null,
         'pricing' => null,
         'quantity' => 'double',
+        'reported_pricing' => null,
         'units' => null
     ];
 
@@ -136,6 +138,7 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'notes',
         'pricing' => 'pricing',
         'quantity' => 'quantity',
+        'reported_pricing' => 'reportedPricing',
         'units' => 'units'
     ];
 
@@ -157,6 +160,7 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'setNotes',
         'pricing' => 'setPricing',
         'quantity' => 'setQuantity',
+        'reported_pricing' => 'setReportedPricing',
         'units' => 'setUnits'
     ];
 
@@ -178,6 +182,7 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'getNotes',
         'pricing' => 'getPricing',
         'quantity' => 'getQuantity',
+        'reported_pricing' => 'getReportedPricing',
         'units' => 'getUnits'
     ];
 
@@ -250,6 +255,7 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['notes'] = $data['notes'] ?? null;
         $this->container['pricing'] = $data['pricing'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
+        $this->container['reported_pricing'] = $data['reported_pricing'] ?? null;
         $this->container['units'] = $data['units'] ?? null;
     }
 
@@ -585,6 +591,30 @@ class LineItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setQuantity($quantity)
     {
         $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets reported_pricing
+     *
+     * @return \OpenAPI\Client\Model\LineItemReportedPricingResponse|null
+     */
+    public function getReportedPricing()
+    {
+        return $this->container['reported_pricing'];
+    }
+
+    /**
+     * Sets reported_pricing
+     *
+     * @param \OpenAPI\Client\Model\LineItemReportedPricingResponse|null $reported_pricing The reported pricing of line item (nullable).
+     *
+     * @return self
+     */
+    public function setReportedPricing($reported_pricing)
+    {
+        $this->container['reported_pricing'] = $reported_pricing;
 
         return $this;
     }

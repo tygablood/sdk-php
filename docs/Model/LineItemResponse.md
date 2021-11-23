@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **notes** | **string** | The notes on the line item. | [optional]
 **pricing** | [**\OpenAPI\Client\Model\LineItemPricingResponse**](LineItemPricingResponse.md) |  | [optional]
 **quantity** | **double** | The quantity of the line item. |
+**reported_pricing** | [**\OpenAPI\Client\Model\LineItemReportedPricingResponse**](LineItemReportedPricingResponse.md) | The reported pricing of line item (nullable). | [optional]
 **units** | **string** | The unit of the line item. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
